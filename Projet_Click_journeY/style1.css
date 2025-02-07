@@ -1,0 +1,58 @@
+html { 
+    color: black;
+}
+
+header{
+    height: 35vh; 
+    background: url(image/logo1.jpg)  fixed;
+    display: flex;
+}
+
+.head h2 {
+    font-size: 35px;
+    color:white;
+    margin-left: 200%;
+}
+
+
+.head1 ul{
+    float : left;
+    list-style-type: none;
+    margin-top:  5%;
+    position:absolute;
+    padding-left: 70%;
+}
+
+
+
+.head ul{
+    float : center;
+    list-style-type: none;
+    text-align:start;
+    position:absolute;
+    padding-left: 20%;
+}
+
+
+.head ul li{
+    display:inline-block;
+    border:5px solid white;
+    border-radius: 10px;
+
+}
+
+
+.head1 ul li{
+    display:inline-block;
+    border:5px solid white;
+    border-radius: 10px;
+
+}
+
+fieldset{
+    border-radius: 20px;
+    width: 10%;
+    font-weight: bold;
+    border-color: black;
+}
+
