@@ -2,7 +2,7 @@
 <html>
     <head>
     
-        <title>test</title>
+        <title>Paradise Camp, tout savoir sur nous</title>
         <link rel="stylesheet" href="style1.css" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -27,7 +27,28 @@
           </ul>    
         </div>
     </header>
+    <p class="textP">Paradise Camp est un site de camping français crée par Kevin Nguyen Oanh, Anaëlle Joachim et Axel Edouard. Nous repertorions les meilleurs campings de France et nous vous proposons des offres exclusives pour vos vacances, ainsi plus de stress pour preparer le voyage nous vous proposons les meilleurs choix au meilleurs prix et selon vos besoins.
+    </p>
+    <p>N'attendez pas pour preparer vos vacances et trouver celle qui vous convient !</p>
+    
+    <div class="recherche">
+        <table border="2" cellspacing="3" cellpadding="10">
+            <tr>
+                <th><a class="fa fa-bed"><input type="text" name="localisation" id="localisation" placeholder="Où allez vous ?" required autofocus/></a></th>
+                <th><a class="fa fa-calender"><input type="date" id="arrival-date" name="arrival-date" min="2025-01-01" max="2026-12-31"  placeholder="Date d'arrivée - Date de départ" required autofocus/> </a></th>
+                <th><a class="fa fa-traveler"><form action="page1.php">
+                    <select name="group">
+                        <option value="A">1 à 3 personnes</option>
+                        <option value="B">4 à 6 personnes</option>
+                        <option value="C">7 à 9 personnes</option>
+                        <option value="D">10 ou plus</option></th>   
+                        <th><button>Search</button></th>
+                        
+            </tr>
+        </table>
+    </div>
 
-
+    
+    
 </body>
 </html>
