@@ -1,58 +1,182 @@
 html { 
     color: black;
+    font-family:thin;
 }
 
 header{
-    height: 35vh; 
-    background: url(image/logo1.jpg)  fixed;
+    height: 25vh; 
+    background: url(image/logo1.jpg) fixed;
     display: flex;
+    font-size:30px;
 }
 
 .head h2 {
-    font-size: 35px;
+    float:right;
+    position: absolute;
+    padding-left:42%;
     color:white;
-    margin-left: 200%;
 }
 
-
-.head1 ul{
-    float : left;
-    list-style-type: none;
-    margin-top:  5%;
-    position:absolute;
-    padding-left: 70%;
+.presentation {
+    font-size: 30px;
 }
-
-
 
 .head ul{
     float : center;
-    list-style-type: none;
-    text-align:start;
     position:absolute;
-    padding-left: 20%;
+    padding-left: 35%;
+    margin-top: 7%;
+
 }
 
 
 .head ul li{
     display:inline-block;
-    border:5px solid white;
+    border: solid lightblue;
     border-radius: 10px;
+}
+
+
+.head a{
+    text-decoration: none;
+    color:white;
+}
+
+fieldset a {
+    font-size: bold;
+    color: black;
 
 }
 
 
-.head1 ul li{
-    display:inline-block;
-    border:5px solid white;
-    border-radius: 10px;
-
+fieldset p {
+    font-size: 15px;
+    color: black;
 }
 
 fieldset{
     border-radius: 20px;
-    width: 10%;
-    font-weight: bold;
+    width: 20%;
     border-color: black;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 200px;
+    margin-left: 200px;
+    
 }
+
+fieldset legend{
+    font-weight: bold;
+
+}
+
+.head1{
+    text-decoration: underline;
+    font-size: 20px;
+    margin-right: 180px;
+}
+
+.charte{
+    margin-left: 260px;
+    margin-top: 20px;
+}
+
+.div1{
+    margin-right: 200px;
+}
+
+ .div2 input{
+    font-size: 20px;
+    margin-right: 100px;
+    
+}
+
+.div3 input{
+    font-size:1em;
+    margin-right:30px;
+    width: 350px;
+    border-radius: 10px;
+    background-color: teal;
+    
+}
+
+.div4{
+    margin-right: 260px;
+}
+
+.image {
+    content: url(image/camping.jpg) ;
+    display: flex;
+    width: 600px;
+    height: 600px;
+    float:inline-end;
+    margin-top:-550px;
+    margin-right: 200px;
+}
+
+
+
+.footer_content{
+    display: flex;
+}
+
+.logo-foot img{
+    float: left;
+    width: 2000px;
+    height: 550px;
+    margin-top: 200px;
+}
+
+
+
+
+
+/* Conteneur du menu : placé en haut à droite */
+.menu-container {
+    position: absolute;
+    top: 70px;  /* Distance depuis le haut */
+    right: 120px; /* Distance depuis la droite */
+    display: inline-block;
+}
+
+/* Menu déroulant positionné par rapport à l'icône */
+.dropdown-menu {
+    position: absolute;
+    top: 35px; /* Décale le menu sous l'icône */
+    right: 0;  /* Aligne le menu avec l'icône */
+    background: beige;
+    padding: 45px;
+    border-radius: 10px;
+    width: 300px;
+    height: 20px;
+    display: none; /* Caché par défaut */
+}
+
+/* Afficher le menu au survol */
+.menu-container:hover .dropdown-menu {
+    display: block;
+}
+
+/* Icône utilisateur */
+.user-icon {
+    font-size: 30px;
+    cursor: pointer;
+    font-weight:100;
+    border: solid lightblue;
+    border-radius: 10px;
+    color: white;
+}
+
+
+.dropdown-menu a {
+    display: block; /* Chaque lien prend toute la largeur */
+    padding: 10px 0; /* Espacement entre les liens */
+    text-decoration: underline;
+    color: black;
+    font-weight: bold;
+    margin-left: 50px;
+    margin-bottom: 5px;
+
+}
+
 

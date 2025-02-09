@@ -14,43 +14,66 @@
           <h2> Paradise camp </h2>
             <ul>
                 <li><a class="fa fa-bandcamp" href="Page_accueil.html"> Accueil</a></li>
-                <li><a class="fa fa-arrow-circle-right" href="Page_presentation.html">   A propos de nous</a></li>
+                <li><a class="fa fa-arrow-circle-right" href="Page_presentation.html"> Découvrir Paradise Camp</a></li>
                 <li><a class="fa fa-map-o" href="Page_recherche.html"> Destination</a></li>
            
             </ul>
         </div>
         
-        <div class="head1">
-          <ul>
-              <li><a class="fa fa-sign-in" href="inscription.html"> S'inscrire</a></li>
-              <li><a class="fa fa-user-o" href="connexion.html">  Se connecter</a></li>
-          </ul>    
+        <div class="menu-container">
+            <div class="user-icon" > <a class="fa fa-user-o"></a> Connexion </div>
+            <div class="dropdown-menu">
+                <a href="connexion.html">Se connecter</a>
+                <a href="inscription.html">Créer un compte</a>
+            </div>
         </div>
     </header>
-    <div class="formulaire">
-            
+
+
         <fieldset>
             <legend>Connexion</legend>
             <div class="div1">
-                Email 
+                Adresse mail  
             </div>
             <div class="div2">
-                <input type="text" name="email" class="champ"/>
-            </div><br/>
+                <input type="text" name="email" class="champ" placeholder="Saisissez votre email" required autofocus>
+            </div><br>
             <div class="div1">
                 Mot de passe 
             </div>
             <div class="div2">
-                <input type="password" name="password" class="champ"/>
-            </div><br/>
-            <div class="div2">
+                <input type="password" name="password" class="champ" placeholder="Saisissez votre mot de passe" required autofocus>
+            </div>
+            <div class="head1"> Mot de passe oublié ?</div>
+            <br>
+            <div class="div3">
                 <input type="submit" name="s'inscrire" value="Se Connecter" class="champ"/>
-            </div><br/>
-            <p>Pas encore de compte ? <a href="connexion.html">Inscription</a></p>
+            </div><br>
+            <p>Pas encore de compte ? <a href="inscription.html">Inscription</a></p>
 
         </fieldset>
 
-    </div>
+        <div class="image"></div>
+        
 
+
+        <div class="charte">
+        <br>
+        En vous connectant, vous acceptez avoir <strong>lu</strong>
+        <br>
+        et <strong>accepté</strong> les conditions générales
+        <br>
+        et la charte de confidentialité
+        </div>
+
+
+
+        <div class="footer_content">
+        <div class="logo-foot">
+            <img src="image/logo1.jpg">
+        </div>
+        </div>
+
+        
 </body>
 </html>
