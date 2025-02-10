@@ -20,13 +20,14 @@
             </ul>
         </div>
         
-        <div class="menu-container">
-            <div class="user-icon" > <a class="fa fa-user-o"></a> Connexion </div>
-            <div class="dropdown-menu">
-                <a href="connexion.html">Se connecter</a>
-                <a href="inscription.html">Créer un compte</a>
+        <div class="menu-connexion">
+            <button class="boutton"><a class="fa fa-user-o"> Rejoignez-nous</a></button>
+            <div class="menu">
+                <a href="connexion.html">Connexion</a>
+                <a href="inscription.html">Inscription</a>
             </div>
         </div>
+            
     </header>
 
 
@@ -41,6 +42,13 @@
                 <tr>
                     <th><a class="fa fa-bed"><input type="text" name="localisation" id="localisation" placeholder="Ou allez vous ?" required autofocus/></a></th>
                     <th><a class="fa fa-calender"><input type="date" id="arrival-date" name="arrival-date" min="2025-01-01" max="2026-12-31"  placeholder="Date d'arrivée - Date de départ" required autofocus/> </a></th>
+                    <th><a class="fa fa-traveler"><form action="page1.php">
+                        <select name="group">
+                            <option value="A">1 à 3 personnes</option>
+                            <option value="B">4 à 6 personnes</option>
+                            <option value="C">7 à 9 personnes</option>
+                            <option value="D">10 ou plus</option></th>   
+                            <th><button>Search</button></th>
                 </tr>
             </table>
         </div>
