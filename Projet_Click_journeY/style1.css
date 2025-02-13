@@ -194,7 +194,10 @@ footer{
 .menu-connexion {
     position: absolute;
     display: inline-block;
-    
+    border-width: 90% ;
+    border-radius: 10%;
+    margin-top: 2%;
+    margin-left: 2%
 }
 
 .boutton {
@@ -253,4 +256,62 @@ footer{
     height: 60px;
     border-radius: 90px;
     margin-top: 50px;
+}
+
+fieldset button{
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    width: 20%;
+    font-size: 50%;
+}
+
+.div1 .div11{
+    color:red;
+}
+
+header .barre-recherche{
+    font-size: 10px;
+    margin-left: 13.5%;
+    background-color: white;
+    height: 20%;
+    padding: 20px;
+    margin-top: 11%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 3px 3px 3px 3px black;
+}
+
+
+input, select {
+    border: 3px solid rgb(196, 194, 194);
+    border-radius: 5px;
+    font-size: 220%;
+}
+
+header button{
+    border-radius: 10px;
+    font-size: 190%;
+    background-color: rgb(255, 177, 31);
+}
+
+.accroche{
+    font-size: 25px;
+    margin-top: 5%;
+    margin-left: 29%;
+}
+
+.choix-ville form {
+    font-size: 15px;
+    margin-top: 2%;
+    margin-left: 15%;
+
+}
+
+.choix-ville select {
+    border-color: rgb(86, 183, 221);
+    border-radius: 10px; 
+    font-size: 25px;
 }
