@@ -1,11 +1,10 @@
 html { 
     color: black;
-    font-family:thin;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 header{
     height: 25vh; 
-    background: url(image/banniere.jpg) fixed;
     background-color: rgb(86, 183, 221);
     display: flex;
     font-size:30px;
@@ -19,7 +18,7 @@ header{
 .head h2 {
     float:right;
     position: absolute;
-    padding-left:42%;
+    padding-left:33%;
     color:white;
 }
 
@@ -57,9 +56,8 @@ header{
 .head ul{
     float : center;
     position:absolute;
-    padding-left: 35%;
+    padding-left: 25%;
     margin-top: 7%;
-
 }
 
 
@@ -69,6 +67,7 @@ header{
     border: solid lightblue;
     box-shadow: 6px 6px 6px rgb(0,0,0);
     border-radius: 10px;
+    padding: 4px;
 }
 
 
@@ -185,33 +184,11 @@ fieldset legend{
 }
 
 footer{
-    display: flex;
-    font-size:30px;
-}
-
-
-
-.footer_content{
-    display: flex;
-}
-
-.logo-foot img{
-    float: left;
-    width: 2000px;
-    height: 550px;
-    margin-top: 200px;
-}
-
- .footer_central{
-    color:black;
-    flex-basis:50%;
-    margin-top:500px ;
+    background-color: rgb(86, 183, 221);
+    height: 240px;
+    align-items: center;
     text-align: center;
 }
-
-
-
-
 
 
 .menu-connexion {
@@ -232,7 +209,7 @@ footer{
     border-color: lightblue;
     cursor: pointer;
     margin-top: 70px;
-    margin-left: 1060%;
+    margin-left: 1150%;
 }
 
 .menu {
@@ -240,7 +217,7 @@ footer{
     position: absolute;
     background-color: beige;
     border-radius: 7%;
-    margin-left: 20%;
+    margin-left: 10%;
     width: 100%;
     margin-top: 10px;
     
@@ -262,4 +239,17 @@ footer{
     display: block;
 }
 
+.logo{
+    width: 150px;
+    height: 150px;
+    border-radius: 90px;
+    margin-top: 50px;
+    margin-left: 70px;
+}
 
+.logo_foot{
+    width: 60px;
+    height: 60px;
+    border-radius: 90px;
+    margin-top: 50px;
+}
