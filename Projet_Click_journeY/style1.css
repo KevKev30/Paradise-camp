@@ -113,8 +113,9 @@ fieldset legend{
 }
 
 .charte{
-    margin-left: 450px;
+    margin-left: 400px;
     margin-top: 20px;
+    font-size: 10px;
 }
 
 .div1{   
@@ -173,18 +174,18 @@ fieldset legend{
 }
 
 .image1{
-    content: url(image/camping1.jpg) ;
+    content: url(image/image_profil.webp) ;
     display: flex;
     width: 600px;
-    height: 500px;
+    height: 900px;
     float:inline-end;
-    margin-top:-550px;
-    margin-right: 200px;
+    margin-top:-1030px;
+    margin-right: 300px;
     border-radius: 10px;
-
 }
 
 footer{
+    margin-top: 20%;
     background-color: rgb(86, 183, 221);
     height: 240px;
     align-items: center;
@@ -206,14 +207,13 @@ footer{
     box-shadow: 4px 4px 4px rgb(0,0,0);
     color: white;
     padding: 10%;
-    width: 120%; 
+    width: 130%; 
     font-size: 70%;
     border-width: 10% ;
     border-radius: 7%;
     font-size: bold ;
     cursor: pointer;
-    margin-top: 70px;
-    margin-left: 1100%;
+    margin-left: 1350%;
 }
 
 .menu {
@@ -222,7 +222,7 @@ footer{
     background-color: beige;
     border-radius: 7%;
     margin-left: 10%;
-    width: 100%;
+    width: 110%;
     margin-top: 15px;
     
 }
