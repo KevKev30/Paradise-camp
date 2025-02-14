@@ -4,7 +4,7 @@ html {
 }
 
 header{
-    height: 35vh; 
+    height: 10vh; 
     background-color: rgb(86, 183, 221);
     display: flex;
     font-size:30px;
@@ -61,11 +61,36 @@ header{
     margin-left: 5%;
 }
 
+.a_propos{
+    position: relative;
+    display: inline-block;
+  }
+  
+.a_propos img{
+    margin-top: 10%;
+    margin-left: 50%;
+    width: 100%;
+    border-radius: 5%;
+    opacity: 0.8;
+  }
+  
+.texte{
+    position: absolute;
+    top: 55%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    color: white; 
+    font-size: 50px; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    white-space: nowrap;
+  }
+
 .head ul{
     float : center;
     position:absolute;
-    margin-left: 35%;   
-    margin-top: 2.5%;
+    margin-left: 33%;   
+    margin-top: 1.5%;
 }
 
 
@@ -205,8 +230,9 @@ footer{
     display: inline-block;
     border-width: 90% ;
     border-radius: 10%;
-    margin-top: 2%;
-    margin-left: 2%
+    margin-top: 1.5%;
+    margin-left: 2%;
+    left: 80%;
 }
 
 .boutton {
@@ -214,14 +240,13 @@ footer{
     border: solid lightblue;
     box-shadow: 4px 4px 4px rgb(0,0,0);
     color: white;
-    padding: 10%;
-    width: 130%; 
+    padding: 5%;
+    width: 110%; 
     font-size: 70%;
     border-width: 10% ;
-    border-radius: 7%;
+    border-radius: 10%;
     font-size: bold ;
     cursor: pointer;
-    margin-left: 1350%;
 }
 
 .menu {
@@ -252,11 +277,11 @@ footer{
 }
 
 .logo{
-    position: fixed;
-    width: 150px;
-    height: 150px;
+    position: relative;
+    width: 80px;
+    height: 80px;
     border-radius: 90px;
-    margin-top: 50px;
+    margin-top: 22px;
     margin-left: 70px;
 }
 
