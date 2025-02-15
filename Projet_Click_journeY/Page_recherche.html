@@ -2,7 +2,7 @@
 <html>
     <head>
     
-        <title>test</title>
+        <title>Paradise Camp</title>
         <link rel="stylesheet" href="style1.css" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -10,15 +10,14 @@
 <body>
 
     <header>
-        <img class="logo" src="image/logo_camping.jpg">
           <div class="head">
             <h2> Paradise camp </h2>
               <ul>
                   <li><a class="fa fa-bandcamp" href="Page_accueil.html"> Accueil</a></li>
-                  <li><a class="fa fa-arrow-circle-right" href="Page_presentation.html"> A propos de nous</a></li>
-                  <li><a class="fa fa-map-o" href="Page_recherche.html"> Destinations</a></li>
-             
+                  <li><a class="fa fa-arrow-circle-right" href="Page_presentation.html"> Presentation</a></li>
               </ul>
+              <h2> Paradise camp </h2>
+              <p>Bienvenue sur Paradise Camp, le paradis grandeur nature</p>
           </div>
           
           <div class="menu-connexion">
@@ -30,25 +29,32 @@
             </div>
         </div>
 
-            <div class="barre-recherche">
-
-                <input type="text" placeholder="Où aller-vous ?">
-                <input type="date" placeholder="Arrivée">
-                <input type="date" placeholder="Départ">
-  
-                <select>
-                    <option>Nombre de voyageurs</option>
-                    <option>1 à 3 personnes</option>
-                    <option>4 à 5 personnes</option>
-                    <option>6 à 9 personnes</option>
-                    <option>10 personnes et plus</option>
-                </select>
-  
-                <button class="recherche-boutton"><a class="fa fa-search"> Rechercher</a></button>
-            </div>
+            
   
       </header>
   
+
+
+
+
+      <div class="barre-recherche">
+
+        <input type="text" placeholder="Où aller-vous ?">
+        <input type="date" placeholder="Arrivée">
+        <input type="date" placeholder="Départ">
+
+        <select>
+            <option>Nombre de voyageurs</option>
+            <option>1 à 3 personnes</option>
+            <option>4 à 5 personnes</option>
+            <option>6 à 9 personnes</option>
+            <option>10 personnes et plus</option>
+        </select>
+
+        <button class="recherche-boutton"><a class="fa fa-search"> Rechercher</a></button>
+    </div>
+
+
   
       <div class="accroche"> Venez découvrir Paradise camp dans la déstination de votre choix</div>
       <div class="choix-ville">
@@ -67,16 +73,45 @@
 
 
 
+    <footer>
+        <div class="footer-central">
+            <h2>Nous contacter</h2>
+            <span class="fa fa-phone"></span>
+            <span class="text">06.XX.XX.XX.XX</span>
+            <br>
+            <span class="fa fa-envelope"></span>
+            <span class="text">paradise.camp@gmail.com</span>
+            <br>
+        </div>
 
-
-        <footer>
-            <div class="foot">
-                <img class="logo_foot" src="image/logo_camping.jpg">
-                <p>Contributeurs : Kévin NGUYEN OANH - Anaëlle JOACHIM - Axel EDOUARD</p>
-                <p>Nous contacter : 06.XX.XX.XX.XX</p>
-                <p>Mail : paradise.camp@gmail.com</p>
+        <div class="footer-droit">
+            <div class="text">Email</div>
+            <input type="text" name="email" class="champ" required >
+            <div class="text">Message</div>
+            <textarea rows="5" cols="50"></textarea>
+            <div class="btn">
+            <button type="submit">Envoyer</button>
             </div>
-        </footer>
+        </div>
+
+        <div class="footer-gauche">
+            <div class="icone">
+                <a class="fa fa-facebook-square"></a>
+            </div>
+            <div class="icone1">
+                <a class="fa fa-instagram"></a>
+            </div>
+            <div class="icone2">
+                <a class="fa fa-twitter"></a>
+            </div>
+        </div>
+
+        <div class="bas">
+            <p>Agence de voyage rélisé par Kevin NGUYEN OANH, Axel EDOUARD, Anaëlle JOACHIM. © 2024-2025 - <a href="https://cytech.cyu.fr/">CY Tech</a> </p>
+        </div>
+
+
+    </footer>
 
     
 

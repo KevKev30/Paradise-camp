@@ -1,72 +1,106 @@
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+    to{
+        margin-left: 0%;
+        width: 100%;
+    }
+  }
+
+
+body{
+    background-color:#ece0d6;
+}
+
 html { 
     color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+    animation-duration: 2s;
+    animation-name: slidein;
+  }
 
-header{
-    height: 10vh; 
-    background-color: rgb(86, 183, 221);
+  
+  header{
+    height: 60vh; 
+    background: url(image/camping.png) fixed;
     display: flex;
     font-size:30px;
-}
+    background-size: 100%;
+  }
+  
+  
 
-.ensemble{
-    margin-right: 15%;
-    margin-left: 15%;
-}
-
-.head h2 {
+  
+  .head h2 {
     float:right;
     position: absolute;
-    margin-left:37%;
+    margin-left:34.5%;
     color:white;
-    margin-top:5%;
-    font-size: 5vh; 
-}
-
-.banniere{
-    height: 15vh;
-    margin-left: 100%;
-    width: 150%
-}
-
-.presentation1 {
+    margin-top:10%;
+    font-size: 300%; 
+  }
+  
+  .head p{
+    float:right;
+    position: absolute;
+    margin-left: 31.5%;
+    color:#F5E6CA;
+    margin-top:20%;
+    font-size: 100%;
+  }
+  
+  
+  
+  .presentation1 {
     display: flex;
     align-items: center;
     font-size: 30px;
     width: 1300px;
-    text-align: right;
+    text-align: left;
     margin-top: 150px;
-}
-
-.illustration1{
+  }
+  
+  .illustration1{
     border-radius: 10px;
     width: 400px;
     height: 400px;
-}
-
-.presentation2 {
+    margin-left:25% ;
+  }
+  
+  .presentation2 {
     display: flex;
     align-items: center;
     font-size: 30px;
     width: 1300px;
     text-align: right;
     margin-top: 150px;
-}
-
-.illustration2{
+  }
+  
+  .illustration2{
     border-radius: 10px;
-    width: 2000px;
+    width: 700px;
     height: 400px;
-    margin-left: 5%;
-}
-
-.a_propos{
+    margin-left: 80%;
+  
+  }
+  
+  .illustration3{
+    border-radius: 10px;
+    width: 700px;
+    height: 400px;
+    margin-left: 15%;
+    margin-top: 10%;
+  }
+  
+  
+  .a_propos{
     position: relative;
     display: inline-block;
   }
   
-.a_propos img{
+  .a_propos img{
     margin-top: 10%;
     margin-left: 50%;
     width: 100%;
@@ -74,7 +108,7 @@ header{
     opacity: 0.8;
   }
   
-.texte{
+  .texte{
     position: absolute;
     top: 55%;
     left: 100%;
@@ -85,44 +119,50 @@ header{
     text-align: center;
     white-space: nowrap;
   }
-
-.head ul{
-    float : center;
+  
+  .head ul{
     position:absolute;
-    margin-left: 33%;   
+    margin-left: 34%;   
     margin-top: 1.5%;
-}
-
-
-
-.head ul li{
-    display:inline-block;
-    border: solid lightblue;
-    box-shadow: 4px 4px 4px rgb(0,0,0);
+    font-size: 20px;
+  }
+  
+  
+  
+  .head ul li{
+    display:inline;
+    border: none;
     border-radius: 10px;
-    padding: 4px;
-    background-color: rgb(0, 119, 255);
-}
+    padding: 70px;
 
+  }
 
-.head a{
+  
+  
+  
+  .head a{
     text-decoration: none;
     color:white;
-}
+    font-size: 40px;
+  }
+  
+  .head a:hover{
+    color:#ca8d5e;
+  }
 
-fieldset a {
+  fieldset a {
     font-size: bold;
     color: black;
-
-}
-
-
-fieldset em {
+  
+  }
+  
+  
+  fieldset em {
     font-size: 15px;
     color: black;
-}
-
-fieldset{
+  }
+  
+  fieldset{
     box-shadow: 6px 6px 6px rgb(129, 127, 127);
     border: none;
     border-radius: 5px;
@@ -131,72 +171,72 @@ fieldset{
     text-align: center;
     margin-top: 100px;
     margin-left: 400px;
-    
-}
-
-fieldset legend{
+  
+  }
+  
+  fieldset legend{
     font-weight: bold;
-}
-
-
-.head1{
+  }
+  
+  
+  .head1{
     text-decoration: underline;
     font-size: 20px;
     margin-right: 180px;
-}
-
-.charte{
+  }
+  
+  .charte{
     margin-left: 400px;
     margin-top: 20px;
     font-size: 10px;
-}
-
-.div1{   
+  }
+  
+  .div1{   
     margin-right: 270px;
-}
-
-.div5{   
+  }
+  
+  .div5{   
     margin-right: 200px;
-}
-
-
-.div0{
+  }
+  
+  
+  .div0{
     font-size: 17px;
-}
-
- .div2 input{
+  }
+  
+  .div2 input{
     font-size: 20px;
     border-radius: 5px;
     margin-right: 50px;
     width: 300px;
-    
-}
-
-.div2 select{
+  
+  }
+  
+  .div2 select{
     font-size: 25px;
     border-radius: 10px;
     margin-right: 270px;
     border-width: 2px;
     border-color: black;
-}
-
-
-.div3 input{
+  }
+  
+  
+  .div3 input{
     font-size:20px;
     margin-right:30px;
     width: 350px;
     border-radius: 10px;
     background-color: teal;
     color: white;
-    
-}
-
-.div4{
+  
+  }
+  
+  .div4{
     margin-right: 260px;
-}
-
-.image {
-    content: url(image/camping.jpg) ;
+  }
+  
+  .image {
+    content: url(image/image_profil.webp) ;
     display: flex;
     width: 600px;
     height: 600px;
@@ -204,148 +244,216 @@ fieldset legend{
     margin-top:-450px;
     margin-right: 200px;
     border-radius: 10px;
-}
-
-.image1{
+  }
+  
+  .image1{
     content: url(image/image_profil.webp) ;
     display: flex;
     width: 600px;
-    height: 900px;
+    height: 800px;
     float:inline-end;
-    margin-top:-1030px;
+    margin-top:-800px;
     margin-right: 300px;
     border-radius: 10px;
-}
-
-footer{
+  }
+  
+  footer{
     margin-top: 20%;
     background-color: rgb(86, 183, 221);
-    height: 240px;
-    align-items: center;
+    height: 30vh;
+    display: flex;
+    font-size: 30px;
+  }
+  
+  .footer-droit{
+    color: red;
+    font-size: 70%;
+    margin-left: 20%;
+    border-radius: 10px;
+  }
+  
+  .footer-droit input{
+    height: 10%;
+    width: 75%;
+    font-size: 20px;
+  }
+  
+  .footer-central{
+    font-size: 50%;
+    margin-left: 30%;
+  }
+  
+  .footer-gauche{
+    margin-left :-75%;
+    font-size: 150%;
+    margin-top: 3%;
+  }
+  
+  .icone{
+    color: blue;
+  }
+  
+  .icone1{
+    color: rgb(156, 2, 156);
+  }
+  
+  .icone2{
+    color:rgb(60, 105, 253);
+  }
+  
+  .bas{
+    position: absolute;
+    margin-top: 12%; 
+    margin-left: 30%;
     text-align: center;
-}
-
-.menu-connexion {
+    font-size: 15px;
+  }
+  
+  .menu-connexion {
     position: absolute;
     display: inline-block;
     border-width: 90% ;
     border-radius: 10%;
-    margin-top: 1.5%;
+    margin-top: 1%;
     margin-left: 2%;
     left: 80%;
-}
-
-.boutton {
-    background-color: rgb(0, 119, 255);
-    border: solid lightblue;
-    box-shadow: 4px 4px 4px rgb(0,0,0);
+  }
+  
+  .boutton{
+    border: none;
     color: white;
     padding: 5%;
-    width: 110%; 
-    font-size: 70%;
-    border-width: 10% ;
-    border-radius: 10%;
-    font-size: bold ;
+    width: 110%;
+    font-size: 40px;
     cursor: pointer;
-}
+  }
 
-.menu {
+  .boutton:hover{
+    color:#ca8d5e;
+  }
+  
+  .menu {
+    font-size: 30px;
     display: none;
     position: absolute;
     background-color: beige;
-    border-radius: 7%;
-    margin-left: 10%;
+    margin-left: 5%;
     width: 110%;
-    margin-top: 8%;
-    
-}
-
-.menu a {
+    margin-top: 2%;
+    border-radius: 10px;
+  
+  }
+  
+  .menu a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-}
-
-.menu a:hover {
+  }
+  
+  .menu a:hover {
     background-color: none;
     text-decoration: underline;
-}
-
-.menu-connexion:hover .menu {
+  }
+  
+  .menu-connexion:hover .menu {
     display: block;
-}
-
-.logo{
+  }
+  
+  .logo{
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 90px;
-    margin-top: 22px;
+    margin-top: 8px;
     margin-left: 70px;
-}
-
-.logo_foot{
+  }
+  
+  .logo_foot{
     width: 60px;
     height: 60px;
     border-radius: 90px;
     margin-top: 50px;
-}
-
-fieldset button{
+  }
+  
+  fieldset button{
     background-color: red;
     color: white;
     border-radius: 10px;
     width: 20%;
     font-size: 50%;
-}
-
-.div1 .div11{
+  }
+  
+  .div1 .div11{
     color:red;
-}
-
-header .barre-recherche{
+  }
+  
+  .barre-recherche{
     font-size: 10px;
     margin-left: 13.5%;
-    background-color: white;
+    background-color: #8B5E3C;
     height: 20%;
-    padding: 20px;
+    width: 60%;
+    padding: 3%;
     margin-top: 11%;
     border-radius: 10px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     box-shadow: 3px 3px 3px 3px black;
-}
-
-
-input, select {
+  }
+  
+  
+  input, select {
     border: 3px solid rgb(196, 194, 194);
     border-radius: 5px;
     font-size: 220%;
-}
-
-header button{
+  }
+  
+  .barre-recherche button{
     border-radius: 10px;
-    font-size: 190%;
+    font-size: 230%;
     background-color: rgb(255, 177, 31);
-}
-
-.accroche{
+  }
+  
+  .accroche{
     font-size: 25px;
     margin-top: 5%;
     margin-left: 29%;
-}
-
-.choix-ville form {
+  }
+  
+  .choix-ville form {
     font-size: 15px;
     margin-top: 2%;
     margin-left: 15%;
-
-}
-
-.choix-ville select {
+  
+  }
+  
+  .choix-ville select {
     border-color: rgb(86, 183, 221);
     border-radius: 10px; 
     font-size: 25px;
-}
+  }
+  
+  
+  .MH1{
+    border-radius: 10px;
+    width: 500px;
+    height: 400px;
+    margin-left: 7%;
+    margin-top: 4%;
+  }
+  
+  .hebergement p{
+    text-align: center;
+    font-size: 30px;
+    width: 1300px;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+  }
+  
+  .hebergement ul li{
+    font-size: 25px;
+    text-decoration: underline red;
+  }
