@@ -1,487 +1,434 @@
-@keyframes slidein {
-    from {
-        margin-left: 100%;
-        width: 300%;
-    }
-    to{
-        margin-left: 0%;
-        width: 100%;
-    }
-  }
+/*_________ANIMATION_________*/
 
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+  to{
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+
+
+
+
+/*_________PARAMETRES GENERAUX_________*/
 
 body{
-    background-color:#ece0d6;
+  background-color:#ece0d6;
 }
 
 html { 
-    color: black;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    animation-duration: 2s;
-    animation-name: slidein;
-  }
-
-  
- .head_accueil{
-    height: 100vh; 
-    background: url(image/fond_camping.jpeg) fixed;
-    display: flex;
-    font-size:30px;
-    background-size: 100%;
-  }
-
-  .head_accueil h2 {
-    float:right;
-    position: absolute;
-    margin-left:34.5%;
-    color:white;
-    margin-top:10%;
-    font-size: 300%; 
-  }
-
-  .head_accueil p{
-    float:right;
-    position: absolute;
-    margin-left: 31.5%;
-    color:#F5E6CA;
-    margin-top:20%;
-    font-size: 100%;
-  }
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  animation-duration: 2s;
+  animation-name: slidein;
+}
 
 
-  .head{
-    height: 60vh; 
-    background: url(image/camping.png) fixed;
-    display: flex;
-    font-size:30px;
-    background-size: 100%;
-  }
-  
-  
+
+
+
+/*_________HEADER_________*/
+
+.head{
+  height: 60vh; 
+  background: url(image/camping.png) fixed;
+  display: flex;
+  font-size:30px;
+  background-size: 100%;
+}
+
+.head h2 {
+  float:right;
+  position: absolute;
+  margin-left:34.5%;
+  color:white;
+  margin-top:10%;
+  font-size: 300%; 
+}
+
+.head p{
+  text-align: center;
+  margin-left: 31.5%;
+  color:#F5E6CA;
+  margin-top:20%;
+  font-size: 100%;
+}
+
+.head ul{
+  position:absolute;
+  margin-left: 34%;   
+  margin-top: 1.5%;
+  font-size: 20px;
+}
+
+.head ul li{
+  display:inline;
+  border: none;
+  border-radius: 10px;
+  padding: 70px;
+}
+
+.head a{
+  text-decoration: none;
+  color:white;
+  font-size: 40px;
+}
+
+.head a:hover{
+  color:#ca8d5e;
+}
+
+.menu-connexion {
+  position: absolute;
+  display: inline-block;
+  border-width: 90% ;
+  border-radius: 10%;
+  margin-top: 0.8%;
+  margin-left: 2%;
+  left: 80%;
+}
+
+.boutton{
+  border: none;
+  color: white;
+  padding: 5%;
+  width: 110%;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.boutton:hover{
+  color:#ca8d5e;
+}
+
+.menu {
+  font-size: 30px;
+  display: none;
+  position: absolute;
+  background-color: beige;
+  margin-left: 5%;
+  width: 110%;
+  margin-top: 2%;
+  border-radius: 10px;
+
+}
+
+.menu a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.menu a:hover {
+  background-color: none;
+  text-decoration: underline;
+}
+
+.menu-connexion:hover .menu {
+  display: block;
+}
+
+
+
+
+
+/*_________FOOTER_________*/
+
+footer{
+  margin-top: 20%;
+  background-color: rgb(86, 183, 221);
+  height: 30vh;
+  display: flex;
+  font-size: 30px;
+}
+
+.footer-droit{
+  color: red;
+  font-size: 70%;
+  margin-left: 20%;
+  border-radius: 10px;
+  margin-top: 1%;
+}
+
+.footer-droit input{
+  height: 10%;
+  width: 75%;
+  font-size: 20px;
+}
+
+.footer-central{
+  font-size: 50%;
+  margin-left: 30%;
+}
+
+.footer-gauche{
+  margin-left :-75%;
+  font-size: 150%;
+  margin-top: 3%;
+}
+
+.icone{
+  color: blue;
+}
+
+.icone1{
+  color: rgb(156, 2, 156);
+}
+
+.icone2{
+  color:rgb(60, 105, 253);
+}
+
+.bas{
+  position: absolute;
+  margin-top: 12%; 
+  margin-left: 30%;
+  text-align: center;
+  font-size: 15px;
+}
+
+
+
+
+
+/*_________PAGE D'ACCUEIL (HEADER ET FOOTER DIFFERENTS DES AUTRES PAGES)_________*/
+
+.head_accueil{
+  height: 100vh; 
+  background: url(image/fond_camping.jpeg) fixed;
+  display: flex;
+  font-size:30px;
+  background-size: 100%;
+}
+
+.head_accueil h2 {
+  float:right;
+  position: absolute;
+  margin-left:34.5%;
+  color:white;
+  margin-top:10%;
+  font-size: 300%; 
+}
+
+.head_accueil p{
+  float:right;
+  position: absolute;
+  margin-left: 31.5%;
+  color:#F5E6CA;
+  margin-top:20%;
+  font-size: 100%;
+}
 
   
-  .head h2 {
-    float:right;
-    position: absolute;
-    margin-left:34.5%;
-    color:white;
-    margin-top:10%;
-    font-size: 300%; 
-  }
+.head_accueil ul{
+  position:absolute;
+  margin-left: 34%;   
+  margin-top: 1.5%;
+  font-size: 20px;
+}
   
-  .head p{
-    float:right;
-    position: absolute;
-    margin-left: 31.5%;
-    color:#F5E6CA;
-    margin-top:20%;
-    font-size: 100%;
-  }
-  
-  
-  
-  .presentation1 {
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-    width: 1300px;
-    text-align: left;
-    margin-top: 150px;
-  }
-  
-  .illustration1{
-    border-radius: 10px;
-    width: 400px;
-    height: 400px;
-    margin-left:25% ;
-  }
-  
-  .presentation2 {
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-    width: 1300px;
-    text-align: right;
-    margin-top: 150px;
-  }
-  
-  .illustration2{
-    border-radius: 10px;
-    width: 700px;
-    height: 400px;
-    margin-left: 80%;
-  
-  }
-  
-  .illustration3{
-    border-radius: 10px;
-    width: 700px;
-    height: 400px;
-    margin-left: 15%;
-    margin-top: 10%;
-  }
-  
-  
-  .a_propos{
-    position: relative;
-    display: inline-block;
-  }
-  
-  .a_propos img{
-    margin-top: 10%;
-    margin-left: 50%;
-    width: 100%;
-    border-radius: 5%;
-    opacity: 0.8;
-  }
-  
-  .texte{
-    position: absolute;
-    top: 55%;
-    left: 100%;
-    transform: translate(-50%, -50%);
-    color: white; 
-    font-size: 50px; 
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  .head ul{
-    position:absolute;
-    margin-left: 34%;   
-    margin-top: 1.5%;
-    font-size: 20px;
-  }
-  
-  .head_accueil ul{
-    position:absolute;
-    margin-left: 34%;   
-    margin-top: 1.5%;
-    font-size: 20px;
-  }
-  
-  .head_accueil ul li{
-    display:inline;
-    border: none;
-    border-radius: 10px;
-    padding: 70px;
+.head_accueil ul li{
+  display:inline;
+  border: none;
+  border-radius: 10px;
+  padding: 70px;
+}
 
-  }
+.head_accueil a{
+  text-decoration: none;
+  color:white;
+  font-size: 40px;
+}
   
-  .head ul li{
-    display:inline;
-    border: none;
-    border-radius: 10px;
-    padding: 70px;
+.head_accueil a:hover{
+  color:#ca8d5e;
+}
 
-  }
+.footer_accueil{
+  margin-top: 0%;
+  background-color:#ca8d5e;
+  height: 30vh;
+  display: flex;
+  font-size: 30px;
+}
 
-  .head_accueil a{
-    text-decoration: none;
-    color:white;
-    font-size: 40px;
-  }
-  
-  .head_accueil a:hover{
-    color:#ca8d5e;
-  }
 
-  
-  .head a{
-    text-decoration: none;
-    color:white;
-    font-size: 40px;
-  }
-  
-  .head a:hover{
-    color:#ca8d5e;
-  }
 
-  fieldset a {
-    font-size: bold;
-    color: black;
-  
-  }
-  
-  
-  fieldset em {
-    font-size: 15px;
-    color: black;
-  }
-  
-  fieldset{
-    box-shadow: 6px 6px 6px rgb(129, 127, 127);
-    border: none;
-    border-radius: 5px;
-    width: 20%;
-    font-size: 30px;
-    text-align: center;
-    margin-top: 100px;
-    margin-left: 400px;
-  
-  }
-  
-  fieldset legend{
-    font-weight: bold;
-  }
-  
-  
-  .head1{
-    text-decoration: underline;
-    font-size: 20px;
-    margin-right: 180px;
-  }
-  
-  .charte{
-    margin-left: 400px;
-    margin-top: 20px;
-    font-size: 10px;
-  }
-  
-  .div1{   
-    margin-right: 270px;
-  }
-  
-  .div5{   
-    margin-right: 200px;
-  }
-  
-  
-  .div0{
-    font-size: 17px;
-  }
-  
-  .div2 input{
-    font-size: 20px;
-    border-radius: 5px;
-    margin-right: 50px;
-    width: 300px;
-  
-  }
-  
-  .div2 select{
-    font-size: 25px;
-    border-radius: 10px;
-    margin-right: 270px;
-    border-width: 2px;
-    border-color: black;
-  }
-  
-  
-  .div3 input{
-    font-size:20px;
-    margin-right:30px;
-    width: 350px;
-    border-radius: 10px;
-    background-color: teal;
-    color: white;
-  
-  }
-  
-  .div4{
-    margin-right: 260px;
-  }
-  
-  .image {
-    content: url(image/image_profil.webp) ;
-    display: flex;
-    width: 600px;
-    height: 600px;
-    float:inline-end;
-    margin-top:-450px;
-    margin-right: 200px;
-    border-radius: 10px;
-  }
-  
-  .image1{
-    content: url(image/image_profil.webp) ;
-    display: flex;
-    width: 600px;
-    height: 800px;
-    float:inline-end;
-    margin-top:-800px;
-    margin-right: 300px;
-    border-radius: 10px;
-  }
-  
-  footer{
-    margin-top: 20%;
-    background-color: rgb(86, 183, 221);
-    height: 30vh;
-    display: flex;
-    font-size: 30px;
-  }
-  
-  .footer-droit{
-    color: red;
-    font-size: 70%;
-    margin-left: 20%;
-    border-radius: 10px;
-  }
-  
-  .footer-droit input{
-    height: 10%;
-    width: 75%;
-    font-size: 20px;
-  }
-  
-  .footer-central{
-    font-size: 50%;
-    margin-left: 30%;
-  }
-  
-  .footer-gauche{
-    margin-left :-75%;
-    font-size: 150%;
-    margin-top: 3%;
-  }
-  
-  .icone{
-    color: blue;
-  }
-  
-  .icone1{
-    color: rgb(156, 2, 156);
-  }
-  
-  .icone2{
-    color:rgb(60, 105, 253);
-  }
-  
-  .bas{
-    position: absolute;
-    margin-top: 12%; 
-    margin-left: 30%;
-    text-align: center;
-    font-size: 15px;
-  }
-  
-  .menu-connexion {
-    position: absolute;
-    display: inline-block;
-    border-width: 90% ;
-    border-radius: 10%;
-    margin-top: 1%;
-    margin-left: 2%;
-    left: 80%;
-  }
-  
-  .boutton{
-    border: none;
-    color: white;
-    padding: 5%;
-    width: 110%;
-    font-size: 40px;
-    cursor: pointer;
-  }
 
-  .boutton:hover{
-    color:#ca8d5e;
-  }
-  
-  .menu {
-    font-size: 30px;
-    display: none;
-    position: absolute;
-    background-color: beige;
-    margin-left: 5%;
-    width: 110%;
-    margin-top: 2%;
-    border-radius: 10px;
-  
-  }
-  
-  .menu a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .menu a:hover {
-    background-color: none;
-    text-decoration: underline;
-  }
-  
-  .menu-connexion:hover .menu {
-    display: block;
-  }
-  
-  .logo{
-    position: relative;
-    width: 100px;
-    height: 100px;
-    border-radius: 90px;
-    margin-top: 8px;
-    margin-left: 70px;
-  }
-  
-  .logo_foot{
-    width: 60px;
-    height: 60px;
-    border-radius: 90px;
-    margin-top: 50px;
-  }
-  
-  fieldset button{
-    background-color: red;
-    color: white;
-    border-radius: 10px;
-    width: 20%;
-    font-size: 50%;
-  }
-  
-  .div1 .div11{
-    color:red;
-  }
-  
-  .selection{
-    border-radius: 10px;
-    width: 600px;
-    height: 400px;
-    margin-left:5% ;
-    margin-top: 5%;
-  }
-  
-  .selection p{
-    font-size: 25px;
-    margin-left: 20%;
-  }
-  
-  .barre-recherche{
 
-    font-size: 10px;
-    margin-left:13%;
-    background-color: #FFD700;
-    height: 20%;
-    width: 100vh;
-    padding: 1%;
-    margin-top: 1%;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    box-shadow: 3px 3px 3px 3px black;
-  }
+/*_________PAGE DE CONNEXION/D'INSCRIPTION/DE PROFIL_________*/
+
+fieldset{
+  background-color: white;
+  box-shadow: 6px 6px 6px rgb(129, 127, 127);
+  border: none;
+  border-radius: 10px;
+  width: 20%;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 100px;
+  margin-left: 400px;
+}
+
+fieldset legend{
+  font-weight: bold;
+}
+
+.entete{
+  font-size: 17px;
+}
+
+.caption{   
+  margin-right: 270px;
+  font-size: 30px;
+  margin-bottom: 2%;
+}
+
+.caption_mdp{
+  margin-left: 5%;
+  margin-right: 270px;
+  font-size: 30px;
+  margin-bottom: 2%;
+}
+
+.zone input{
+  font-size: 20px;
+  border-radius: 5px;
+  margin-right: 50px;
+  width: 300px;
+}
+
+.zone select{
+  font-size: 25px;
+  border-radius: 10px;
+  margin-right: 270px;
+  border-width: 2px;
+  border-color: black;
+}
   
+.underline{
+  margin-top: 2%;
+  text-decoration: underline;
+  font-size: 15px;
+  margin-right: 180px;
+}
+
+fieldset a {
+  font-size: bold;
+  color: black;
+}
   
-  .barre-recherche input, select {
-    border: 3px solid rgb(196, 194, 194);
-    border-radius: 5px;
-    font-size: 200%;
-  }
+fieldset em {
+  font-size: 15px;
+  color: black;
+}
+
+fieldset .charte{
+  margin-top: 20px;
+  font-size: 10px;
+}
+
+.cliquer input{
+  font-size:20px;
+  margin-right:30px;
+  width: 350px;
+  border-radius: 10px;
+  background-color: teal;
+  color: white;
+}
+
+.image_connexion{
+  content: url(image/image_profil.webp) ;
+  display: flex;
+  margin-left: -500px;
+  width: 600px;
+  height: 700px;
+  float:inline-end;
+  margin-top:-675px;
+  margin-right: 200px;
+  border-radius: 10px;
+}
   
-  .barre-recherche button{
-    border-radius: 10px;
-    color: white;
-    font-size: 230%;
-    background-color: rgb(0, 102, 255);
-  }
+.image_inscription{
+  content: url(image/image_profil.webp) ;
+  display: flex;
+  width: 600px;
+  height: 800px;
+  float:inline-end;
+  margin-top:-900px;
+  margin-right: 300px;
+  border-radius: 10px;
+}
   
-  .barre-recherche button:hover {
-    background-color: #0400ff;
-  }
+fieldset button{
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  width: 20%;
+  font-size: 50%;
+}
+
+
+
+
+
+/*_________PAGE DE RECHERCHE_________*/
+
+.selection{
+  border-radius: 10px;
+  width: 600px;
+  height: 400px;
+  margin-left:5% ;
+  margin-top: 5%;
+}
+
+.selection p{
+  font-size: 25px;
+  margin-left: 20%;
+}
+
+.barre-recherche{
+  font-size: 10px;
+  margin-left:13%;
+  background-color: #f1dc64;
+  height: 20%;
+  width: 125vh;
+  padding: 1%;
+  margin-top: 1%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 3px 3px 3px 3px black;
+}
+
+
+.barre-recherche input, select {
+  border: 3px solid rgb(196, 194, 194);
+  border-radius: 5px;
+  font-size: 200%;
+}
+
+.barre-recherche button{
+  border-radius: 10px;
+  color: white;
+  font-size: 230%;
+  background-color: rgb(0, 102, 255);
+}
+
+.barre-recherche button:hover {
+  background-color: #0400ff;
+}
+
+
+
+
   
   .accroche{
     font-size: 25px;
@@ -507,7 +454,7 @@ html {
     border-radius: 10px;
     width: 500px;
     height: 400px;
-    margin-left: 7%;
+    margin-left: 5%;
     margin-top: 4%;
   }
 
@@ -516,7 +463,6 @@ html {
   }
   
   .hebergement p{
-    text-align: center;
     font-size: 30px;
     width: 1300px;
     margin-top: 5%;
@@ -532,5 +478,5 @@ html {
   
   .hebergement ul li{
     font-size: 25px;
-    text-decoration: underline red;
+    text-decoration: underline;
   }
