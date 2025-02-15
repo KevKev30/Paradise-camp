@@ -11,14 +11,13 @@
 
     <header>
           <div class="head">
-            <h2> Paradise camp </h2>
               <ul>
                   <li><a class="fa fa-bandcamp" href="Page_accueil.html"> Accueil</a></li>
                   <li><a class="fa fa-arrow-circle-right" href="Page_presentation.html"> Presentation</a></li>
               </ul>
+              
               <h2> Paradise camp </h2>
               <p>Bienvenue sur Paradise Camp, le paradis grandeur nature</p>
-          </div>
           
           <div class="menu-connexion">
             <div class="boutton"><a class="fa fa-user-o"> Mon espace</a>
@@ -28,7 +27,7 @@
             </div>
             </div>
         </div>
-
+    </div>
             
   
       </header>
@@ -36,19 +35,34 @@
 
 
 
-
       <div class="barre-recherche">
 
-        <input type="text" placeholder="Où aller-vous ?">
-        <input type="date" placeholder="Arrivée">
-        <input type="date" placeholder="Départ">
+        <input type="text" placeholder="Saisissez ici votre ville">
+        <input type="date" id="arrivee" placeholder=" " />
+        <input type="date" id="depart" placeholder=" ">
 
         <select>
-            <option>Nombre de voyageurs</option>
+            <option>1 personnes</option>
             <option>1 à 3 personnes</option>
             <option>4 à 5 personnes</option>
             <option>6 à 9 personnes</option>
             <option>10 personnes et plus</option>
+        </select>
+
+        <select>
+            <option>Type d'hébergement</option>
+            <option>Mobil-Homes</option>
+            <option>camping-Car</option>
+            <option>tente</option>
+            <option>Cabane dans les arbres</option>
+        </select>
+
+        <select>
+            <option>Prix</option>
+            <option>?????€-????€</option>
+            <option>?????€-????€</option>
+            <option>?????€-????€</option>
+            <option>?????€-????€</option>
         </select>
 
         <button class="recherche-boutton"><a class="fa fa-search"> Rechercher</a></button>
@@ -56,25 +70,22 @@
 
 
   
-      <div class="accroche"> Venez découvrir Paradise camp dans la déstination de votre choix</div>
-      <div class="choix-ville">
-          <form> <b>Ville :</b>
-          <select name="Ville">
-              <option>Paris</option>
-              <option>Bordeaux</option>
-              <option>Marseille</option>
-              <option>Toulouse</option>
-              <option>Nice</option>
-          </select>
-          </form>
-      </div>
-        </div>
-            
+      <div class="accroche"> Pour vous aider à faire votre choix voici nos meilleurs selection</div>
+      
+      <img class="selection" src="image/selection1.jpg">
+      <p>Nom du mobil-home/lieu</p>
+      <p>Prix/Nuit: ?????€</p>
+      <img class="selection" src="image/selection2.jpg">
+      <p>Nom du cabane/lieu</p>
+      <p>Prix/Nuit: ?????€</p>
+      
+   
 
 
 
     <footer>
         <div class="footer-central">
+            <img class="logo_foot" src="image/logo_camping.jpg">
             <h2>Nous contacter</h2>
             <span class="fa fa-phone"></span>
             <span class="text">06.XX.XX.XX.XX</span>
