@@ -140,7 +140,7 @@ html {
 
 footer{
   margin-top: 20%;
-  background-color: rgb(86, 183, 221);
+  background-color: #ca8d5e;
   height: 30vh;
   display: flex;
   font-size: 30px;
@@ -166,7 +166,7 @@ footer{
 }
 
 .footer-gauche{
-  margin-left :-75%;
+  margin-left :2%;
   font-size: 150%;
   margin-top: 3%;
 }
@@ -452,18 +452,19 @@ fieldset button{
 }
 
 .accroche{
+  width: 50%;
   font-size: 25px;
   padding-top: 5%;
-  margin-left: 29%;
+  margin: auto;
 }
 
 .selection1{
+  margin: auto;
   background-color: rgb(190, 190, 190);
-  margin-left: 10%;
   display: flex;
   align-items: center;
   font-size: 30px;
-  width: 1600px;
+  width: 60%;
   text-align: right;
   margin-top: 150px;
   border: none;
@@ -473,18 +474,19 @@ fieldset button{
 }
 
 .selection2{
+  width: 60%;
+  margin: auto;
   background-color: rgb(190, 190, 190);
-  margin-left: 10%;
   display: flex;
   align-items: center;
   font-size: 30px;
-  width: 1600px;
   text-align: right;
   margin-top: 150px;
   border: none;
   border-radius: 15px;
   padding-right: 40px;
   padding-bottom: 40px;
+  margin-bottom: 5%
 }
 
 .footer_recherche{
@@ -547,18 +549,33 @@ table{
   width: 50%;
   margin: auto;
   margin-bottom: 5%;
+  border-radius: 10px;
+  background-color: #ca8d5e;
+  padding: 1%;
 }
 
 table tr{
   text-align: center;
   font-size: 30px;
+  border-radius: 10px;
+}
+
+table tr td{
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+
+table tr th{
+  background: rgb(230, 230, 230);
+  border-radius: 10px;
 }
 
 table button{
   margin-left: 2%;
   margin-right: 2%;
-  padding-bottom: 0.5%;
+  padding-bottom: 0.8%;
   padding-top: 0.5%;
+  margin-bottom: 1%;
 }
 
 table .vip{
