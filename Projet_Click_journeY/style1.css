@@ -157,7 +157,7 @@ footer{
 }
 
 .footer-droit{
-  color: red;
+  color: black;
   font-size: 70%;
   margin-left: 20%;
   border-radius: 10px;
@@ -194,19 +194,19 @@ footer{
 }
 
 .icone1{
-  color: rgb(156, 2, 156);
+  color: #9c029c;
 }
 
 .icone1 a:visited{
-  color: rgb(156, 2, 156);
+  color: #9c029c;
 }
 
 .icone2{
-  color:rgb(60, 105, 253);
+  color:#3c69fd;
 }
 
 .icone2 a:visited{
-  color:rgb(60, 105, 253);
+  color:#3c69fd;
 }
 
 .bas{
@@ -311,7 +311,7 @@ footer{
 
 fieldset{
   background-color: white;
-  box-shadow: 6px 6px 6px rgb(129, 127, 127);
+  box-shadow: 6px 6px 6px #817f7f;
   border: none;
   border-radius: 10px;
   width: 20%;
@@ -389,6 +389,11 @@ fieldset .charte{
   color: white;
 }
 
+.cliquer input:hover{
+  background-color: #005858;
+  cursor: pointer;
+}
+
 .image_connexion{
   content: url(image/image_profil.webp) ;
   display: flex;
@@ -418,6 +423,13 @@ fieldset button{
   border-radius: 10px;
   width: 20%;
   font-size: 50%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+}
+
+fieldset button:hover{
+  background-color: #CC0000;
+  cursor: pointer;
 }
 
 
@@ -467,7 +479,7 @@ fieldset button{
 
 
 .barre-recherche input, select {
-  border: 3px solid rgb(196, 194, 194);
+  border: 3px solid #c4c2c2;
   border-radius: 5px;
   font-size: 190%;
 }
@@ -477,7 +489,7 @@ fieldset button{
   color: white;
   font-size: 20px;
   width: 100%;
-  background-color: rgb(0, 102, 255);
+  background-color: #0066ff;
 }
 
 .barre-recherche button:hover {
@@ -492,7 +504,7 @@ fieldset button{
 
 .selection1{
   margin: auto;
-  background-color: rgb(190, 190, 190);
+  background-color: #bebebe;
   display: flex;
   align-items: center;
   font-size: 30px;
@@ -508,22 +520,7 @@ fieldset button{
 .selection2{
   width: 60%;
   margin: auto;
-  background-color: rgb(190, 190, 190);
-  display: flex;
-  align-items: center;
-  font-size: 30px;
-  text-align: right;
-  margin-top: 150px;
-  border: none;
-  border-radius: 15px;
-  padding-right: 40px;
-  padding-bottom: 40px;
-}
-
-.selection3{
-  width: 60%;
-  margin: auto;
-  background-color: rgb(190, 190, 190);
+  background-color: #bebebe;
   display: flex;
   align-items: center;
   font-size: 30px;
@@ -585,7 +582,7 @@ fieldset button{
 
   width: 70%;
   margin: auto;
-  border: solid rgb(157, 155, 165);
+  border: solid #9d9ba5;
   margin-bottom: 2%;
   margin-top: 4%;
   }
@@ -604,16 +601,23 @@ fieldset button{
 }
 
 .recherche {
-  border-style: solid rgb(0, 0, 0);
-  border-radius: 15px;
+  margin-left: 40%;
+  margin-top: 2%;
+}
+
+.recherche button{
   color:black;
-  font-size: 30px;
+  font-size: 25px;
+  border-radius: 5px;
+  background-color:  #56b7dd;
+  box-shadow: 3px 3px 3px black;
 }
 
 .recherche input{
+  font-size: 25px;
   border-radius: 5px;
-  box-shadow: 3px 3px 3px #F5E6CA;
-  width: 10%;
+  box-shadow: 3px 3px 3px black;
+  width: 21%;
 }
 
 
@@ -643,11 +647,11 @@ table tr{
 
 table tr td{
   border-radius: 10px;
-  background-color: rgb(255, 255, 255);
+  background-color: #ffffff;
 }
 
 table tr th{
-  background: rgb(230, 230, 230);
+  background: #e6e6e6;
   border-radius: 10px;
 }
 
@@ -664,7 +668,7 @@ table .vip{
   color: white;
   font-size: 20px;
   width: 160px;
-  background-color: rgb(0, 102, 255);
+  background-color: #0066ff;
 }
 
 table .vip:hover{
@@ -678,11 +682,11 @@ table .ban{
   color: white;
   font-size: 20px;
   width: 160px;
-  background-color: red;
+  background-color: #ff0000;
 }
 
 table .ban:hover{
   cursor: pointer;
-  background-color:rgb(197, 0, 0);
+  background-color:#c50000;
   font-style: underline;
 }
