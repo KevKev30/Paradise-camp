@@ -77,6 +77,16 @@ html {
   font-size: 40px;
 }
 
+.head1 a{
+  text-decoration: none;
+  color:white;
+  font-size: 80px;
+}
+
+.head1 a:visited{
+  color:#ffffff;
+}
+
 .head a:hover{
   color:#ca8d5e;
 }
