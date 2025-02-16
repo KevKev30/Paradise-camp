@@ -603,6 +603,16 @@ fieldset button{
   margin-left: 15%;
 }
 
+.recherche {
+  color:black;
+  font-size: 30px;
+}
+
+.recherche input{
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #F5E6CA;
+  width: 10%;
+}
 
 
 
