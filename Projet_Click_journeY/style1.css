@@ -604,6 +604,8 @@ fieldset button{
 }
 
 .recherche {
+  border-style: solid rgb(0, 0, 0);
+  border-radius: 15px;
   color:black;
   font-size: 30px;
 }
