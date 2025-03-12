@@ -33,49 +33,51 @@
         </header>
     
     
-        <fieldset>
-            <p>Connectez-vous</p>
-            <br>
-    
-            <div class="entete">
-                Identifiez-vous pour accéder à votre espace<br>personnel.
-            </div>
-            <br>
-    
-            <div class="caption">
-                Adresse mail  
-            </div>
-            <div class="zone">
-                <input type="text" name="email" class="champ" placeholder="Saisissez votre email" required >
-            </div>
-            <br>
-    
-            <div class="caption">
-                Mot de passe 
-            </div>
-            <div class="zone">
-                <input type="password" name="password" class="champ" placeholder="Saisissez votre mot de passe" required >
-            </div>
-    
-            <div class="underline"> Mot de passe oublié ?</div>
-            <br>
-    
-            <div class="cliquer">
-                <input type="submit" name="s'inscrire" value="Se Connecter" class="champ"/>
-            </div>
-            <br>
-    
-            <em>Pas encore de compte ? <a href="inscription.html">Inscription</a></em>
-    
-            <div class="charte">
+        <form action="connexion.php" method="post">
+            <fieldset>
+                <p>Connectez-vous</p>
                 <br>
-                En vous connectant, vous acceptez avoir <strong>lu</strong> 
+        
+                <div class="entete">
+                    Identifiez-vous pour accéder à votre espace<br>personnel.
+                </div>
                 <br>
-                et<strong> accepté</strong> les conditions générales
-                <br> 
-                et la charte de confidentialité.
-            </div>
-        </fieldset>
+        
+                <div class="caption">
+                    Adresse mail  
+                </div>
+                <div class="zone">
+                    <input type="text" name="email" class="champ" placeholder="Saisissez votre email" required >
+                </div>
+                <br>
+        
+                <div class="caption">
+                    Mot de passe 
+                </div>
+                <div class="zone">
+                    <input type="password" name="password" class="champ" placeholder="Saisissez votre mot de passe" required >
+                </div>
+        
+                <div class="underline"> Mot de passe oublié ?</div>
+                <br>
+        
+                <div class="cliquer">
+                    <input type="submit" name="s'inscrire" value="Se Connecter" class="champ"/>
+                </div>
+                <br>
+        
+                <em>Pas encore de compte ? <a href="inscription.html">Inscription</a></em>
+        
+                <div class="charte">
+                    <br>
+                    En vous connectant, vous acceptez avoir <strong>lu</strong> 
+                    <br>
+                    et<strong> accepté</strong> les conditions générales
+                    <br> 
+                    et la charte de confidentialité.
+                </div>
+            </fieldset>
+        </form>
     
         <div class="image_connexion"></div>
     
