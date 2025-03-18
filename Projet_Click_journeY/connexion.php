@@ -84,28 +84,28 @@
         <?php 
             session_start();
 
-            // Récupére les données de l'utilisateur
-            $email = $_POST['email'];
-            $password = $_POST['password']; 
+            if (isset($_POST['email']) && isset($_POST['password'])){
+                $email = $_POST['email'];
+                $password = $_POST['password']; 
 
 
-            $fichier = 'utilisateurs.json';
-            $contenu_fichier=file_get_contents($fichier);
+                $fichier = 'utilisateurs.json';
+                $contenu_fichier=file_get_contents($fichier);
             
-            // verifie si le fichier existe
-            if(file_exists($fichier)){
-                $tab_utilisateur =json_decode($contenu_fichier, true);
+                if(file_exists($fichier)){
+                    $tab_utilisateur =json_decode($contenu_fichier, true);
             
             
-                foreach($tab_utilisateur['utilisateurs'] as $utilisateur){
-                    if($utilisateur['email'] == $email){
-                        if ($utilisateur['password']==$password){
-                        //header("Location: profil.php");
-                        exit;
+                    foreach($tab_utilisateur['utilisateurs'] as $utilisateur){
+                        if($utilisateur['email'] == $email){
+                            if ($utilisateur['password']==$password){
+                            //header("Location: profil.php");
+                            exit;
+                            }
+                            else{
+                                echo ("Mot de passe incorect");
+                            } 
                         }
-                        else{
-                            echo ("Mot de passe incorect");
-                        } 
                     }
                 }
             }
