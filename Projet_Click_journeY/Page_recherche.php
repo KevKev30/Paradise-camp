@@ -30,7 +30,7 @@
             </div>  
         </header>
       
-    
+        <form action="Page_recherche.php" method="post">
         <div class="barre-recherche">
             <input type="text" placeholder="Saisissez ici votre destination">
             <input type="date" id="arrivee" placeholder=" " />
@@ -60,8 +60,22 @@
     
             <button class="recherche-boutton"><a class="fa fa-search"> Rechercher</a></button>
         </div>
-    
-    
+        </form>
+
+        <?php
+            if (isset($_POST['destination']) && isset($_POST['arrivee']) && isset($_POST['depart']) && isset($_POST['personnes']) && isset($_POST['type']) && isset($_POST['prix'])) {
+                $destination = $_POST['destination'];
+                $arrivee = $_POST['arrivee'];
+                $depart = $_POST['depart'];
+                $personnes = $_POST['personnes'];
+                $type = $_POST['type'];
+                $prix = $_POST['prix'];
+
+                echo "Destination : $destination <br>";
+            }
+
+        ?>
+
         <div class="accroche"> Voici des campings et leurs hébergements que nous vous recommandons :</div>
         
         <div class="selection1">
