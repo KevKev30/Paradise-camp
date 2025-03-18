@@ -62,19 +62,6 @@
         </div>
         </form>
 
-        <?php
-            if (isset($_POST['destination']) && isset($_POST['arrivee']) && isset($_POST['depart']) && isset($_POST['personnes']) && isset($_POST['type']) && isset($_POST['prix'])) {
-                $destination = $_POST['destination'];
-                $arrivee = $_POST['arrivee'];
-                $depart = $_POST['depart'];
-                $personnes = $_POST['personnes'];
-                $type = $_POST['type'];
-                $prix = $_POST['prix'];
-
-                echo "Destination : $destination <br>";
-            }
-
-        ?>
 
         <div class="accroche"> Voici des campings et leurs hébergements que nous vous recommandons :</div>
         
