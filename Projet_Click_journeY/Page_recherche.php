@@ -65,7 +65,7 @@
                     "nom" => "Camping des Bois Dormants",
                     "destination" => "Nice",
                     "hebergement" => "Mobil-home",
-                    "prix" => 300,
+                    "prix" => 330,
                     "personnes" => 7,
                     "image" => "image/selection1.jpg"
                 ],
@@ -81,7 +81,7 @@
                     "nom" => "Camping du Logobi",
                     "destination" => "Agde",
                     "hebergement" => "Mobil-home",
-                    "prix" => ,
+                    "prix" => 280,
                     "personnes" => 6,
                     "image" => "image/selection1.jpg"
                 ],
