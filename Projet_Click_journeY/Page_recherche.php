@@ -36,33 +36,73 @@
                 <input type="date" id="arrivee" placeholder=" " name="debut"/>
                 <input type="date" id="depart" placeholder=" " name="fin">
                 <select name="personnes">
-                    <option>1 personne</option>
-                    <option>2 à 3 personnes</option>
-                    <option>4 à 5 personnes</option>
-                    <option>6 à 9 personnes</option>
-                    <option>10 personnes et plus</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
                 </select>
-    
                 <select name="hebergement">
                     <option>Type d'hébergement</option>
                     <option>Mobil-Homes</option>
-                    <option>camping-Car</option>
-                    <option>tente</option>
+                    <option>Espace Vert</option>
                     <option>Cabane dans les arbres</option>
                 </select>
     
-                <select name="prix">
-                    <option>Prix</option>
-                    <option>0€-100€</option>
-                    <option>100€-200€</option>
-                    <option>200€-400€</option>
-                </select>
+                <input type="text" name="prix" placeholder="Saisissez le prix">
     
                 <button class="recherche-boutton" type="submit"><a class="fa fa-search"> Rechercher</a></button>
             </div>
         </form>
 
-        <?php 
+        <?php
+
+            $voyages = [
+                [
+                    "nom" => "Camping des Bois Dormants",
+                    "destination" => "Nice",
+                    "hebergement" => "Mobil-home",
+                    "prix" => 300,
+                    "personnes" => 7,
+                    "image" => "image/selection1.jpg"
+                ],
+                [
+                    "nom" => "Camping des chênes",
+                    "destination" => "Marseille",
+                    "hebergement" => "Mobil-home",
+                    "prix" => 240,
+                    "personnes" => 5,
+                    "image" => "image/selection1.jpg"
+                ],
+                [
+                    "nom" => "Camping du Logobi",
+                    "destination" => "Agde",
+                    "hebergement" => "Mobil-home",
+                    "prix" => ,
+                    "personnes" => 6,
+                    "image" => "image/selection1.jpg"
+                ],
+                [
+                    "nom" => "Camping La Mairdeux",
+                    "destination" => "Nice",
+                    "hebergement" => "Mobil-home",
+                    "prix" => 140,
+                    "personnes" => 7,
+                    "image" => "image/selection1.jpg"
+                ],
+                [
+                    "nom" => "Camping la Solution Finale",
+                    "destination" => "Nice",
+                    "hebergement" => "Mobil-home",
+                    "prix" => 140,
+                    "personnes" => 7,
+                    "image" => "image/selection1.jpg"
+                ]
+            ];
+
             if (isset($_POST['destination']) && isset($_POST['debut']) && isset($_POST['fin']) && isset($_POST['personnes']) && isset($_POST['hebergement']) && isset($_POST['prix'])){
                 $destination = $_POST['destination'];
                 $debut = $_POST['debut'];
@@ -74,31 +114,6 @@
                 echo ("gblorgbfouqvfqurgvbsufgbuigbvfugiqvbjkhsvguifydsfhqsfvriugfrvgbuh");
             }
         ?>
-
-        <div class="accroche"> Voici des campings et leurs hébergements que nous vous recommandons :</div>
-        
-            <div class="selection1">
-                <img class="photo" src="image/selection1.jpg">
-                <p>Mobil-home 7 personnes / Camping des Bois Dormants (Nice)
-                <br>
-                <br>
-                Prix/Nuit: 140€</p>
-            </div>
-            <div class="selection1">
-                <img class="photo" src="image/selection2.jpg">
-                <p>Cabane 10 personnes / Camping des Chat Perchés (Grenoble)
-                <br>
-                <br>
-                Prix/Nuit: 160€</p>
-            </div>
-            <div class="selection2">
-                <img class="photo" src="image/selection3.jpg">
-                <p>Tipi 2 personnes / Camping des Tipi Enchanté (Montpellier)
-                <br>
-                <br>
-                Prix/Nuit: 120€</p>
-            </div>
-        </div>
         
         <?php require 'footer.php';?> 
     
