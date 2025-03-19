@@ -12,11 +12,11 @@
         <header>
             <div class="head_accueil">
                 <ul>
-                    <li><a class="fa fa-arrow-circle-right" href="Page_presentation.html"> Présentation</a></li>
-                    <li><a class="fa fa-map-o" href="Page_recherche.html"> Recherche</a></li>
+                    <li><a class="fa fa-arrow-circle-right" href="Page_presentation.php"> Présentation</a></li>
+                    <li><a class="fa fa-map-o" href="Page_recherche.php"> Recherche</a></li>
                 </ul>
                 <div class="head2">
-                    <h2><a href="Page_accueil.html">Paradise camp</a><h2>
+                    <h2><a href="Page_accueil.php">Paradise camp</a><h2>
                 </div>
                 <p>
                     Vous souhaitez vivre un séjour inoubliable en famille, en vous reconnectant avec la nature tout en profitant des vacances en toute liberté. Entre plage, forêt et parc aquatique, choisissez votre destination et laissez-vous porter par l'aventure.
@@ -26,11 +26,11 @@
                 <div class="menu-connexion">
                     <div class="boutton"><a class="fa fa-user-o"> Mon espace</a>
                         <div class="menu">
-                            <a href="connexion.html">Connexion</a>
-                            <a href="inscription.html">Inscription</a>
+                            <a href="profil.php">Mon profil</a>
+                            <a href="Page_accueil.php">Déconnexion</a>
                         </div>
                     </div>
-                </div>    
+                </div>
             </div>        
         </header>
 

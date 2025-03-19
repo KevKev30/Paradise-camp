@@ -1,8 +1,42 @@
 <!DOCTYPE html>
+<html>
+    <head>
+        <title>Paradise Camp</title>
+        <link rel="stylesheet" href="style1.css" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
 
-<html>    
-    <body>   
-        <footer>
+
+    <body>
+        <header>
+            <div class="head_accueil">
+                <ul>
+                    <li><a class="fa fa-arrow-circle-right" href="Page_presentation.php"> Présentation</a></li>
+                    <li><a class="fa fa-map-o" href="Page_recherche.php"> Recherche</a></li>
+                </ul>
+                <div class="head2">
+                    <h2><a href="Page_accueil.php">Paradise camp</a><h2>
+                </div>
+                <p>
+                    Vous souhaitez vivre un séjour inoubliable en famille, en vous reconnectant avec la nature tout en profitant des vacances en toute liberté. Entre plage, forêt et parc aquatique, choisissez votre destination et laissez-vous porter par l'aventure.
+                </p>
+            
+          
+                <div class="menu-connexion">
+                    <div class="boutton"><a class="fa fa-user-o"> Mon espace</a>
+                        <div class="menu">
+                            <a href="connexion.php">Connexion</a>
+                            <a href="inscription.php">Inscription</a>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </header>
+
+
+
+        <footer class="footer_accueil">
 
             <div class="footer-gauche">
                 <div class="icone">

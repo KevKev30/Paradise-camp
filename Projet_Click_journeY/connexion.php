@@ -12,11 +12,11 @@
         <header>
             <div class="head">
                 <ul>
-                    <li><a class="fa fa-arrow-circle-right" href="Page_presentation.html"> Présentation</a></li>
-                    <li><a class="fa fa-map-o" href="Page_recherche.html"> Recherche</a></li>
+                    <li><a class="fa fa-arrow-circle-right" href="Page_presentation.php"> Présentation</a></li>
+                    <li><a class="fa fa-map-o" href="Page_recherche.php"> Recherche</a></li>
                 </ul>
                 <div class="head1">
-                    <h2> <a href="Page_accueil.html">Paradise camp</a></h2>
+                    <h2> <a href="Page_accueil.php">Paradise camp</a></h2>
                 </div>
                 <p>Bienvenue sur Paradise Camp, le paradis grandeur nature</p>
           
@@ -24,8 +24,8 @@
                     <div class="boutton">
                         <a class="fa fa-user-o"> Mon espace</a>
                         <div class="menu">
-                            <a href="connexion.html">Connexion</a>
-                            <a href="inscription.html">Inscription</a>
+                            <a href="connexion.php">Connexion</a>
+                            <a href="inscription.php">Inscription</a>
                         </div>
                     </div>
                 </div>
@@ -99,8 +99,7 @@
                     foreach($tab_utilisateur['utilisateurs'] as $utilisateur){
                         if($utilisateur['email'] == $email){
                             if ($utilisateur['password']==$password){
-                            //header("Location: profil.php");
-                            exit;
+                            header("Location: Page_accueil_connecte.php");
                             }
                             else{
                                 echo ("Mot de passe incorect");

@@ -1,0 +1,44 @@
+{
+    "utilisateurs": [
+        {
+            "civilite": "Femme",
+            "role": "Administrateur",
+            "nom": "JOACHIM",
+            "prenom": "Anaelle",
+            "email": "anaellejoachim@gmail.com",
+            "password": "aze"
+        },
+        {
+            "civilite": "Homme",
+            "role": "Administrateur",
+            "nom": "NGUYEN OANH",
+            "prenom": "Kevin",
+            "email": "kevinnguyen@gmail.com",
+            "password": "rty"
+        },
+        {
+            "civilite": "Homme",
+            "role": "Administrateur",
+            "nom": "EDOUARD",
+            "prenom": "Axel",
+            "email": "axeledouard@gmail.com",
+            "password": "uiop"
+        },
+        {
+            "civilite": "Homme",
+            "role": "normal",
+            "nom": "JAMES",
+            "prenom": "Lebron",
+            "email": "lebronjames@gmail.com",
+            "password": "qsdf"
+        },
+        {
+            "civilite": "Homme",
+            "role": "normal",
+            "nom": "CURRY",
+            "prenom": "Stephen",
+            "email": "stephencurry@gmail.com",
+            "password": "ghjk"
+        }
+    ]
+}
