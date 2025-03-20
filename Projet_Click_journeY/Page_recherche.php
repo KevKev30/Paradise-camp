@@ -44,6 +44,11 @@
                     <option value="Annecy">Annecy</option>
                     <option value="La Rochelle">La Rochelle</option>
                     <option value="Bordeaux">Bordeaux</option>
+                    <option value="Caen">Caen</option>
+                    <option value="Montpellier">Montpellier</option>
+                    <option value="Les Sables d'Olonne">Les Sables d'Olonne</option>
+                    <option value="Calais">Calais</option>
+                    <option value="Perpignan">Perpignan</option>
                 </select>
 
                 <input type="date" id="arrivee" placeholder=" " name="debut"/>
@@ -103,7 +108,7 @@
                     "prix" => 240,
                     "personnes" => 5,
                     "duree" => 21,
-                    "image" => "image/selection3.jpg"
+                    "image" => "image/selectionmh5.jpg"
                 ],
                 [
                     "nom" => "Camping Le Paradis Marin",
@@ -131,6 +136,51 @@
                     "personnes" => 8,
                     "duree" => 21,
                     "image" => "image/selectionmh4.jpg"
+                ],
+                [
+                    "nom" => "Camping du Rivage",
+                    "destination" => "Montpellier",
+                    "hebergement" => "Espace vert",
+                    "prix" => 240,
+                    "personnes" => 4,
+                    "duree" => 14,
+                    "image" => "image/selectionev1.jpg"
+                ];
+                [
+                    "nom" => "Le Paradis Marin",
+                    "destination" => "Les Sables d'Olonne",
+                    "hebergement" => "Espace vert",
+                    "prix" => 95,
+                    "personnes" => 2,
+                    "duree" => 21,
+                    "image" => "image/selectionev2.jpg"
+                ];
+                [
+                    "nom" => "Camping de la Baie d'Argent",
+                    "destination" => "Caen",
+                    "hebergement" => "Espace vert",
+                    "prix" => 280,
+                    "personnes" => 4,
+                    "duree" => 21,
+                    "image" => "image/selectionev3.jpg"
+                ];
+                [
+                    "nom" => "Les Flots Tranquilles",
+                    "destination" => "Calais",
+                    "hebergement" => "Espace vert",
+                    "prix" => 240,
+                    "personnes" => 4,
+                    "duree" => 14,
+                    "image" => "image/selectionev4.jpg"
+                ];
+                [
+                    "nom" => "Le Lagon Bleu",
+                    "destination" => "Perpignan",
+                    "hebergement" => "Espace vert",
+                    "prix" => 285,
+                    "personnes" => 5,
+                    "duree" => 14,
+                    "image" => "image/selectionev5.jpg"
                 ]
             ];
 
