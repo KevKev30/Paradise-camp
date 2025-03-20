@@ -117,25 +117,25 @@
         <div class="accroche"> Voici des campings et leurs hébergements que nous vous recommandons :</div>
         
             <div class="selection1">
-                <img class="photo" src="image/selection1.jpg">
+                <img class="photo" src="image/selectionmh1.jpg">
                 <p>Mobil-home 7 personnes / Camping des Bois Dormants (Nice)
                 <br>
                 <br>
-                Prix/Nuit: 140€</p>
+                Prix/Nuit: 400€</p>
             </div>
             <div class="selection1">
-                <img class="photo" src="image/selection2.jpg">
-                <p>Cabane 10 personnes / Camping des Chat Perchés (Grenoble)
+                <img class="photo" src="image/selectionc1.jpg">
+                <p>Cabane 8 personnes / Camping des Chat Perchés (Grenoble)
                 <br>
                 <br>
-                Prix/Nuit: 160€</p>
+                Prix/Nuit: 440€</p>
             </div>
             <div class="selection2">
                 <img class="photo" src="image/selection3.jpg">
                 <p>Tipi 2 personnes / Camping des Tipi Enchanté (Montpellier)
                 <br>
                 <br>
-                Prix/Nuit: 120€</p>
+                Prix/Nuit: 95€</p>
             </div>
         </div>
 

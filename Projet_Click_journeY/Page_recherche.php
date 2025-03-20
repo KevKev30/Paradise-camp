@@ -94,7 +94,7 @@
                     "prix" => 400,
                     "personnes" => 7,
                     "duree" => 14,
-                    "image" => "image/selection2.jpg"
+                    "image" => "image/selectionmh1.jpg"
                 ],
                 [
                     "nom" => "Camping Des Chênes",
@@ -112,7 +112,7 @@
                     "prix" => 280,
                     "personnes" => 6,
                     "duree" => 14,
-                    "image" => "image/selection4.jpg"
+                    "image" => "image/selectionmh2.jpg"
                 ],
                 [
                     "nom" => "Camping des Dunes Dorées",
@@ -121,7 +121,7 @@
                     "prix" => 350,
                     "personnes" => 7,
                     "duree" => 14,
-                    "image" => "image/selection5.jpg"
+                    "image" => "image/selectionmh3.jpg"
                 ],
                 [
                     "nom" => "Camping Le Lagon Azur",
@@ -130,7 +130,7 @@
                     "prix" => 450,
                     "personnes" => 8,
                     "duree" => 21,
-                    "image" => "image/selection1.jpg"
+                    "image" => "image/selectionmh4.jpg"
                 ]
             ];
 

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
     <head>
     
@@ -32,88 +33,99 @@
             </div>
         </header>
     
+        <fieldset>
+            <p>Connectez-vous</p>
+            <form action="connexion.php" method="POST">
+
+            <br>
+            
+            <div class="entete">
+                Identifiez-vous pour accéder à votre espace<br>personnel.
+            </div>
+            <br>
     
-        <form action="connexion.php" method="post">
-            <fieldset>
-                <p>Connectez-vous</p>
-                <br>
-        
-                <div class="entete">
-                    Identifiez-vous pour accéder à votre espace<br>personnel.
-                </div>
-                <br>
-        
-                <div class="caption">
-                    Adresse mail  
-                </div>
-                <div class="zone">
-                    <input type="text" name="email" class="champ" placeholder="Saisissez votre email" required >
-                </div>
-                <br>
-        
-                <div class="caption">
-                    Mot de passe 
-                </div>
-                <div class="zone">
-                    <input type="password" name="password" class="champ" placeholder="Saisissez votre mot de passe" required >
-                </div>
-        
-                <div class="underline"> Mot de passe oublié ?</div>
-                <br>
-        
-                <div class="cliquer">
-                    <input type="submit" name="s'inscrire" value="Se Connecter" class="champ"/>
-                </div>
-                <br>
-        
-                <em>Pas encore de compte ? <a href="inscription.html">Inscription</a></em>
-        
-                <div class="charte">
-                    <br>
-                    En vous connectant, vous acceptez avoir <strong>lu</strong> 
-                    <br>
-                    et<strong> accepté</strong> les conditions générales
-                    <br> 
-                    et la charte de confidentialité.
-                </div>
-            </fieldset>
-        </form>
+            <div class="caption">
+                <label for="email">Adresse mail </label>  
+            </div>
+            <div class="zone">
+                <input type="text" name="email" class="champ" placeholder="Saisissez votre email" required >
+            </div>
+            <br>
     
+            <div class="caption">
+                Mot de passe 
+            </div>
+            <div class="zone">
+                <input type="password" name="password" class="champ" placeholder="Saisissez votre mot de passe" required >
+            </div>
+    
+            <div class="underline"> Mot de passe oublié ?</div>
+            <br>
+    
+            <div class="cliquer">
+                <input type="submit" name="connexion" value="Se Connecter" class="champ"/>
+            </div>
+            <br>
+    
+            <em>Pas encore de compte ? <a href="inscription.php">Inscription</a></em>
+    
+            <div class="charte">
+                <br>
+                En vous connectant, vous acceptez avoir <strong>lu</strong> 
+                <br>
+                et<strong> accepté</strong> les conditions générales
+                <br> 
+                et la charte de confidentialité.
+            </div>
+            </form>
+        </fieldset>
+        
         <div class="image_connexion"></div>
 
-        <?php 
+        <?php
             session_start();
 
-            if (isset($_POST['email']) && isset($_POST['password'])){
-                $email = $_POST['email'];
-                $password = $_POST['password']; 
 
-
+            if (isset($_SESSION['email'])) {
+                header("Location: Page_profil.php");
+                exit;
+            }
+            
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $email = $_POST['email'];  
+                $password = $_POST['password'];
+            
                 $fichier = 'utilisateurs.json';
-                $contenu_fichier=file_get_contents($fichier);
             
-                if(file_exists($fichier)){
-                    $tab_utilisateur =json_decode($contenu_fichier, true);
+                if (file_exists($fichier)) {
+                    
+                    $contenu_fichier = file_get_contents($fichier);
+                    $tab_utilisateur = json_decode($contenu_fichier, true);
             
             
-                    foreach($tab_utilisateur['utilisateurs'] as $utilisateur){
-                        if($utilisateur['email'] == $email){
-                            if ($utilisateur['password']==$password){
-                            header("Location: Page_accueil_connecte.php");
-                            }
-                            else{
-                                echo ("Mot de passe incorect");
+                    
+                    foreach ($tab_utilisateur['utilisateurs'] as $utilisateur) {
+                        if ($utilisateur['email'] == $email) {
+                            if ($utilisateur['password'] == $password && $utilisateur['role'] == "Administrateur") { 
+                                $_SESSION['email'] = $utilisateur['email'];         
+                                header("Location: Page_admin.php");
+                                exit;
                             } 
+                            elseif ($utilisateur['password'] == $password && $utilisateur['role'] == "normal"){
+                                $_SESSION['email'] = $utilisateur['email'];         
+                                header("Location: Page_profil.php");
+                                exit;
+                            } else {
+                                echo "<script>alert('Email ou mot de passe incorrect'); window.location.href='connexion.php';</script>";
+                                exit;
+                            }
                         }
                     }
+                    header("Location: inscription.php");
                 }
             }
-        
         ?>
-
-
     
        <?php require 'footer.php'; ?>
-        
     </body>
 </html>
