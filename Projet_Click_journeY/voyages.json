@@ -1,0 +1,104 @@
+{
+    "voyages": [
+        {
+            "id": "mh1",
+            "nom": "Camping des Bois Dormants",
+            "destination": "Nice",
+            "hebergement": "Mobil-home",
+            "prix": 400,
+            "personnes": 7,
+            "duree": 14,
+            "image": "image/selectionmh1.jpg"
+        },
+        {
+            "id": "mh2",
+            "nom": "Camping Des Chênes",
+            "destination": "Marseille",
+            "hebergement":"Mobil-home",
+            "prix": 240,
+            "personnes": 5,
+            "duree": 21,
+            "image": "image/selectionmh5.jpg"
+        },
+        {
+            "id": "mh3",
+            "nom": "Camping Le Paradis Marin",
+            "destination": "Agde",
+            "hebergement": "Mobil-home",
+            "prix": 280,
+            "personnes": 6,
+            "duree": 14,
+            "image": "image/selectionmh2.jpg"
+        },
+        {
+            "id": "mh4",
+            "nom": "Camping des Dunes Dorées",
+            "destination": "La Rochelle",
+            "hebergement": "Mobil-home",
+            "prix": 350,
+            "personnes": 7,
+            "duree": 14,
+            "image": "image/selectionmh3.jpg"
+        },
+        {
+            "id": "mh5",
+            "nom": "Camping Le Lagon Azur",
+            "destination": "Bordeaux",
+            "hebergement": "Mobil-home",
+            "prix": 450,
+            "personnes": 8,
+            "duree": 21,
+            "image": "image/selectionmh4.jpg"
+        },
+        {
+            "id": "ev1",
+            "nom": "Camping du Rivage",
+            "destination": "Montpellier",
+            "hebergement": "Espace vert",
+            "prix": 240,
+            "personnes": 4,
+            "duree": 14,
+            "image": "image/selectionev1.jpg"
+        },
+        {
+            "id": "ev2",
+            "nom": "Le Paradis Marin",
+            "destination": "Les Sables d'Olonne",
+            "hebergement": "Espace vert",
+            "prix": 95,
+            "personnes": 2,
+            "duree": 21,
+            "image": "image/selectionev2.jpg"
+        },
+        {
+            "id": "ev3",
+            "nom": "Camping de la Baie d'Argent",
+            "destination": "Caen",
+            "hebergement": "Espace vert",
+            "prix": 280,
+            "personnes": 4,
+            "duree": 21,
+            "image": "image/selectionev3.jpg"
+        },
+        {
+            "id": "ev4",
+            "nom": "Les Flots Tranquilles",
+            "destination": "Calais",
+            "hebergement": "Espace vert",
+            "prix": 240,
+            "personnes": 4,
+            "duree": 14,
+            "image": "image/selectionev4.jpg"
+        },
+        {
+            "id": "ev5",
+            "nom": "Le Lagon Bleu",
+            "destination": "Perpignan",
+            "hebergement": "Espace vert",
+            "prix": 285,
+            "personnes": 5,
+            "duree": 14,
+            "image": "image/selectionev5.jpg"
+        }
+    ]
+}

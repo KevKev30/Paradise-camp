@@ -130,7 +130,7 @@
                 <br>
                 Prix/Nuit: 440€</p>
             </div>
-            <div class="selection2">
+            <div class="selection1">
                 <img class="photo" src="image/selection3.jpg">
                 <p>Tipi 2 personnes / Camping des Tipi Enchanté (Montpellier)
                 <br>

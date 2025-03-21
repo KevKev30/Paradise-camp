@@ -90,111 +90,16 @@
         </form>
 
         <?php 
-
-            $voyages = [
-                [
-                    "nom" => "Camping des Bois Dormants",
-                    "destination" => "Nice",
-                    "hebergement" => "Mobil-home",
-                    "prix" => 400,
-                    "personnes" => 7,
-                    "duree" => 14,
-                    "image" => "image/selectionmh1.jpg"
-                ],
-                [
-                    "nom" => "Camping Des Chênes",
-                    "destination" => "Marseille",
-                    "hebergement" => "Mobil-home",
-                    "prix" => 240,
-                    "personnes" => 5,
-                    "duree" => 21,
-                    "image" => "image/selectionmh5.jpg"
-                ],
-                [
-                    "nom" => "Camping Le Paradis Marin",
-                    "destination" => "Agde",
-                    "hebergement" => "Mobil-home",
-                    "prix" => 280,
-                    "personnes" => 6,
-                    "duree" => 14,
-                    "image" => "image/selectionmh2.jpg"
-                ],
-                [
-                    "nom" => "Camping des Dunes Dorées",
-                    "destination" => "La Rochelle",
-                    "hebergement" => "Mobil-home",
-                    "prix" => 350,
-                    "personnes" => 7,
-                    "duree" => 14,
-                    "image" => "image/selectionmh3.jpg"
-                ],
-                [
-                    "nom" => "Camping Le Lagon Azur",
-                    "destination" => "Bordeaux",
-                    "hebergement" => "Mobil-home",
-                    "prix" => 450,
-                    "personnes" => 8,
-                    "duree" => 21,
-                    "image" => "image/selectionmh4.jpg"
-                ],
-                [
-                    "nom" => "Camping du Rivage",
-                    "destination" => "Montpellier",
-                    "hebergement" => "Espace vert",
-                    "prix" => 240,
-                    "personnes" => 4,
-                    "duree" => 14,
-                    "image" => "image/selectionev1.jpg"
-                ];
-                [
-                    "nom" => "Le Paradis Marin",
-                    "destination" => "Les Sables d'Olonne",
-                    "hebergement" => "Espace vert",
-                    "prix" => 95,
-                    "personnes" => 2,
-                    "duree" => 21,
-                    "image" => "image/selectionev2.jpg"
-                ];
-                [
-                    "nom" => "Camping de la Baie d'Argent",
-                    "destination" => "Caen",
-                    "hebergement" => "Espace vert",
-                    "prix" => 280,
-                    "personnes" => 4,
-                    "duree" => 21,
-                    "image" => "image/selectionev3.jpg"
-                ];
-                [
-                    "nom" => "Les Flots Tranquilles",
-                    "destination" => "Calais",
-                    "hebergement" => "Espace vert",
-                    "prix" => 240,
-                    "personnes" => 4,
-                    "duree" => 14,
-                    "image" => "image/selectionev4.jpg"
-                ];
-                [
-                    "nom" => "Le Lagon Bleu",
-                    "destination" => "Perpignan",
-                    "hebergement" => "Espace vert",
-                    "prix" => 285,
-                    "personnes" => 5,
-                    "duree" => 14,
-                    "image" => "image/selectionev5.jpg"
-                ]
-            ];
-
             if (isset($_GET['destination']) && isset($_GET['debut']) && isset($_GET['fin']) && isset($_GET['personnes']) && isset($_GET['hebergement']) && isset($_GET['prix'])){
 
                 $destination = $_GET['destination'];
                 $personnes = $_GET['personnes'];
                 $hebergement = $_GET['hebergement'];
                 $prix = $_GET['prix'];
+                $count = 0;
 
                 $prix = (int)$prix;
                 $personnes = (int)$personnes;
-
-                $resultat = [];
 
                 if(empty($_GET['debut'])){
                     if(empty($_GET['fin'])){
@@ -218,31 +123,32 @@
                     }
                 }
 
+                $fichier = 'voyages.json';
+                if(file_exists($fichier)){
+                    $contenu_fichier = file_get_contents($fichier);
+                    $voyages = json_decode($contenu_fichier, true);
 
-                foreach($voyages as $dest){
-                    if ((($dest['destination'] == $destination) || ($destination == "")) && (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && (($dest['prix'] <= $prix) || (is_null($prix))) && (($dest['personnes'] == $personnes) || (is_null($personnes))) && (($dest['duree'] == $duree) || $duree == 0)){
-                        $resultat[] = $dest;
+                    foreach($voyages['voyages'] as $dest){
+                        if ((($dest['destination'] == $destination) || ($destination == "")) && (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && (($dest['prix'] <= $prix) || (is_null($prix))) && (($dest['personnes'] == $personnes) || (is_null($personnes))) && (($dest['duree'] == $duree) || $duree == 0)){
+                            echo "<div class='selection1'>";
+                            echo "<img class='photo' src='".htmlspecialchars($dest['image'])."'>";
+                            echo "<p>".htmlspecialchars($dest['nom'])."-".htmlspecialchars($dest['destination']);
+                            echo "<br>";
+                            echo "Nombre de personnes : ".$dest['personnes'];
+                            echo "<br>";
+                            echo "Prix/nuit: ".$dest['prix']."€";
+                            echo "<br>";
+                            echo "Durée : ".$dest['duree']." jours </p>";
+                            echo "</div>";
+                            $count ++;
+                        }
                     }
-                }
-                if(count($resultat) > 0){
-                    foreach($resultat as $res){
-                        echo "<div class='selection1'>";
-                        echo "<img class='photo' src='".htmlspecialchars($res['image'])."'>";
-                        echo "<p>".htmlspecialchars($res['nom'])." ".$res['personnes']." personnes / ".htmlspecialchars($res['destination']);
-                        echo "<br>";
-                        echo "Prix/nuit: ".$res['prix']."€";
-                        echo "<br>";
-                        echo "Durée : ".$res['duree']." jours </p>";
-                        echo "</div>";
+                    if($count == 0){
+                        echo "<script>alert('Aucun camping ne correspond à vos recherches.'); window.location.href='Page_recherche.php';</script>";
                     }
-                }
-                else{
-                    echo "<p> Aucun camping ne corresponds à vos recherches. </p>";
                 }
             }
-
             require 'footer.php';
         ?>
-    
     </body>
 </html>

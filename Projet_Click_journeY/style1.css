@@ -517,22 +517,6 @@ fieldset button:hover{
   padding-bottom: 40px;
 }
 
-.selection2{
-  width: 60%;
-  margin: auto;
-  background-color: #bebebe;
-  display: flex;
-  align-items: center;
-  font-size: 30px;
-  text-align: right;
-  margin-top: 150px;
-  border: none;
-  border-radius: 15px;
-  padding-right: 40px;
-  padding-bottom: 40px;
-  margin-bottom: 5%;
-}
-
 .footer_recherche{
   margin-top: 0%;
   background-color:#ca8d5e;
