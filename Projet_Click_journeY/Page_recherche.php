@@ -39,7 +39,6 @@
                     <option value="Marseille">Marseille</option>
                     <option value="Nice">Nice</option>
                     <option value="Agde">Agde</option>
-                    <option value="Cormeilles">Cormeilles</option>
                     <option value="Lyon">Lyon</option>
                     <option value="Annecy">Annecy</option>
                     <option value="La Rochelle">La Rochelle</option>
@@ -48,7 +47,8 @@
                     <option value="Montpellier">Montpellier</option>
                     <option value="Les Sables d'Olonne">Les Sables d'Olonne</option>
                     <option value="Calais">Calais</option>
-                    <option value="Perpignan">Perpignan</option>
+                    <option value="Montaigu">Montaigu</option>
+                    <option value="Limoges">Limoges</option>
                 </select>
 
                 <input type="date" id="arrivee" placeholder=" " name="debut"/>
@@ -56,7 +56,7 @@
                 <input type="date" id="depart" placeholder=" " name="fin">
 
                 <select name="personnes">
-                    <option>Nombre de personnes</option>
+                    <option value="0">Nombre de personnes</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -75,8 +75,7 @@
                 </select>
     
                 <select name="prix">
-                    <option value="">Prix Maximal</option>
-                    <option value="100">100€</option>
+                    <option value="0">Prix Maximal</option>
                     <option value="200">200€</option>
                     <option value="300">300€</option>
                     <option value="400">400€</option>
@@ -90,6 +89,8 @@
         </form>
 
         <?php 
+            session_start();
+
             if (isset($_GET['destination']) && isset($_GET['debut']) && isset($_GET['fin']) && isset($_GET['personnes']) && isset($_GET['hebergement']) && isset($_GET['prix'])){
 
                 $destination = $_GET['destination'];
@@ -129,7 +130,8 @@
                     $voyages = json_decode($contenu_fichier, true);
 
                     foreach($voyages['voyages'] as $dest){
-                        if ((($dest['destination'] == $destination) || ($destination == "")) && (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && (($dest['prix'] <= $prix) || (is_null($prix))) && (($dest['personnes'] == $personnes) || (is_null($personnes))) && (($dest['duree'] == $duree) || $duree == 0)){
+                        if ((($dest['destination'] == $destination) || ($destination == "")) && (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && (($dest['prix'] <= $prix) || ($prix == 0)) && (($dest['personnes'] == $personnes) || ($personne == 0)) && (($dest['duree'] == $duree) || ($duree == 0))){
+                            $id = $dest['id'];
                             echo "<div class='selection1'>";
                             echo "<img class='photo' src='".htmlspecialchars($dest['image'])."'>";
                             echo "<p>".htmlspecialchars($dest['nom'])."-".htmlspecialchars($dest['destination']);
@@ -139,6 +141,7 @@
                             echo "Prix/nuit: ".$dest['prix']."€";
                             echo "<br>";
                             echo "Durée : ".$dest['duree']." jours </p>";
+                            echo "<a href='details.php?id=".urlencode($id)."'> Voir les détails </a>";
                             echo "</div>";
                             $count ++;
                         }

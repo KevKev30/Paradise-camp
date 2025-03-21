@@ -118,24 +118,36 @@
         
             <div class="selection1">
                 <img class="photo" src="image/selectionmh1.jpg">
-                <p>Mobil-home 7 personnes / Camping des Bois Dormants (Nice)
+                <p>Camping des Bois Dormants - Nice
                 <br>
+                Mobil-home 7 personnes
                 <br>
-                Prix/Nuit: 400€</p>
+                Prix/Nuit: 400€
+                <br>
+                Durée : 14 jours</p>
+                <a href="details.php?id=mh1">Voir les détails</a>
             </div>
             <div class="selection1">
                 <img class="photo" src="image/selectionc1.jpg">
-                <p>Cabane 8 personnes / Camping des Chat Perchés (Grenoble)
+                <p>Camping des Chat Perchés - Annecy
                 <br>
+                Cabane 8 personnes
                 <br>
-                Prix/Nuit: 440€</p>
+                Prix/Nuit: 440€
+                <br>
+                Durée : 21 jours
+                </p>
             </div>
             <div class="selection1">
-                <img class="photo" src="image/selection3.jpg">
-                <p>Tipi 2 personnes / Camping des Tipi Enchanté (Montpellier)
+                <img class="photo" src="image/selectionev4.jpg">
+                <p>Les Flots Tranquilles - Calais
                 <br>
+                Espace vert 4 personnes
                 <br>
-                Prix/Nuit: 95€</p>
+                Prix/Nuit: 95€
+                <br>
+                Durée : 14 jours</p>
+                <a href="details.php?id=ev4">Voir les détails</a>
             </div>
         </div>
 

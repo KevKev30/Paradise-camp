@@ -525,6 +525,15 @@ fieldset button:hover{
   font-size: 30px;
 }
 
+.selection1 a{
+  color: black;
+  text-decoration: none;
+}
+
+.selection1 a:hover{
+  text-decoration: underline;
+}
+
 
 
 
@@ -673,4 +682,52 @@ table .ban:hover{
   cursor: pointer;
   background-color:#c50000;
   font-style: underline;
+}
+
+
+
+
+/*_________PAGE DE DETAILS_________*/
+
+.details{
+  background-color: white;
+  box-shadow: 6px 6px 6px #817f7f;
+  border: none;
+  border-radius: 10px;
+  width: 60%;
+  height: auto;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 100px;
+  margin-left: 20%;
+  margin-bottom: 5%;
+}
+
+.details .image{
+  border-radius: 10px;
+  width: 700px;
+  height: 500px;
+  margin-top: 5%;
+}
+
+.details input{
+  text-align: left;
+  width: 12px;
+  height: 12px;
+}
+
+.details button{
+  background-color: rgb(235, 147, 34);
+  color: white;
+  border-radius: 10px;
+  width: 20%;
+  font-size: 70%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  margin-bottom: 4%;
+}
+
+.details button:hover{
+  background-color: #fa8500;
+  cursor: pointer;
 }

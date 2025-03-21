@@ -65,10 +65,10 @@
             "nom": "Le Paradis Marin",
             "destination": "Les Sables d'Olonne",
             "hebergement": "Espace vert",
-            "prix": 95,
+            "prix": 120,
             "personnes": 2,
             "duree": 21,
-            "image": "image/selectionev2.jpg"
+            "image": "image/selectionev2.webp"
         },
         {
             "id": "ev3",
@@ -93,12 +93,62 @@
         {
             "id": "ev5",
             "nom": "Le Lagon Bleu",
-            "destination": "Perpignan",
+            "destination": "Nice",
             "hebergement": "Espace vert",
             "prix": 285,
             "personnes": 5,
             "duree": 14,
             "image": "image/selectionev5.jpg"
+        },
+        {
+            "id": "c1",
+            "nom": "Camping des Chats Perchés",
+            "destination": "Annecy",
+            "hebergement": "Cabane",
+            "prix": 440,
+            "personnes": 8,
+            "duree": 21,
+            "image": "image/selectionc1.jpg"
+        },
+        {
+            "id": "c2",
+            "nom": "La Clairière Enchantée",
+            "destination": "Lyon",
+            "hebergement": "Cabane",
+            "prix": 210,
+            "personnes": 4,
+            "duree": 14,
+            "image": "image/selectionc2.jpg"
+        },
+        {
+            "id": "c3",
+            "nom": "Le Refuge des Cerfs",
+            "destination": "Montaigu",
+            "hebergement": "Cabane",
+            "prix": 340,
+            "personnes": 6,
+            "duree": 21,
+            "image": "image/selectionc3.jpg"
+        },
+        {
+            "id": "c4",
+            "nom": "L'ombre des Grands Chênes",
+            "destination": "Calais",
+            "hebergement": "Cabane",
+            "prix": 290,
+            "personnes": 5,
+            "duree": 21,
+            "image": "image/selectionc4.jpg"
+        },
+        {
+            "id": "c5",
+            "nom": "Les Échos de la Forêt",
+            "destination": "Limoges",
+            "hebergement": "Cabane",
+            "prix": 150,
+            "personnes": 2,
+            "duree": 14,
+            "image": "image/selectionc5.jpg"
         }
     ]
 }
