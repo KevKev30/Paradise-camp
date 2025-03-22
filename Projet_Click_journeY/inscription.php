@@ -16,7 +16,8 @@
             "telephone"=> NULL,
             "email" => $email,
             "password" => $password,
-            "date_inscription" => date("d.m.y")
+            "date_inscription" => date("d.m.y"),
+            "reservation" => []
         ];
 
         $fichier = 'utilisateurs.json';

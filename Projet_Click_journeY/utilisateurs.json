@@ -7,7 +7,8 @@
             "prenom": "Anaelle",
             "telephone": null,
             "email": "anaellejoachim@gmail.com",
-            "password": "aze"
+            "password": "aze",
+            "reservation": []
         },
         {
             "civilite": "Homme",
@@ -16,7 +17,8 @@
             "prenom": "Kevin",
             "telephone": null,
             "email": "kevinnguyen@gmail.com",
-            "password": "rty"
+            "password": "rty",
+            "reservation": []
         },
         {
             "civilite": "Homme",
@@ -25,7 +27,8 @@
             "prenom": "Axel",
             "telephone": null,
             "email": "axeledouard@gmail.com",
-            "password": "uiop"
+            "password": "uiop",
+            "reservation": []
         },
         {
             "civilite": "Homme",
@@ -34,7 +37,8 @@
             "prenom": "Lebron",
             "telephone": null,
             "email": "lebronjames@gmail.com",
-            "password": "qsdf"
+            "password": "qsdf",
+            "reservation": []
         },
         {
             "civilite": "Autre",
@@ -44,7 +48,8 @@
             "telephone": null,
             "email": "blabla@yahoo.fr",
             "password": "wxc",
-            "date_inscription": "22.03.25"
+            "date_inscription": "22.03.25",
+            "reservation": []
         }
     ]
 }

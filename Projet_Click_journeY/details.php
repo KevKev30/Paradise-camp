@@ -66,7 +66,11 @@
             <input type="checkbox" value="cantine"/> Cantine : +40€/personne <br>
             <input type="checkbox" value="arcade"> Pass arcade : +10€/personne <br>
         </p>
-        <p><center><button type="submit"><a>Réserver</button></a></center></p>
+        <?php
+            echo "<p><center><button type='submit'><a href=paiement.php?id='" . urlencode($id). "'>Réserver</button></a></center></p>";
+        ?>
+
+        <?php require 'footer.php';?>
 
     </body>
 </html>
