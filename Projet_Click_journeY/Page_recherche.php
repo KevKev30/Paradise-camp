@@ -126,13 +126,14 @@
                     $voyages = json_decode($contenu_fichier, true);
 
                     foreach($voyages['voyages'] as $dest){
+                        $voyage_debut = new DateTime($dest['debut']);
+                        $voyage_fin = new DateTime($dest['fin']);
                         if (
                            (($dest['destination'] == $destination) || ($destination == "")) && 
                            (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && 
                            (($dest['prix'] <= $prix) || ($prix == 0)) && 
-                           (($dest['personnes'] == $personnes) || ($personne == 0)) && 
-                           ($dest['duree'] == $duree) &&
-                           (($dest['debut'] == $debut) && ($dest['fin'] == $fin))
+                           (($dest['personnes'] == $personnes) || ($personnes == 0)) && 
+                           (($voyage_debut == $start) && ($voyage_fin == $end))
                            )
                         {
                             $voyages_trouves[] = $dest;
