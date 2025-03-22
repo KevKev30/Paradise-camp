@@ -1,3 +1,50 @@
+<?php 
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        $civilite = $_POST['civilite'];
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $email = $_POST['email'];
+        $password = $_POST['password']; 
+
+
+        $nouvel_utilisateur = [
+            "civilite" => $civilite,
+            "role" => 'utilisateur',
+            "nom" => $nom,
+            "prenom" => $prenom,
+            "telephone"=> NULL,
+            "email" => $email,
+            "password" => $password,
+            "date_inscription" => date("d.m.y")
+        ];
+
+        $fichier = 'utilisateurs.json';
+
+
+
+        if(file_exists($fichier)){
+            $contenu_fichier=file_get_contents($fichier);   
+            $tab_utilisateur =json_decode($contenu_fichier, true);                 
+
+            foreach($tab_utilisateur['utilisateurs'] as $utilisateur){
+                if($utilisateur['email'] == $email && $utilisateur['password']==$password){
+                    header("Location: connexion.php");
+                    exit;
+                }
+            }
+
+            $tab_utilisateur['utilisateurs'][] = $nouvel_utilisateur;
+
+            $fichier_encode=json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
+            file_put_contents($fichier,$fichier_encode );
+
+            header("Location: Page_profil.php");
+
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -106,47 +153,6 @@
 
         <div class="image_inscription"></div>
 
-        <?php           
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    
-                $civilite = $_POST['civilite'];
-                $nom = $_POST['nom'];
-                $prenom = $_POST['prenom'];
-                $email = $_POST['email'];
-                $password = $_POST['password']; 
-
-                $nouvel_utilisateur = [
-                    "civilite" => $civilite,
-                    "nom" => $nom,
-                    "prenom" => $prenom,
-                    "email" => $email,
-                    "password" => $password,
-                    "date_inscription" => date("d.m.y")
-                ];
-
-                $fichier = 'utilisateurs.json';
-                $contenu_fichier=file_get_contents($fichier);
-
-                if(file_exists($fichier)){
-                    $tab_utilisateur =json_decode($contenu_fichier, true);
-
-
-                    foreach($tab_utilisateur['utilisateurs'] as $utilisateur){
-                        if($utilisateur['email'] == $email && $utilisateur['password']==$password){
-                            echo "Vous êtes déjà inscrit veuillez vous connecter";
-                            exit;
-                        }
-                        else {
-                            header("Location: Page_profil.php");
-                        }
-                    }
-                    $tab_utilisateur['utilisateurs'] = $tab_utilisateur.$nouvel_utilisateur;
-
-                    $fichier_encode=json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
-                    file_put_contents($fichier,$fichier_encode );
-                }
-            }
-        ?>
 
     <?php require 'footer.php'; ?>
 

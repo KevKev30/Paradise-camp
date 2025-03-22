@@ -1,5 +1,51 @@
-<!DOCTYPE html>
+<?php
+    session_start();
 
+    // Vérifie si l'utilisateur est déjà connecté
+    if (isset($_SESSION['email'])) {
+        header("Location: Page_profil.php");
+        exit;
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $email = $_POST['email'];  
+        $password = $_POST['password'];
+
+        $fichier = 'utilisateurs.json';
+
+        if (file_exists($fichier)) {
+            
+            $contenu_fichier = file_get_contents($fichier);
+            $tab_utilisateur = json_decode($contenu_fichier, true);
+
+            $utilisateurs = $tab_utilisateur["utilisateurs"];
+            
+            foreach ($tab_utilisateur['utilisateurs'] as $utilisateur) {
+                if ($utilisateur['email'] == $email) {
+                    if ($utilisateur['password'] == $password && $utilisateur['role'] == "Administrateur") { 
+                        $_SESSION['email'] = $utilisateur['email'];         
+                        header("Location: Page_admin.php");
+                        exit;
+                    } 
+                    elseif ($utilisateur['password'] == $password && $utilisateur['role'] == "utilisateur" || $utilisateur['role'] == "VIP"){
+                        $_SESSION['email'] = $utilisateur['email'];
+                        header("Location: Page_profil.php");
+                        exit;
+                    }
+                    else {
+                        echo "<script>alert('Email ou mot de passe incorrect'); window.location.href='connexion.php';</script>";
+                        exit;
+                    }
+                }
+            }
+            header("Location: inscription.php");
+        }
+    }
+?>
+
+
+
+<!DOCTYPE html>
 <html>
     <head>
     
@@ -81,50 +127,6 @@
         </fieldset>
         
         <div class="image_connexion"></div>
-
-        <?php
-            session_start();
-
-
-            if (isset($_SESSION['email'])) {
-                header("Location: Page_profil.php");
-                exit;
-            }
-            
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $email = $_POST['email'];  
-                $password = $_POST['password'];
-            
-                $fichier = 'utilisateurs.json';
-            
-                if (file_exists($fichier)) {
-                    
-                    $contenu_fichier = file_get_contents($fichier);
-                    $tab_utilisateur = json_decode($contenu_fichier, true);
-            
-            
-                    
-                    foreach ($tab_utilisateur['utilisateurs'] as $utilisateur) {
-                        if ($utilisateur['email'] == $email) {
-                            if ($utilisateur['password'] == $password && $utilisateur['role'] == "Administrateur") { 
-                                $_SESSION['email'] = $utilisateur['email'];         
-                                header("Location: Page_admin.php");
-                                exit;
-                            } 
-                            elseif ($utilisateur['password'] == $password && $utilisateur['role'] == "normal"){
-                                $_SESSION['email'] = $utilisateur['email'];         
-                                header("Location: Page_profil.php");
-                                exit;
-                            } else {
-                                echo "<script>alert('Email ou mot de passe incorrect'); window.location.href='connexion.php';</script>";
-                                exit;
-                            }
-                        }
-                    }
-                    header("Location: inscription.php");
-                }
-            }
-        ?>
     
        <?php require 'footer.php'; ?>
     </body>

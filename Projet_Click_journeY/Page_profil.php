@@ -1,48 +1,4 @@
 <!DOCTYPE html>
-<?php 
-session_start();
-
-
-
-$uti = $_SESSION['email'];
-$fichier = 'utilisateurs.json';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-
-    $civilite = $_POST['civilite'];
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    //$telephone = $_POST['telephone'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-
-    $contenu_fichier = file_get_contents($fichier);
-    $tab_utilisateur = json_decode($contenu_fichier, true);
-
-    foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
-        if ($utilisateur['email'] == $uti) {
-            $utilisateur['civilite'] = $civilite;
-            $utilisateur['nom'] = $nom;
-            $utilisateur['prenom'] = $prenom;
-            //$utilisateur['telephone'] = $telephone;
-            $utilisateur['email'] = $email;
-            $utilisateur['password'] = $password;
-            break;
-        }
-    }
-
-    $fichier_encode=json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
-    file_put_contents($fichier,$fichier_encode );
-
-
-}
-echo '<a href="deconnexion.php">Se déconnecter</a>';
-?>
-
-
-<!DOCTYPE html>
 <html>
     <head>
 
@@ -76,10 +32,59 @@ echo '<a href="deconnexion.php">Se déconnecter</a>';
             </div>
         </header>
 
+        <?php 
+            session_start();
+
+            $uti = $_SESSION['email'];
+            $fichier = 'utilisateurs.json';
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+    
+                $civilite = $_POST['civilite'];
+                $nom = $_POST['nom'];
+                $prenom = $_POST['prenom'];
+                $telephone = $_POST['telephone'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+
+    
+                $contenu_fichier = file_get_contents($fichier);
+                $tab_utilisateur = json_decode($contenu_fichier, true);
+
+
+    
+
+                foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
+                    if ($utilisateur['email'] == $uti) {
+                        $utilisateur['civilite'] = $civilite;
+                        $utilisateur['nom'] = $nom;
+                        $utilisateur['prenom'] = $prenom;
+                        $utilisateur['telephone'] = $telephone;
+                        $utilisateur['email'] = $email;
+                        $utilisateur['password'] = $password;
+                        break;
+                    }
+                }
+
+                $fichier_encode=json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
+                file_put_contents($fichier,$fichier_encode );
+
+
+                // Mettre à jour les informations dans la session
+                $_SESSION['uti']['nom'] = $nom;
+                $_SESSION['uti']['email'] = $email;
+
+                
+            }
+            echo '<a href="deconnexion.php">Se déconnecter</a>';
+
+        ?>
+
 
         <fieldset>
             <p>Mon Profil</p>
-
+            
             <div class="entete">
                 Verifiez vos informations et modifiez les si besoins
             </div>
@@ -102,7 +107,7 @@ echo '<a href="deconnexion.php">Se déconnecter</a>';
                 Nom 
             </div>
             <div class="zone">
-                <input type="text" name="nom" required  />
+                <input type="text" name="nom" placeholder="Lebon JAmes" required  />
                 <button>Modifier</button>
             </div>
             <br/>
