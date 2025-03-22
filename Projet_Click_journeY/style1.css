@@ -543,6 +543,25 @@ fieldset button:hover{
   text-decoration: underline;
 }
 
+.pagination {
+  text-align: center;
+  margin-top: 3%;
+}
+
+.pagination a, .pagination strong {
+  padding: 0.5% 0.8%;
+  margin: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  background: #007BFF;
+}
+
+.pagination strong {
+  background: #0056b3;
+}
+
 
 
 
@@ -709,7 +728,6 @@ table .ban:hover{
   text-align: center;
   margin-top: 100px;
   margin-left: 20%;
-  margin-bottom: 5%;
 }
 
 .details .image{
@@ -735,27 +753,15 @@ table .ban:hover{
   padding-bottom: 0.5%;
   margin-bottom: 4%;
 }
+.details button a{
+  color: black;
+}
 
 .details button:hover{
   background-color: #fa8500;
   cursor: pointer;
 }
 
-.pagination {
-  text-align: center;
-  margin-top: 3%;
-}
-
-.pagination a, .pagination strong {
-  padding: 0.5% 0.8%;
-  margin: 5px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 18px;
-  color: white;
-  background: #007BFF;
-}
-
-.pagination strong {
-  background: #0056b3;
+.details button:visited{
+  color: black;
 }

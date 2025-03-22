@@ -1,28 +1,28 @@
 <?php 
-            session_start();
+    session_start();
 
-            if(isset($_SESSION['email'])){
-                $uti = $_SESSION['email'];
+    if(isset($_SESSION['email'])){
+        $uti = $_SESSION['email'];
+    }
+
+    $fichier = 'utilisateurs.json';
+    $contenu_fichier = file_get_contents($fichier);
+    $tab_utilisateur = json_decode($contenu_fichier, true);
+
+        foreach ($tab_utilisateur['utilisateurs'] as $utilisateur) {
+            if ($utilisateur['email'] == $uti) {
+                $civilite = $utilisateur['civilite'];
+                $nom = $utilisateur['nom'];
+                $prenom = $utilisateur['prenom'];
+                $telephone = $utilisateur['telephone'];
+                $email = $utilisateur['email'];
+                $password = $utilisateur['password'];
+                break;
             }
+        }
 
-            $fichier = 'utilisateurs.json';
-            $contenu_fichier = file_get_contents($fichier);
-            $tab_utilisateur = json_decode($contenu_fichier, true);
-
-                foreach ($tab_utilisateur['utilisateurs'] as $utilisateur) {
-                    if ($utilisateur['email'] == $uti) {
-                        $civilite = $utilisateur['civilite'];
-                        $nom = $utilisateur['nom'];
-                        $prenom = $utilisateur['prenom'];
-                        $telephone = $utilisateur['telephone'];
-                        $email = $utilisateur['email'];
-                        $password = $utilisateur['password'];
-                        break;
-                    }
-                }
-
-            echo '<a href="deconnexion.php">Se déconnecter</a>';
-        ?>
+    echo '<a href="deconnexion.php">Se déconnecter</a>';
+?>
 
 <!DOCTYPE html>
 <html>

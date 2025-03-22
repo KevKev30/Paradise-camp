@@ -50,6 +50,17 @@
             "password": "wxc",
             "date_inscription": "22.03.25",
             "reservation": []
+        },
+        {
+            "civilite": "Femme",
+            "role": "utilisateur",
+            "nom": "rg",
+            "prenom": "dsfhsdgfh",
+            "telephone": null,
+            "email": "dfhsdfgh",
+            "password": "dshsdgh",
+            "date_inscription": "22.03.25",
+            "reservation": []
         }
     ]
 }

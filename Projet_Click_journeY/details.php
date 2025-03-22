@@ -53,7 +53,7 @@
                         echo "Nombre de personnes : ".$dest['personnes']." personnes <br>";
                         echo "Prix/nuit : ".$dest['prix']."€ <br>";
                         echo "durée : ".$dest['duree']." jours <br>";
-                        echo "Du".$dest['debut']."au".$dest['fin'];
+                        echo "Du ".$dest['debut']." au ".$dest['fin'];
                         echo "</p>";
                     }
                 }
@@ -69,6 +69,7 @@
         <?php
             echo "<p><center><button type='submit'><a href=paiement.php?id='" . urlencode($id). "'>Réserver</button></a></center></p>";
         ?>
+        </div>
 
         <?php require 'footer.php';?>
 
