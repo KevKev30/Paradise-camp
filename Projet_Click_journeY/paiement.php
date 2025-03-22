@@ -35,11 +35,9 @@ session_start();
         </header>
         <?php 
             
-            // Vérification si l'ID du voyage a été passé dans la requête POST
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
 
-                // Chargement du fichier JSON contenant les voyages
                 $fichier_voyages = "voyages.json";
                 $fichier_utilisateurs = "utilisateurs.json";
 
@@ -53,7 +51,6 @@ session_start();
                     $tab_utilisateur = json_decode($contenu_fichier_utilisateurs, true);
                 }
 
-                // Recherche du voyage correspondant à l'ID
                 $voyage_reserve = null;
                 foreach ($tab_voyage["voyages"] as $voyage) {
                     if ($voyage["id"] == $id) {
@@ -61,11 +58,9 @@ session_start();
                     }
                 }
 
-                if ($voyage_reserve) {
-                    // Ajout de la réservation à l'utilisateur connecté
-                    foreach ($tab_utilisateur["utilisateurs"] as &$utilisateur) {
+                if ($voyage_reserve != null) {
+                    foreach ($tab_utilisateur["utilisateurs"] as $utilisateur) {
                         if ($utilisateur['email'] == $_SESSION['email']) {
-                            // Créer un objet de réservation avec les informations du voyage
                             $reservation = [
                                 "nom_voyage" => $voyage_reserve["nom"],
                                 "destination" => $voyage_reserve["destination"],
@@ -75,20 +70,16 @@ session_start();
                                 "fin" => $voyage_reserve["fin"],
                                 "personnes" => $voyage_reserve["personnes"],
                                 "duree" => $voyage_reserve["duree"],
-                                "date_reservation" => date('Y-m-d H:i'), // Ajout de la date de réservation
+                                "date_reservation" => date('Y-m-d H:i')
                             ];
-        
-                            // Ajouter la réservation à la liste des réservations de l'utilisateur
                             $utilisateur['reservations'][] = $reservation;
                         }
                     }
         
-                    // Sauvegarder les changements dans le fichier utilisateurs.json
                     $fichier_encode = json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
                     file_put_contents($fichier_utilisateurs, $fichier_encode);
 
 
-                    // Afficher le message de confirmation de réservation
                     echo "<h1>Réservation confirmée !</h1>";
                     echo "<p>Vous avez réservé le voyage : " . $voyage_reserve['nom'] . " pour " . $voyage_reserve['duree'] . " jours.</p>";
                     echo "<p><strong>Détails de la réservation :</strong><br>";

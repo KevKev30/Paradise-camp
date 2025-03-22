@@ -53,7 +53,7 @@
 
                 <input type="date" id="arrivee" placeholder=" " name="debut" min="2025-06-01" max="2025-08-24"/>
 
-                <input type="date" id="depart" placeholder=" " name="fin" min="2025-06-07" max="2025-08-31">
+                <input type="date" id="depart" placeholder=" " name="fin" min="2025-06-01" max="2025-08-31">
 
                 <select name="personnes">
                     <option value="0">Nombre de personnes</option>
@@ -112,13 +112,26 @@
 
                 $prix = (int)$prix;
                 $personnes = (int)$personnes;
-                $debut = $_GET['debut'];
-                $fin = $_GET['fin'];
-
-                $start = new DateTime($debut);
-                $end = new DateTime($fin);
-                $duree = date_diff($start, $end)->days;
-
+                
+                if(empty($_GET['debut'])){
+                    if(empty($_GET['fin'])){
+                        $debut = 0;
+                        $fin = 0;
+                    }
+                    else{
+                        echo "<script>alert('Sélectionnez une date d'arrivée.'); window.location.href='Page_recherche.php';</script>";
+                    }
+                }
+                else{
+                    if(empty($_GET['fin'])){
+                        echo "<script>alert('Sélectionnez une date de départ.'); window.location.href='Page_recherche.php';</script>";
+                    }
+                    else{
+                        $start = new DateTime($debut);
+                        $end = new DateTime($fin);
+                        $duree = date_diff($start, $end)->days;
+                    }
+                }
 
                 $fichier = 'voyages.json';
                 if(file_exists($fichier)){
@@ -133,7 +146,7 @@
                            (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && 
                            (($dest['prix'] <= $prix) || ($prix == 0)) && 
                            (($dest['personnes'] == $personnes) || ($personnes == 0)) && 
-                           (($voyage_debut == $start) && ($voyage_fin == $end))
+                           (($voyage_debut == $start) && ($voyage_fin == $end) || ($debut == 0 && $fin == 0))
                            )
                         {
                             $voyages_trouves[] = $dest;
