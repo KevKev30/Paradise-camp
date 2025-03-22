@@ -53,6 +53,7 @@
                         echo "Nombre de personnes : ".$dest['personnes']." personnes <br>";
                         echo "Prix/nuit : ".$dest['prix']."€ <br>";
                         echo "durée : ".$dest['duree']." jours <br>";
+                        echo "Du".$dest['debut']."au".$dest['fin'];
                         echo "</p>";
                     }
                 }
@@ -65,7 +66,7 @@
             <input type="checkbox" value="cantine"/> Cantine : +40€/personne <br>
             <input type="checkbox" value="arcade"> Pass arcade : +10€/personne <br>
         </p>
-        <p><center><button type="submit">Commander</button></center></p>
+        <p><center><button type="submit"><a>Commander</button></a></center></p>
 
     </body>
 </html>

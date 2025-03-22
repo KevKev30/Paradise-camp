@@ -51,9 +51,9 @@
                     <option value="Limoges">Limoges</option>
                 </select>
 
-                <input type="date" id="arrivee" placeholder=" " name="debut"/>
+                <input type="date" id="arrivee" placeholder=" " name="debut" min="2025-06-01" max="2025-08-31"/>
 
-                <input type="date" id="depart" placeholder=" " name="fin">
+                <input type="date" id="depart" placeholder=" " name="fin" min="2025-06-01" max="2025-08-31">
 
                 <select name="personnes">
                     <option value="0">Nombre de personnes</option>
@@ -90,6 +90,17 @@
 
         <?php 
             session_start();
+
+            $voyages_par_page = 5;
+            $offset = ($page_actuelle - 1) * $voyages_par_page;
+            if (isset($_GET['page'])){
+                $page_actuelle = (int)$_GET['page'];
+            }
+            else{
+                $page_actuelle = 1;
+            }
+
+            $voyages_trouves = [];
 
             if (isset($_GET['destination']) && isset($_GET['debut']) && isset($_GET['fin']) && isset($_GET['personnes']) && isset($_GET['hebergement']) && isset($_GET['prix'])){
 
@@ -130,22 +141,51 @@
                     $voyages = json_decode($contenu_fichier, true);
 
                     foreach($voyages['voyages'] as $dest){
-                        if ((($dest['destination'] == $destination) || ($destination == "")) && (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && (($dest['prix'] <= $prix) || ($prix == 0)) && (($dest['personnes'] == $personnes) || ($personne == 0)) && (($dest['duree'] == $duree) || ($duree == 0))){
-                            $id = $dest['id'];
-                            echo "<div class='selection1'>";
-                            echo "<img class='photo' src='".htmlspecialchars($dest['image'])."'>";
-                            echo "<p>".htmlspecialchars($dest['nom'])."-".htmlspecialchars($dest['destination']);
-                            echo "<br>";
-                            echo "Nombre de personnes : ".$dest['personnes'];
-                            echo "<br>";
-                            echo "Prix/nuit: ".$dest['prix']."€";
-                            echo "<br>";
-                            echo "Durée : ".$dest['duree']." jours </p>";
-                            echo "<a href='details.php?id=".urlencode($id)."'> Voir les détails </a>";
-                            echo "</div>";
-                            $count ++;
+                        if (
+                           (($dest['destination'] == $destination) || ($destination == "")) && 
+                           (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && 
+                           (($dest['prix'] <= $prix) || ($prix == 0)) && 
+                           (($dest['personnes'] == $personnes) || ($personne == 0)) && 
+                           (($dest['duree'] == $duree) || ($duree == 0)) &&
+                           (($dest['debut'] == $debut) && ($dest['fin'] == $fin))
+                           )
+                        {
+                            $voyages_trouves[] = $dest;
                         }
                     }
+
+                    $total_voyages = count($voyages_trouves);
+                    $total_pages = ceil($total_voyages / $voyages_par_page);
+                    $voyages_affiches = array_slice($voyages_trouves, $offset, $voyages_par_page);
+
+                    foreach ($voyages_affiches as $dest) {
+                        $id = $dest['id'];
+                        echo "<div class='selection1'>";
+                        echo "<img class='photo' src='" . htmlspecialchars($dest['image']) . "'>";
+                        echo "<p>" . htmlspecialchars($dest['nom']) . "-" . htmlspecialchars($dest['destination']);
+                        echo "<br>";
+                        echo "Nombre de personnes : " . $dest['personnes'];
+                        echo "<br>";
+                        echo "Prix/nuit: " . $dest['prix'] . "€";
+                        echo "<br>";
+                        echo "Durée : " . $dest['duree'] . " jours </p>";
+                        echo "<a href='details.php?id=" . urlencode($id) . "'> Voir les détails </a>";
+                        echo "</div>";
+                        $count++;
+                    }
+
+                    if ($total_pages > 1) {
+                        echo "<div class='pagination'>";
+                        for ($i = 1; $i <= $total_pages; $i++) {
+                            if ($i == $page_actuelle) {
+                                echo "<strong>$i</strong> ";
+                            } else {
+                                echo "<a href='Page_recherche.php?" . http_build_query($_GET) . "&page=$i'>$i</a> ";
+                            }
+                        }
+                        echo "</div>";
+                    }
+
                     if($count == 0){
                         echo "<script>alert('Aucun camping ne correspond à vos recherches.'); window.location.href='Page_recherche.php';</script>";
                     }
