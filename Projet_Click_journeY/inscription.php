@@ -97,6 +97,7 @@
                 <select name="civilite">
                     <option value="Femme">Mme</option>
                     <option value="Homme">M</option>
+                    <option value="Autre">Autre</option>
                 </select>
             </div>
             <br/>

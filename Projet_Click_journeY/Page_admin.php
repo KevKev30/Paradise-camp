@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    
+
         <title>Administrateur</title>
         <link rel="stylesheet" href="style1.css" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,7 @@
                     <h2> <a href="Page_accueil.php">Paradise camp</a></h2>
                 </div>
                 <p>Bienvenue sur Paradise Camp, le paradis grandeur nature.</p>
-          
+
                 <div class="menu-connexion">
                     <div class="boutton">
                         <a class="fa fa-user-o"> Mon espace</a>
@@ -32,131 +32,61 @@
             </div>
         </header>
 
-        <div class="admin">
-            <p>Bonjour, Voici les personnes inscrits dans le site :</p>
-        </div>
+        <?php 
+            echo '<a href="deconnexion.php">Se déconnecter</a>';
 
 
-        <table cellpadding="5" border="3" cellspacing="5">
-            <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>e-mail</th>
-                <th>Gestion</th>
-            </tr>
-            <tr>
-                <td>Buzel</td>
-                <td>Mathis</td>
-                <td>mat.buz@gmail.com</td>
-                <td>
-                    <button type="submit" class="vip">Promouvoir</button>
-                    <button type="submit" class="ban">Bannir</button>
-                </td>
-            </tr>       
-            <tr>
-                <td>Buz</td>
-                <td>Alex</td>
-                <td>zenn.alex@gmail.com</td>
-                <td>
-                    <button type="submit" class="vip">Promouvoir</button>
-                    <button type="submit" class="ban">Bannir</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Coubisisa</td>
-                <td>Tony</td>
-                <td>thephoenix18@gmail.com</td>
-                <td>
-                    <button type="submit" class="vip">Promouvoir</button>
-                    <button type="submit" class="ban">Bannir</button>
-                </td>
-            </tr>      
-            <tr>
-                <td>Ramad</td>
-                <td>Ari</td>
-                <td>mhd450@gmail.com</td>
-                <td>
-                    <button type="submit" class="vip">Promouvoir</button>
-                    <button type="submit" class="ban">Bannir</button>
-                </td>
-            </tr>       
-            <tr>
-                <td>Vabriss</td>
-                <td>Oumar</td>
-                <td>filsdusoleil.sherlock@gmail.com</td>
-                <td>
-                    <button type="submit" class="vip">Promouvoir</button>
-                    <button type="submit" class="ban">Bannir</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Mastu</td>
-                <td>Théo</td>
-                <td>contact@mastucorp.com</td>
-                <td>
-                    <button type="submit" class="vip">Promouvoir</button>
-                    <button type="submit" class="ban">Bannir</button>
-                </td>
-            </tr>   
-            <tr>
-                <td>Jardine</td>
-                <td>John</td>
-                <td>jean.dujar@gmail.com</td>
-                <td>
-                    <button type="submit" class="vip">Promouvoir</button>
-                    <button type="submit" class="ban">Bannir</button>
-                </td>
-            </tr>       
-            <tr>
-                <td>Morujene</td>
-                <td>Melison</td>
-                <td>poupette92@gmail.com</td>
-                <td>
-                    <button type="submit" class="vip">Promouvoir</button>
-                    <button type="submit" class="ban">Bannir</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Bazo</td>
-                <td>Kalina</td>
-                <td>kaatsup.collab@gmail.com</td>
-                <td>
-                    <button type="submit" class="vip">Promouvoir</button>
-                    <button type="submit" class="ban">Bannir</button>
-                </td>
-            </tr>   
-            <tr>
-                <td>Barry</td>
-                <td>Gertrude</td>
-                <td>madame.barry95312@gmail.com</td>
-                <td>
-                    <button type="submit" class="vip">Promouvoir</button>
-                    <button type="submit" class="ban">Bannir</button>
-                </td>
-            </tr>       
-            <tr>
-                <td>LeBron</td>
-                <td>James</td>
-                <td>LeGoat.hY23616@gmail.com</td>
-                <td>
-                    <button type="submit" class="vip">Promouvoir</button>
-                    <button type="submit" class="ban">Bannir</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Micaj</td>
-                <td>Jojo</td>
-                <td>steph30.guez@gmail.com</td>
-                <td>
-                    <button type="submit" class="vip">Promouvoir</button>
-                    <button type="submit" class="ban">Bannir</button>
-                </td>
-            </tr>     
-        </table>
+            $fichier = 'utilisateurs.json';
+            $contenu_fichier = file_get_contents($fichier);
+            $tab_utilisateur = json_decode($contenu_fichier, true);
+
+            echo '<div class="admin">
+                    <p>Bonjour, Voici les personnes inscrites sur le site :</p>
+                </div>';
+
+            echo '<table cellpadding="5" border="3" cellspacing="5">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>e-mail</th>
+                        <th>Gestion</th>
+                    </tr>';
 
 
-      
-        <?php require 'footer.php';?>
-        
+            foreach ($tab_utilisateur['utilisateurs'] as  $index => $utilisateur) {
+                echo "<tr>
+                        <td>{$utilisateur['nom']}</td>
+                        <td>{$utilisateur['prenom']}</td>
+                        <td>{$utilisateur['email']}</td>
+                        <td>
+                            <form action='promotion.php' method='POST' style='display:inline;'>
+                                <input type='hidden' name='index' value='{$index}'>
+                                <button type='submit' class='vip'>Promouvoir</button>
+                            </form>
+                            <form action='bannir.php' method='POST' style='display:inline;'>
+                                <input type='hidden' name='index' value='{$index}'>
+                                <button type='submit' class='ban'>Bannir</button>
+                            </form>
+                        </td>
+                    </tr>";
+            }
+
+            echo '</table>';
+
+        ?>
+
+        <script>
+            document.querySelectorAll(".ban").forEach(button => {
+                button.addEventListener("click", function(event) {
+                    if (!confirm("Es-tu sûr de vouloir bannir cet utilisateur ?")) {
+                        event.preventDefault();
+                    }
+                });
+            });
+        </script>
+
+
+        <?php require 'footer.php'; ?>
+
     </body>
 </html>

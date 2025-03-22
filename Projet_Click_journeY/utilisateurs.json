@@ -5,6 +5,7 @@
             "role": "Administrateur",
             "nom": "JOACHIM",
             "prenom": "Anaelle",
+            "telephone": null,
             "email": "anaellejoachim@gmail.com",
             "password": "aze"
         },
@@ -13,6 +14,7 @@
             "role": "Administrateur",
             "nom": "NGUYEN OANH",
             "prenom": "Kevin",
+            "telephone": null,
             "email": "kevinnguyen@gmail.com",
             "password": "rty"
         },
@@ -21,24 +23,28 @@
             "role": "Administrateur",
             "nom": "EDOUARD",
             "prenom": "Axel",
+            "telephone": null,
             "email": "axeledouard@gmail.com",
             "password": "uiop"
         },
         {
             "civilite": "Homme",
-            "role": "normal",
+            "role": "utilisateur",
             "nom": "JAMES",
             "prenom": "Lebron",
+            "telephone": null,
             "email": "lebronjames@gmail.com",
             "password": "qsdf"
         },
         {
-            "civilite": "Homme",
-            "role": "normal",
-            "nom": "CURRY",
-            "prenom": "Stephen",
-            "email": "stephencurry@gmail.com",
-            "password": "ghjk"
+            "civilite": "Autre",
+            "role": "utilisateur",
+            "nom": "nguyen",
+            "prenom": "test",
+            "telephone": null,
+            "email": "blabla@yahoo.fr",
+            "password": "wxc",
+            "date_inscription": "22.03.25"
         }
     ]
 }

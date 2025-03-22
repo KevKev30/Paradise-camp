@@ -23,7 +23,7 @@
             foreach ($tab_utilisateur['utilisateurs'] as $utilisateur) {
                 if ($utilisateur['email'] == $email) {
                     if ($utilisateur['password'] == $password && $utilisateur['role'] == "Administrateur") { 
-                        $_SESSION['email'] = $utilisateur['email'];         
+                        $_SESSION['email'] = $utilisateur['email'];   
                         header("Location: Page_admin.php");
                         exit;
                     } 
