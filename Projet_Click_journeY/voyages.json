@@ -8,6 +8,8 @@
             "prix": 400,
             "personnes": 7,
             "duree": 14,
+            "debut": "2025-07-01",
+            "fin": "2025-07-14",
             "image": "image/selectionmh1.jpg"
         },
         {
@@ -18,6 +20,8 @@
             "prix": 240,
             "personnes": 5,
             "duree": 21,
+            "debut": "2025-06-15",
+            "fin": "2025-07-06",
             "image": "image/selectionmh5.jpg"
         },
         {
@@ -28,6 +32,8 @@
             "prix": 280,
             "personnes": 6,
             "duree": 14,
+            "debut": "2025-07-05",
+            "fin": "2025-07-19",
             "image": "image/selectionmh2.jpg"
         },
         {
@@ -38,6 +44,8 @@
             "prix": 350,
             "personnes": 7,
             "duree": 14,
+            "debut": "2025-06-01",
+            "fin": "2025-06-14",
             "image": "image/selectionmh3.jpg"
         },
         {
@@ -48,7 +56,33 @@
             "prix": 450,
             "personnes": 8,
             "duree": 21,
+            "debut": "2025-07-03",
+            "fin": "2025-07-24", 
             "image": "image/selectionmh4.jpg"
+        },
+        {
+            "id": "mh6",
+            "nom": "La Clairière Enchantée",
+            "destination": "Agde",
+            "hebergement": "Mobil-home",
+            "prix": 260,
+            "personnes": 4,
+            "duree": 18,
+            "debut": "2025-06-15",
+            "fin": "2025-07-03",
+            "image": "image/selectionmh6.jpg"
+        },
+        {
+            "id": "mh7",
+            "nom": "Le Refuge des Cerfs",
+            "destination": "Nice",
+            "hebergement": "Mobil-home",
+            "prix": 300,
+            "personnes": 4,
+            "duree": 11,
+            "debut": "2025-07-17",
+            "fin": "2025-07-28",
+            "image": "image/selectionmh7.jpg"
         },
         {
             "id": "ev1",
@@ -58,6 +92,8 @@
             "prix": 240,
             "personnes": 4,
             "duree": 14,
+            "debut": "2025-06-08",
+            "fin": "2025-06-22",
             "image": "image/selectionev1.jpg"
         },
         {
@@ -68,6 +104,8 @@
             "prix": 120,
             "personnes": 2,
             "duree": 21,
+            "debut": "2025-08-01",
+            "fin": "2025-08-22",
             "image": "image/selectionev2.webp"
         },
         {
@@ -78,6 +116,8 @@
             "prix": 280,
             "personnes": 4,
             "duree": 21,
+            "debut": "2025-07-13",
+            "fin": "2025-08-03",
             "image": "image/selectionev3.jpg"
         },
         {
@@ -88,6 +128,8 @@
             "prix": 240,
             "personnes": 4,
             "duree": 14,
+            "debut": "2025-08-15",
+            "fin": "2025-08-29",
             "image": "image/selectionev4.jpg"
         },
         {
@@ -98,7 +140,21 @@
             "prix": 285,
             "personnes": 5,
             "duree": 14,
+            "debut": "2025-07-15",
+            "fin": "2025-07-29",
             "image": "image/selectionev5.jpg"
+        },
+        {
+            "id": "ev6",
+            "nom": "L'ombre des Grands Chênes",
+            "destination": "Calais",
+            "hebergement": "Espace vert",
+            "prix": 120,
+            "personnes": 5,
+            "duree": 12,
+            "debut": "2025-08-02", 
+            "fin": "2025-08-14",
+            "image": "image/selectionev6.jpg"
         },
         {
             "id": "c1",
@@ -108,6 +164,8 @@
             "prix": 440,
             "personnes": 8,
             "duree": 21,
+            "debut": "2025-06-11",
+            "fin": "2025-07-02",
             "image": "image/selectionc1.jpg"
         },
         {
@@ -118,6 +176,8 @@
             "prix": 210,
             "personnes": 4,
             "duree": 14,
+            "debut": "2025-07-12",
+            "fin": "2025-07-26",
             "image": "image/selectionc2.jpg"
         },
         {
@@ -128,6 +188,8 @@
             "prix": 340,
             "personnes": 6,
             "duree": 21,
+            "debut": "2025-06-08",
+            "fin": "2025-06-29",
             "image": "image/selectionc3.jpg"
         },
         {
@@ -138,6 +200,8 @@
             "prix": 290,
             "personnes": 5,
             "duree": 21,
+            "debut": "2025-08-02",
+            "fin": "2025-08-23",  
             "image": "image/selectionc4.jpg"
         },
         {
@@ -148,7 +212,33 @@
             "prix": 150,
             "personnes": 2,
             "duree": 14,
+            "debut": "2025-06-16",
+            "fin": "2025-06-30",
             "image": "image/selectionc5.jpg"
+        },
+        {
+            "id": "c6",
+            "nom": "Camping Le Paradis Marin",
+            "destination": "Lyon",
+            "hebergement": "Cabane",
+            "prix": 170,
+            "personnes": 4,
+            "duree": 11,
+            "debut": "2025-07-15",
+            "fin": "2025-07-26",
+            "image": "image/selectionc6.jpg"
+        },
+        {
+            "id": "c7",
+            "nom": "Camping des Bois Dormants",
+            "destination": "Montpellier",
+            "hebergement": "Cabane",
+            "prix": 250,
+            "personnes": 5,
+            "duree": 19,
+            "debut": "2025-07-01",
+            "fin": "2025-07-20",
+            "image": "image/selectionc7.jpg"
         }
     ]
 }

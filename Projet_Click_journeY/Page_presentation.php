@@ -135,8 +135,8 @@
                 <br>
                 Prix/Nuit: 440€
                 <br>
-                Durée : 21 jours
-                </p>
+                Durée : 21 jours</p>
+                <a href="details.php?id=c1">Voir les détails</a>
             </div>
             <div class="selection1">
                 <img class="photo" src="image/selectionev4.jpg">
