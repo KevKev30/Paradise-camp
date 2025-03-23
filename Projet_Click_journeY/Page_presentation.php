@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,8 +27,17 @@
                     <div class="boutton">
                         <a class="fa fa-user-o"> Mon espace</a>
                         <div class="menu">
-                            <a href="connexion.php">Connexion</a>
-                            <a href="inscription.php">Inscription</a>
+                            <?php 
+                                $connecte = isset($_SESSION['email']); 
+                                if ($connecte){
+                                    echo "<a href='deconnexion.php?'>Deconnexion</a>
+                                        <a href='Page_profil.php'>Profil</a>";
+                                    }
+                                else {
+                                    echo "<a href='connexion.php?'>Connexion</a>
+                                        <a href='inscription.php'>Inscription</a>";
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>

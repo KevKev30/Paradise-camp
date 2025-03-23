@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,8 +24,17 @@
                 <div class="menu-connexion">
                     <div class="boutton"><a class="fa fa-user-o"> Mon espace</a>
                         <div class="menu">
-                            <a href="connexion.php">Connexion</a>
-                            <a href="inscription.php">Inscription</a>
+                            <?php 
+                                $connecte = isset($_SESSION['email']); 
+                                if ($connecte){
+                                    echo "<a href='deconnexion.php?'>Deconnexion</a>
+                                        <a href='Page_profil.php'>Profil</a>";
+                                    }
+                                else {
+                                    echo "<a href='connexion.php?'>Connexion</a>
+                                        <a href='inscription.php'>Inscription</a>";
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -89,7 +100,6 @@
         </form>
 
         <?php 
-            session_start();
 
             $voyages_par_page = 5;
             $offset = ($page_actuelle - 1) * $voyages_par_page;
@@ -129,7 +139,7 @@
                     else{
                         $debut = $_GET['debut'];
                         $fin = $_GET['fin'];
-                        
+
                         $start = new DateTime($debut);
                         $end = new DateTime($fin);
                         $duree = date_diff($start, $end)->days;
