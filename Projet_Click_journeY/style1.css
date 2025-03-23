@@ -478,11 +478,11 @@ fieldset button:hover{
   color: #f3f3ef;
   padding: 10px;
   margin: 10px;
-  font-size: 1vw;
+  font-size: 1.4vw;
 }
 
 .groupe input, .groupe select, .groupe option{
-  font-size: 20px;
+  font-size: 1.2vw;
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
@@ -504,7 +504,7 @@ fieldset button:hover{
   font-size: 30px;
   margin-top: 15px;
   padding: 1%;
-
+  font-size: 1.5vw;
 }
 
 .recherche-boutton input:hover {
@@ -526,13 +526,14 @@ fieldset button:hover{
   padding-bottom: 40px;
 }
 
-.selection1 a{
-  color: black;
-  text-decoration: none;
+.selection1 p{
+  font-size :2vw;
 }
 
-.selection1 a:hover{
-  text-decoration: underline;
+.selection1:hover {
+  transform: scale(1.05);
+  box-shadow: 20px 20px 20px #cacaca;
+  cursor: pointer;
 }
 
 .pagination {
@@ -647,6 +648,7 @@ fieldset button:hover{
 
 
 
+
 /*_________PAGE D'ADMINISTRATEUR_________*/
 
 .admin{
@@ -750,8 +752,10 @@ table .ban:hover{
   height: 3vw;
 }
 
-.details form select option{
+.details select {
   font-size: 0.9vw;
+  border-radius: 5px;
+  background-color:#ece0d6
 }
 
 .details button{
@@ -763,10 +767,6 @@ table .ban:hover{
   padding-top: 0.5%;
   padding-bottom: 0.5%;
   margin-bottom: 4%;
-}
-
-.details button a{
-  color: black;
 }
 
 .details button:hover{

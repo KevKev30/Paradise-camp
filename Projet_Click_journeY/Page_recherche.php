@@ -43,11 +43,11 @@
       
         <div class="barre_recherche">
             <form action="Page_recherche.php" method="get">
-                <div class="groupe"> 
+                <div class="groupe">
 
                     <label for="destination"> Destination </label>
                     <select name="destination">
-                    <option value="">Destination</option>
+                        <option value="">Destination</option>
                         <option value="Marseille">Marseille</option>
                         <option value="Nice">Nice</option>
                         <option value="Agde">Agde</option>
@@ -64,10 +64,10 @@
                     </select>
 
                     <label for="arrivee"> Date d'Arrivée</label>
-                    <input type="date" id="arrivee" name="debut"/>
+                    <input type="date" id="arrivee" name="debut" min="2025-06-01" max="2025-08-24"/>
 
                     <label for="depart"> Date de départ </label>
-                    <input type="date" id="depart" name="fin"/>
+                    <input type="date" id="depart" name="fin" min="2025-06-01" max="2025-08-31"/>
                 </div>
                     
                 <div class="groupe">
@@ -86,6 +86,7 @@
 
                     <label for="hebergement"> Type d'hébergement </label>
                     <select name="hebergement">
+                        <option value="">Tout type</option>
                         <option value="Mobil-home">Mobil-Home</option>
                         <option value="Espace vert">Espace Vert</option>
                         <option value="Cabane">Cabane dans les arbres</option>
@@ -121,12 +122,12 @@
 
             $voyages_trouves = [];
 
-            if (!empty($_GET['destination'])){
+            if (isset($_GET['destination']) && isset($_GET['debut']) && isset($_GET['fin']) && isset($_GET['personnes']) && isset($_GET['hebergement']) && isset($_GET['prix'])){
 
-                $destination = $_GET['destination'] ?? '';
-                $personnes = $_GET['personnes'] ?? 0;
-                $hebergement = $_GET['hebergement'] ?? '';
-                $prix = $_GET['prix'] ?? 0;
+                $destination = $_GET['destination'];
+                $personnes = $_GET['personnes'];
+                $hebergement = $_GET['hebergement'];
+                $prix = $_GET['prix'];
                 $count = 0;
 
                 $prix = (int)$prix;
