@@ -574,10 +574,9 @@ fieldset button:hover{
 
 .MH1{
   border-radius: 10px;
-  width: 35%;
-  height: 30%;
-  margin-top: 5%;
-  margin-bottom : 3%;
+  width: 600px;
+  height: 400px;
+  margin : 2%;
 }
 
 .hebergement{
@@ -613,13 +612,13 @@ fieldset button:hover{
   }
 
 .experience ul li{
-  font-size: 10%;
+  font-size: 150%;
   text-decoration: underline black;
 }
 
 .experience p{
   text-align: center;
-  font-size: 100%;
+  font-size: 200%;
   width: 1300px;
   margin-top: 10px;
   margin-left: 15%;
