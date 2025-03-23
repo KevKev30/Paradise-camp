@@ -3,23 +3,45 @@
 
     if(isset($_SESSION['email'])){
         $uti = $_SESSION['email'];
-    }
+        $fichier = 'utilisateurs.json';
 
-    $fichier = 'utilisateurs.json';
-    $contenu_fichier = file_get_contents($fichier);
-    $tab_utilisateur = json_decode($contenu_fichier, true);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+    
+            $civilite = $_POST['civilite'];
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $telephone = $_POST['telephone'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
 
-        foreach ($tab_utilisateur['utilisateurs'] as $utilisateur) {
-            if ($utilisateur['email'] == $uti) {
-                $civilite = $utilisateur['civilite'];
-                $nom = $utilisateur['nom'];
-                $prenom = $utilisateur['prenom'];
-                $telephone = $utilisateur['telephone'];
-                $email = $utilisateur['email'];
-                $password = $utilisateur['password'];
-                break;
+    
+            $contenu_fichier = file_get_contents($fichier);
+            $tab_utilisateur = json_decode($contenu_fichier, true);
+
+
+    
+
+            foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
+                if ($utilisateur['email'] == $uti) {
+                    $utilisateur['civilite'] = $civilite;
+                    $utilisateur['nom'] = $nom;
+                    $utilisateur['prenom'] = $prenom;
+                    $utilisateur['telephone'] = $telephone;
+                    $utilisateur['email'] = $email;
+                    $utilisateur['password'] = $password;
+                    break;
+                }
             }
+
+            $fichier_encode=json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
+            file_put_contents($fichier,$fichier_encode );
+
+
+            $_SESSION['uti']['nom'] = $nom;
+            $_SESSION['uti']['email'] = $email;
         }
+    }
 ?>
 
 <!DOCTYPE html>
