@@ -460,45 +460,55 @@ fieldset button:hover{
   margin-left: 3%;
 } 
 
-.barre-recherche{
-  width: 300%;
-  font-size: 10px;
-  margin: auto;
-  background-color: #f1dc64;
-  height: 20%;
-  max-width: 1400px;
-  padding: 1%;
-  margin-top: -2%;
-  border-radius: 10px;
+.groupe{
   display: flex;
-  align-items: center;
-  gap: 15px;
-  box-shadow: 3px 3px 3px 3px black;
+  justify-content: center;
+  flex-direction: row;
+  margin: 10px;
 }
 
-
-.barre-recherche input, select {
-  border: 3px solid #c4c2c2;
-  border-radius: 5px;
-  font-size: 190%;
+.barre_recherche form {
+  background-color: #EF8F1D;
+  padding:80px;
+  border-radius: 20px;
+  margin-top: 50px;
 }
 
-.barre-recherche button{
-  border-radius: 10px;
-  color: white;
+.groupe label{
+  color: #f3f3ef;
+  padding: 10px;
+  margin: 10px;
+  font-size: 1vw;
+}
+
+.groupe input, .groupe select, .groupe option{
   font-size: 20px;
-  width: 100%;
-  background-color: #0066ff;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(228, 227, 227);
+  border-color: bisque;
+  border-width: 5px;
+  box-shadow: 5px 5px 5px black;
 }
 
-.barre-recherche button:hover {
-  background-color: #0400ff;
-}
-
-.accroche{
-  font-size: 27px;
-  padding-top: 5%;
+.recherche-boutton{
   text-align: center;
+}
+
+ .recherche-boutton input{
+  background-color: #373737;
+  border: none;
+  border-radius: 5px;
+  color: #DBDBD9;
+  font-size: 30px;
+  margin-top: 15px;
+  padding: 1%;
+
+}
+
+.recherche-boutton input:hover {
+  box-shadow: 5px 5px 5px white;
 }
 
 .selection1{
@@ -514,14 +524,6 @@ fieldset button:hover{
   border-radius: 15px;
   padding-right: 40px;
   padding-bottom: 40px;
-}
-
-.footer_recherche{
-  margin-top: 0%;
-  background-color:#ca8d5e;
-  height: 30vh;
-  display: flex;
-  font-size: 30px;
 }
 
 .selection1 a{
@@ -552,11 +554,22 @@ fieldset button:hover{
   background: #0056b3;
 }
 
+.selection_lien {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 
 
 
 /*_________PAGE DE PRESENTATION_________*/
+
+.accroche{
+  font-size: 27px;
+  padding-top: 5%;
+  text-align: center;
+}
 
 .MH1{
   border-radius: 10px;

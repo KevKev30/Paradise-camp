@@ -41,63 +41,72 @@
             </div>  
         </header>
       
-        <form action="Page_recherche.php" method="get">
+        <div class="barre_recherche">
+            <form action="Page_recherche.php" method="get">
+                <div class="groupe"> 
 
-            <div class="barre-recherche">
+                    <label for="destination"> Destination </label>
+                    <select name="destination">
+                    <option value="">Destination</option>
+                        <option value="Marseille">Marseille</option>
+                        <option value="Nice">Nice</option>
+                        <option value="Agde">Agde</option>
+                        <option value="Lyon">Lyon</option>
+                        <option value="Annecy">Annecy</option>
+                        <option value="La Rochelle">La Rochelle</option>
+                        <option value="Bordeaux">Bordeaux</option>
+                        <option value="Caen">Caen</option>
+                        <option value="Montpellier">Montpellier</option>
+                        <option value="Les Sables d'Olonne">Les Sables d'Olonne</option>
+                        <option value="Calais">Calais</option>
+                        <option value="Montaigu">Montaigu</option>
+                        <option value="Limoges">Limoges</option>
+                    </select>
 
-                <select name="destination">
-                    <option value="">Destinations</option>
-                    <option value="Marseille">Marseille</option>
-                    <option value="Nice">Nice</option>
-                    <option value="Agde">Agde</option>
-                    <option value="Lyon">Lyon</option>
-                    <option value="Annecy">Annecy</option>
-                    <option value="La Rochelle">La Rochelle</option>
-                    <option value="Bordeaux">Bordeaux</option>
-                    <option value="Caen">Caen</option>
-                    <option value="Montpellier">Montpellier</option>
-                    <option value="Les Sables d'Olonne">Les Sables d'Olonne</option>
-                    <option value="Calais">Calais</option>
-                    <option value="Montaigu">Montaigu</option>
-                    <option value="Limoges">Limoges</option>
-                </select>
+                    <label for="arrivee"> Date d'Arrivée</label>
+                    <input type="date" id="arrivee" name="debut"/>
 
-                <input type="date" id="arrivee" placeholder=" " name="debut" min="2025-06-01" max="2025-08-24"/>
+                    <label for="depart"> Date de départ </label>
+                    <input type="date" id="depart" name="fin"/>
+                </div>
+                    
+                <div class="groupe">
+                    <label for="personnes"> Nombre de voyageurs </label>
+                    <select name="personnes">
+                        <option value="0">Nombre de personnes</option>
+                        <option value="1">1 voyageur</option>
+                        <option value="2">2 voyageurs</option>
+                        <option value="3">3 voyageurs</option>
+                        <option value="4">4 voyageurs</option>
+                        <option value="5">5 voyageurs</option>
+                        <option value="6">6 voyageurs</option>
+                        <option value="7">7 voyageurs</option>
+                        <option value="8">8 voyageurs</option>
+                    </select>
 
-                <input type="date" id="depart" placeholder=" " name="fin" min="2025-06-01" max="2025-08-31">
+                    <label for="hebergement"> Type d'hébergement </label>
+                    <select name="hebergement">
+                        <option value="Mobil-home">Mobil-Home</option>
+                        <option value="Espace vert">Espace Vert</option>
+                        <option value="Cabane">Cabane dans les arbres</option>
+                    </select>
 
-                <select name="personnes">
-                    <option value="0">Nombre de personnes</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                </select>
+                    <label for="prix"> Prix Maximal </label>
+                    <select name="prix">
+                        <option value="0">Aucun maximum</option>
+                        <option value="200">200€</option>
+                        <option value="300">300€</option>
+                        <option value="400">400€</option>
+                        <option value="500">500€</option>
+                        <option value="600">600€</option>
+                    </select>
+                </div>
 
-                <select name="hebergement">
-                    <option value="">Type d'hébergement</option>
-                    <option value="Mobil-home">Mobil-Home</option>
-                    <option value="Espace vert">Espace Vert</option>
-                    <option value="Cabane">Cabane dans les arbres</option>
-                </select>
-    
-                <select name="prix">
-                    <option value="0">Prix Maximal</option>
-                    <option value="200">200€</option>
-                    <option value="300">300€</option>
-                    <option value="400">400€</option>
-                    <option value="500">500€</option>
-                    <option value="600">600€</option>
-                </select>
-    
-                <button class="recherche-boutton" type="submit"><a class="fa fa-search"> Rechercher</a></button>
-
-            </div>
-        </form>
+                <div class="recherche-boutton">
+                    <input type="submit" value="Rechercher"/>
+                </div>
+            </form>
+        </div>
 
         <?php 
 
@@ -112,12 +121,12 @@
 
             $voyages_trouves = [];
 
-            if (isset($_GET['destination']) && isset($_GET['debut']) && isset($_GET['fin']) && isset($_GET['personnes']) && isset($_GET['hebergement']) && isset($_GET['prix'])){
+            if (!empty($_GET['destination'])){
 
-                $destination = $_GET['destination'];
-                $personnes = $_GET['personnes'];
-                $hebergement = $_GET['hebergement'];
-                $prix = $_GET['prix'];
+                $destination = $_GET['destination'] ?? '';
+                $personnes = $_GET['personnes'] ?? 0;
+                $hebergement = $_GET['hebergement'] ?? '';
+                $prix = $_GET['prix'] ?? 0;
                 $count = 0;
 
                 $prix = (int)$prix;
@@ -172,6 +181,7 @@
 
                     foreach ($voyages_affiches as $dest) {
                         $id = $dest['id'];
+                        echo "<a href='details.php?id=".urlencode($id)."' class='selection_lien'>";
                         echo "<div class='selection1'>";
                         echo "<img class='photo' src='" . htmlspecialchars($dest['image']) . "'>";
                         echo "<p>" . htmlspecialchars($dest['nom']) . "-" . htmlspecialchars($dest['destination']);
@@ -181,8 +191,8 @@
                         echo "Prix/nuit: " . $dest['prix'] . "€";
                         echo "<br>";
                         echo "Durée : " . $dest['duree'] . " jours </p>";
-                        echo "<a href='details.php?id=" . urlencode($id) . "'> Voir les détails </a>";
                         echo "</div>";
+                        echo "</a>";
                         $count++;
                     }
 

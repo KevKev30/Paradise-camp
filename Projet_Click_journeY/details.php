@@ -85,7 +85,7 @@
                     echo "<option value='". $j ."'>" .$j . "</option>";
                 }
                 echo "</select><br>";
-                echo "<p>Pass arcade : 10€/personne</p>
+                echo "<p>Pass arcade : +10€/personne</p>
                     <select name='arcade'>";
                 for($k = 0; $k<=$total_personnes; $k++){
                     echo "<option value='". $k ."'>" .$k . "</option>";
