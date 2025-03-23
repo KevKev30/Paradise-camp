@@ -57,33 +57,34 @@
                         echo "</p>";
                     }
                 }
-            }
-
-            echo "<form action='paiement.php' method='post'>
+                echo "<form action='paiement.php' method='post'>
                 <p>Voici les options qu'on peut vous proposer :</p> <br>
                 <p>Menu activité (randonnée, laser game, karting, accrobranche) : +60€/personne</p>
-                <select>";
-            for($i = 0; $i<=$dest['personnes']; $i++){
-                echo "<option value='$i'>$i</option>";
+                <select name='activite'>";
+                for($i = 0; $i<=$dest['personnes']; $i++){
+                    echo "<option value='". $i ."'>" .$i . "</option>";
+                }
+                echo "</select><br>";
+                echo "<p>Cantine : +40€/personne</p>
+                    <select name='cantine'>";
+                for($i = 0; $i<=$dest['personnes']; $i++){
+                    echo "<option value='". $i ."'>" .$i . "</option>";
+                }
+                echo "</select><br>";
+                echo "<p>Pass arcade : 10€/personne</p>
+                    <select name='arcade'>";
+                for($i = 0; $i<=$dest['personnes']; $i++){
+                    echo "<option value='". $i ."'>" .$i . "</option>";
+                }
+                echo "</select><br>";
+                echo "<input type='hidden' name='id' value='$id'/>";
+                echo "<br>";
+                echo "<button type='submit'><center>Réserver</center></button>";
+                echo "</form>";
+                echo "</div>";
+
             }
-            echo "</select><br>";
-            echo "<p>Cantine : +40€/personne</p>
-                <select>";
-            for($i = 0; $i<=$dest['personnes']; $i++){
-                echo "<option value='$i'>$i</option>";
-            }
-            echo "</select><br>";
-            echo "<p>Pass arcade : 10€/personne</p>
-                <select>";
-            for($i = 0; $i<=$dest['personnes']; $i++){
-                 echo "<option value='$i'>$i</option>";
-            }
-            echo "</select><br>";
-            echo "<input type='hidden' name='id' value='$id'/>";
-            echo "<br>";
-            echo "<button type='submit'><center>Réserver</center></button>";
-            echo "</form>";
-            echo "</div>";
+
         ?>
 
         </div>
