@@ -200,7 +200,7 @@
             echo "<img class='photo' src='" . $_SESSION['reservation']['image'] . "'>";
             echo $_SESSION['reservation']['nom'] . " - " . $_SESSION['reservation']['destination'] . "<br>";
             echo $_SESSION['reservation']['hebergement'] . " ". $_SESSION['reservation']['personnes'] . " personnes";
-            echo "<br> Prix Total:".  $_SESSION['reservation']['prix'] . "<br>";
+            echo "<br> Prix Total:".  $_SESSION['reservation']['prix'] . "€<br>";
             echo "Durée :". $_SESSION['reservation']['duree']. "jours
             <br>
             Option :

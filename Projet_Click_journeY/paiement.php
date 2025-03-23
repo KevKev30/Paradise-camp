@@ -151,14 +151,21 @@ session_start();
             require 'getapikey.php';
             $vendeur = 'MI-3_J';        
             $transaction = "PRDC" . rand(100000000, 999999999);        
-            $api_key = getAPIKey($vendeur);                 
-            $valeur_controle = md5($api_key . "#" . $transaction . "#" . $prix_total . "#" . $vendeur . "#http://localhost:8080/retour_paiement.php?session=s#");
+            $api_key = getAPIKey($vendeur);            
+            $host = $_SERVER['HTTP_HOST'];
+
+
+            $base_path = dirname($_SERVER['SCRIPT_NAME']);
+
+
+            $base_path = rtrim($base_path, '/');     
+            $valeur_controle = md5($api_key . "#" . $transaction . "#" . $prix_total . "#" . $vendeur . "#http://".$host."/".$base_path."/retour_paiement.php?session=s#");
 
             echo "<form action='https://www.plateforme-smc.fr/cybank/' method='POST'>
             <input type='hidden' name='transaction' value='$transaction'>
             <input type='hidden' name='montant' value='$prix_total'>
             <input type='hidden' name='vendeur' value='$vendeur'>
-            <input type='hidden' name='retour' value='http://localhost:8080/retour_paiement.php?session=s'>
+            <input type='hidden' name='retour' value='http://".$host."/".$base_path."/retour_paiement.php?session=s'>
             <input type='hidden' name='control' value='$valeur_controle'>
             <input type='submit' value='Payer maintenant'/>
             </form>";
