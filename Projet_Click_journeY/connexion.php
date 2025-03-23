@@ -1,7 +1,6 @@
 <?php
     session_start();
 
-    // Vérifie si l'utilisateur est déjà connecté
     if (isset($_SESSION['email'])) {
         header("Location: Page_profil.php");
         exit;

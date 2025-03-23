@@ -80,7 +80,6 @@
                 file_put_contents($fichier,$fichier_encode );
 
 
-                // Mettre à jour les informations dans la session
                 $_SESSION['uti']['nom'] = $nom;
                 $_SESSION['uti']['email'] = $email;               
             }
