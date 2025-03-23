@@ -449,25 +449,15 @@ fieldset button:hover{
 
 .photo{
   border-radius: 10px;
-  width: 600px;
-  height: 400px;
+  width: 60%;
+  height: 40%;
   margin-left:5%;
   margin-top: 5%;
 }
 
 .selection1 p{
-  font-size: 25px;
+  font-size: 70%;
   margin-left: 3%;
-} 
-
-.selection2 p{
-  font-size: 25px;
-  margin-left: 1%;
-} 
-
-.selection3 p{
-  font-size: 25px;
-  margin-left: 5%;
 } 
 
 .barre-recherche{
@@ -570,10 +560,10 @@ fieldset button:hover{
 
 .MH1{
   border-radius: 10px;
-  width: 450px;
-  height: 400px;
-  margin-left: 5%;
-  margin-top: 4%;
+  width: 35%;
+  height: 30%;
+  margin-top: 5%;
+  margin-bottom : 3%;
 }
 
 .hebergement{
@@ -609,13 +599,13 @@ fieldset button:hover{
   }
 
 .experience ul li{
-  font-size: 25px;
+  font-size: 10%;
   text-decoration: underline black;
 }
 
 .experience p{
   text-align: center;
-  font-size: 30px;
+  font-size: 100%;
   width: 1300px;
   margin-top: 10px;
   margin-left: 15%;
