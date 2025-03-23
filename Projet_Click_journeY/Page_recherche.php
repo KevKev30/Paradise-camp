@@ -110,15 +110,16 @@
         </div>
 
         <?php 
-
-            $voyages_par_page = 5;
-            $offset = ($page_actuelle - 1) * $voyages_par_page;
             if (isset($_GET['page'])){
                 $page_actuelle = (int)$_GET['page'];
             }
             else{
                 $page_actuelle = 1;
             }
+
+            $voyages_par_page = 5;
+            $offset = ($page_actuelle - 1) * $voyages_par_page;
+            
 
             $voyages_trouves = [];
 
