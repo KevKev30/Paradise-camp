@@ -724,35 +724,44 @@ table .ban:hover{
   border-radius: 10px;
   width: 60%;
   height: auto;
-  font-size: 20px;
+  font-size: 1.1vw;
   text-align: center;
   margin-top: 100px;
   margin-left: 20%;
 }
 
+.titre-details{
+  text-align: center;
+  font-size: 2vw;
+}
+
 .details .image{
   border-radius: 10px;
-  width: 700px;
-  height: 500px;
+  width: 35vw;
+  height: 28vw;
   margin-top: 5%;
 }
 
-.details input{
-  text-align: left;
-  width: 12px;
-  height: 12px;
+.details form select{
+  width: 3vw;
+  height: 3vw;
+}
+
+.details form select option{
+  font-size: 0.9vw;
 }
 
 .details button{
   background-color: rgb(235, 147, 34);
   color: white;
   border-radius: 10px;
-  width: 20%;
+  width: 15vw;
   font-size: 70%;
   padding-top: 0.5%;
   padding-bottom: 0.5%;
   margin-bottom: 4%;
 }
+
 .details button a{
   color: black;
 }

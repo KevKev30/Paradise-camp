@@ -45,7 +45,7 @@
 
                 foreach($voyages["voyages"] as $dest){
                     if ($dest["id"] == $id){
-                        echo "<h1><center>".$dest["nom"]."</center></h1>";
+                        echo "<p class='titre-details'><strong>".$dest["nom"]."</strong></p>";
                         echo "<div class='details'>";
                         echo "<center><img class='image' src='".$dest["image"]."'></center>";
                         echo "<p>";
@@ -58,17 +58,34 @@
                     }
                 }
             }
+
+            echo "<form action='paiement.php' method='post'>
+                <p>Voici les options qu'on peut vous proposer :</p> <br>
+                <p>Menu activité (randonnée, laser game, karting, accrobranche) : +60€/personne</p>
+                <select>";
+            for($i = 0; $i<=$dest['personnes']; $i++){
+                echo "<option value='$i'>$i</option>";
+            }
+            echo "</select><br>";
+            echo "<p>Cantine : +40€/personne</p>
+                <select>";
+            for($i = 0; $i<=$dest['personnes']; $i++){
+                echo "<option value='$i'>$i</option>";
+            }
+            echo "</select><br>";
+            echo "<p>Pass arcade : 10€/personne</p>
+                <select>";
+            for($i = 0; $i<=$dest['personnes']; $i++){
+                 echo "<option value='$i'>$i</option>";
+            }
+            echo "</select><br>";
+            echo "<input type='hidden' name='id' value='$id'/>";
+            echo "<br>";
+            echo "<button type='submit'><center>Réserver</center></button>";
+            echo "</form>";
+            echo "</div>";
         ?>
 
-        <p>
-            Voici les options qu'on peut vous proposer : <br>
-            <input type="checkbox" value="activite"/> Menu activité (randonnée, laser game, karting, accrobranche) : +60€/personne<br>
-            <input type="checkbox" value="cantine"/> Cantine : +40€/personne <br>
-            <input type="checkbox" value="arcade"> Pass arcade : +10€/personne <br>
-        </p>
-        <?php
-            echo "<p><center><button type='submit'><a href=paiement.php?id='" . urlencode($id). "'>Réserver</button></a></center></p>";
-        ?>
         </div>
 
         <?php require 'footer.php';?>
