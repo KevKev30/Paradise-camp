@@ -175,6 +175,7 @@
 
         <h1><center>Mes réservations :</center></h1>
         <div class="selection1">
+            <?php if(isset($_SESSION['reservation'])):?>
             <?php echo "<img class='photo' src='" . $_SESSION['reservation']['image'] . "'>";?>
             <p><?php echo $_SESSION["reservation"]["nom"] . " - " . $_SESSION["reservation"]["destination"];?>
             <br>
@@ -204,6 +205,8 @@
             ?>
             </p>
         </div>
-        <?php require 'footer.php'; ?>
+        <?php 
+        endif;
+        require 'footer.php'; ?>
     </body>
 </html>
