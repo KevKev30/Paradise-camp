@@ -78,7 +78,7 @@
                                 $connecte = isset($_SESSION['email']); 
                                 if ($connecte){
                                     echo "<a href='deconnexion.php?'>Deconnexion</a>
-                                        <a href='Page_profil.php'>Profil</a>";
+                                        <a href='Page_profil.php'>Mon Profil</a>";
                                     }
                                 else {
                                     echo "<a href='connexion.php?'>Connexion</a>
