@@ -55,26 +55,27 @@
                         echo "durée : ".$dest['duree']." jours <br>";
                         echo "Du ".$dest['debut']." au ".$dest['fin'];
                         echo "</p>";
+                        $total_personnes = $dest['personnes'];
                     }
                 }
                 echo "<form action='paiement.php' method='post'>
                 <p>Voici les options qu'on peut vous proposer :</p> <br>
                 <p>Menu activité (randonnée, laser game, karting, accrobranche) : +60€/personne</p>
                 <select name='activite'>";
-                for($i = 0; $i<=$dest['personnes']; $i++){
+                for($i = 0; $i<=$total_personnes; $i++){
                     echo "<option value='". $i ."'>" .$i . "</option>";
                 }
                 echo "</select><br>";
                 echo "<p>Cantine : +40€/personne</p>
                     <select name='cantine'>";
-                for($i = 0; $i<=$dest['personnes']; $i++){
-                    echo "<option value='". $i ."'>" .$i . "</option>";
+                for($j = 0; $j<=$total_personnes; $j++){
+                    echo "<option value='". $j ."'>" .$j . "</option>";
                 }
                 echo "</select><br>";
                 echo "<p>Pass arcade : 10€/personne</p>
                     <select name='arcade'>";
-                for($i = 0; $i<=$dest['personnes']; $i++){
-                    echo "<option value='". $i ."'>" .$i . "</option>";
+                for($k = 0; $k<=$total_personnes; $k++){
+                    echo "<option value='". $k ."'>" .$k . "</option>";
                 }
                 echo "</select><br>";
                 echo "<input type='hidden' name='id' value='$id'/>";

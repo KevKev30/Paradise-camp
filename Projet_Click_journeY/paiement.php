@@ -35,7 +35,6 @@ session_start();
         </header>
         <?php 
 
-            session_start();
 
             if (!isset($_SESSION['email'])){
                 echo "<script>alert('Veuillez vous connecter ou vous inscrire.'); window.location.href='connexion.php';</script>";
@@ -47,6 +46,10 @@ session_start();
                 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     $id = $_POST["id"];
+
+                    $activite = 0;
+                    $cantine = 0;
+                    $arcade = 0;
     
                     if(isset($_POST["activite"])){
                         $activite = 60 * (int)$_POST["activite"];
@@ -57,6 +60,8 @@ session_start();
                     if(isset($_POST["arcade"])){
                         $arcade = 10 * (int)$_POST["arcade"];
                     }
+
+                    $option = ["activite" => $_POST['activite'], "cantine" => $_POST['cantine'], "arcade" => $_POST['arcade']];
     
                     $fichier_voyages = "voyages.json";
                     $fichier_utilisateurs = "utilisateurs.json";
@@ -81,7 +86,7 @@ session_start();
     
                     if ($voyage_reserve != null) {
                         foreach ($tab_utilisateur["utilisateurs"] as $utilisateur) {
-                            if ($utilisateur['email'] == $_SESSION['email']) {
+                            if ($utilisateur['email'] == $email) {
                                 $reservation = [
                                     "nom_voyage" => $voyage_reserve["nom"],
                                     "destination" => $voyage_reserve["destination"],
@@ -92,7 +97,7 @@ session_start();
                                     "personnes" => $voyage_reserve["personnes"],
                                     "duree" => $voyage_reserve["duree"],
                                     "date_reservation" => date('Y-m-d H:i'),
-                                    "option" => ["Activite" => $_POST['activite'], "Cantine" => $_POST['cantine'], "Arcade" => $_POST['arcade']]
+                                    "option" => $option
                                 ];
                                 $utilisateur['reservations'][] = $reservation;
                             }
@@ -127,7 +132,6 @@ session_start();
                         echo "</p>";
                         echo "<br>";
                         echo "<a href='details.php'>Un petit doute ?</a> <br>";
-                        echo "<a href='Page_accueil.php'>Retour à l'accueil</a>";
                     } 
                     else {
                         echo "<p>Le voyage sélectionné est introuvable.</p>";
@@ -137,13 +141,21 @@ session_start();
                     echo "<p>Pas de voyage sélectionné.</p>";
                 }
             }
-            
-            
+
+
+            require('getapikey.php');
+
+            $transaction = "154632ABCD";
+            $montant = $prix_total;
+            $vendeur = "MI-3_J";
+            $retour = "http://localhost/retour_paiement.php";
+            $api_key = getAPIKey($vendeur);
+
+            $control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#");
         ?>
 
-
         <fieldset>
-            <p>Paiemment</p>
+            <p>Paiement</p>
             <form action="Page_accueil.php" method="POST">
                 
             <div class="caption">
@@ -177,9 +189,14 @@ session_start();
                 <input type="password" name="password" class="champ" placeholder="CVV" required />
             </div>
             <br/>
+            <input type='hidden' name='transaction' value='154632ABCD'>
+            <?php echo "<input type='hidden' name='montant' value='". $prix_total. "'>";
+                  echo "<input type='hidden' name='vendeur' value='". $vendeur. "'>";?>
+            <input type='hidden' name='retour' value='retour_paiement.php'>
+            <input type='hidden' name='control' value='<?php echo $control;?>'>
     
             <div class="cliquer">
-                <input type="submit" name="paiemment" value="Payer" class="champ"/>
+                <input type="submit" name="paiement" value="Payer" class="champ"/>
             </div>
             <br/>
             </form>

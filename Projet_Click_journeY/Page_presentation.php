@@ -124,7 +124,8 @@
                 <br>
                 Prix/Nuit: 400€
                 <br>
-                Durée : 14 jours</p>
+                Durée : 14 jours </p>
+                <br>
                 <a href="details.php?id=mh1">Voir les détails</a>
             </div>
             <div class="selection1">
