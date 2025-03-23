@@ -133,11 +133,31 @@
 
                 $prix = (int)$prix;
                 $personnes = (int)$personnes;
+
+                $fichier = 'voyages.json';
+                if(file_exists($fichier)){
+                    $contenu_fichier = file_get_contents($fichier);
+                    $voyages = json_decode($contenu_fichier, true);
+                }
                 
                 if(empty($_GET['debut'])){
                     if(empty($_GET['fin'])){
                         $debut = 0;
                         $fin = 0;
+                        foreach($voyages['voyages'] as $dest){
+                            $voyage_debut = new DateTime($dest['debut']);
+                            $voyage_fin = new DateTime($dest['fin']);
+                            if (
+                               (($dest['destination'] == $destination) || ($destination == "")) && 
+                               (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && 
+                               (($dest['prix'] <= $prix) || ($prix == 0)) && 
+                               (($dest['personnes'] == $personnes) || ($personnes == 0)) && 
+                               ($debut == 0 && $fin == 0)
+                               )
+                            {
+                                $voyages_trouves[] = $dest;
+                            }
+                        }
                     }
                     else{
                         echo "<script>alert('Sélectionnez une date d'arrivée.'); window.location.href='Page_recherche.php';</script>";
@@ -154,28 +174,23 @@
                         $start = new DateTime($debut);
                         $end = new DateTime($fin);
                         $duree = date_diff($start, $end)->days;
-                    }
-                }
 
-                $fichier = 'voyages.json';
-                if(file_exists($fichier)){
-                    $contenu_fichier = file_get_contents($fichier);
-                    $voyages = json_decode($contenu_fichier, true);
-
-                    foreach($voyages['voyages'] as $dest){
-                        $voyage_debut = new DateTime($dest['debut']);
-                        $voyage_fin = new DateTime($dest['fin']);
-                        if (
-                           (($dest['destination'] == $destination) || ($destination == "")) && 
-                           (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && 
-                           (($dest['prix'] <= $prix) || ($prix == 0)) && 
-                           (($dest['personnes'] == $personnes) || ($personnes == 0)) && 
-                           (($voyage_debut == $start) && ($voyage_fin == $end) || ($debut == 0 && $fin == 0))
-                           )
-                        {
-                            $voyages_trouves[] = $dest;
+                        foreach($voyages['voyages'] as $dest){
+                            $voyage_debut = new DateTime($dest['debut']);
+                            $voyage_fin = new DateTime($dest['fin']);
+                            if (
+                               (($dest['destination'] == $destination) || ($destination == "")) && 
+                               (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && 
+                               (($dest['prix'] <= $prix) || ($prix == 0)) && 
+                               (($dest['personnes'] == $personnes) || ($personnes == 0)) && 
+                               (($voyage_debut == $start) && ($voyage_fin == $end))
+                               )
+                            {
+                                $voyages_trouves[] = $dest;
+                            }
                         }
                     }
+                }
 
                     $total_voyages = count($voyages_trouves);
                     $total_pages = ceil($total_voyages / $voyages_par_page);
@@ -213,7 +228,6 @@
                     if($count == 0){
                         echo "<script>alert('Aucun camping ne correspond à vos recherches.'); window.location.href='Page_recherche.php';</script>";
                     }
-                }
             }
             require 'footer.php';
         ?>

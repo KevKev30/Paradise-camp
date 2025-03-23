@@ -1,5 +1,5 @@
 <?php 
- session_start();
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +49,10 @@
 
             $uti = $_SESSION['email'];
             $fichier = 'utilisateurs.json';
+            if (file_exists($fichier)){
+                $contenu_fichier = file_get_contents($fichier);
+                $tab_utilisateur = json_decode($contenu_fichier, true);
+            }
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
@@ -58,14 +62,7 @@
                 $prenom = $_POST['prenom'];
                 $telephone = $_POST['telephone'];
                 $email = $_POST['email'];
-                $password = $_POST['password'];
-
-    
-                $contenu_fichier = file_get_contents($fichier);
-                $tab_utilisateur = json_decode($contenu_fichier, true);
-
-
-    
+                $password = $_POST['password'];   
 
                 foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
                     if ($utilisateur['email'] == $uti) {
