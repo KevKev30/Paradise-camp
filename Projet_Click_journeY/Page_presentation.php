@@ -45,7 +45,7 @@
         </header>
 
         <div class="recherche">
-            <form method="GET" action="Page_recherche.html" >
+            <form method="GET" action="Page_recherche.php" >
                 <input type="text" name="recherche" placeholder="Recherchez un camping" required/>
                 <button type="submit">Rechercher</button>
             </form>
@@ -126,9 +126,9 @@
         </div>
 
         <div class="accroche"> Voici des campings et leurs hébergements que nous vous recommandons :</div>
-        
+                                
+        <a href="details.php?id=mh1" class='selection_lien'>
             <div class="selection1">
-                <a href="details.php?id=mh1" class='selection_lien'>
                 <img class="photo" src="image/selectionmh1.jpg">
                 <p>Camping des Bois Dormants - Nice
                 <br>
@@ -137,10 +137,11 @@
                 Prix/Nuit: 400€
                 <br>
                 Durée : 14 jours </p>
-                </a>
+                
             </div>
+        </a>
+        <a href="details.php?id=c1" class='selection_lien'>
             <div class="selection1">
-                <a href="details.php?id=c1" class='selection_lien'>
                 <img class="photo" src="image/selectionc1.jpg">
                 <p>Camping des Chat Perchés - Annecy
                 <br>
@@ -149,10 +150,10 @@
                 Prix/Nuit: 440€
                 <br>
                 Durée : 21 jours</p>
-                </a>
             </div>
+        </a>
+        <a href="details.php?id=ev4" class='selection_lien'>
             <div class="selection1">
-                <a href="details.php?id=ev4" class='selection_lien'>
                 <img class="photo" src="image/selectionev4.jpg">
                 <p>Les Flots Tranquilles - Calais
                 <br>
@@ -161,8 +162,8 @@
                 Prix/Nuit: 95€
                 <br>
                 Durée : 14 jours</p>
-                </a>
             </div>
+        </a>
         </div>
 
         <?php require 'footer.php';?> 
