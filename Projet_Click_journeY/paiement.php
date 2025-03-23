@@ -119,57 +119,56 @@ session_start();
 
             if (isset($_SESSION['reservation'])): 
         ?>
-                <h1>Récapitulatif de votre réservation</h1>
-                <p>Voyage : <?php echo $_SESSION['reservation']['nom']; ?> (<?php echo $_SESSION['reservation']['duree']; ?> jours)</p>
-                <p>Destination : <?php echo $_SESSION['reservation']['destination']; ?></p>
-                <p>Hébergement : <?php echo $_SESSION['reservation']['hebergement']; ?></p>
-                <p>Prix total : <?php echo $_SESSION['reservation']['prix']; ?>€</p>
-                <p>Options :</p>
-                <?php if ($_SESSION['reservation']['option']['activite'] != 0 || $_SESSION['reservation']['option']['cantine'] != 0 || $_SESSION['reservation']['option']['arcade'] != 0){ 
-                        if($_SESSION['reservation']['option']['activite'] != 0){
-                            echo "<p> Menu activité pour " . $_SESSION['reservation']['option']['activite'] . " personnes </p>";
+                <div class="recap">
+                    <h1 class="titre-recap">Récapitulatif de votre réservation</h1>
+                    <p>Voyage : <?php echo $_SESSION['reservation']['nom']; ?> (<?php echo $_SESSION['reservation']['duree']; ?> jours)</p>
+                    <p>Destination : <?php echo $_SESSION['reservation']['destination']; ?></p>
+                    <p>Hébergement : <?php echo $_SESSION['reservation']['hebergement']; ?></p>
+                    <p>Prix total : <?php echo $_SESSION['reservation']['prix']; ?>€</p>
+                    <p>Options :</p>
+                    <?php if ($_SESSION['reservation']['option']['activite'] != 0 || $_SESSION['reservation']['option']['cantine'] != 0 || $_SESSION['reservation']['option']['arcade'] != 0){ 
+                            if($_SESSION['reservation']['option']['activite'] != 0){
+                                echo "<p>- Menu activité pour " . $_SESSION['reservation']['option']['activite'] . " personnes </p>";
+                            }
+
+                            if($_SESSION['reservation']['option']['cantine'] != 0){
+                                echo "<p>- Cantine pour " . $_SESSION['reservation']['option']['cantine'] . " personnes </p>";
+                            }
+                            if($_SESSION['reservation']['option']['arcade'] != 0){
+                                echo "<p>- Pass arcade pour " . $_SESSION['reservation']['option']['arcade'] . " personnes</p>";
+                            }
                         }
-        
-                        if($_SESSION['reservation']['option']['cantine'] != 0){
-                            echo "<p>Cantine pour " . $_SESSION['reservation']['option']['cantine'] . " personnes </p>";
+                        else{
+                            echo "<p>Sans options</p>";
                         }
-                        if($_SESSION['reservation']['option']['arcade'] != 0){
-                            echo "<p>Pass arcade pour " . $_SESSION['reservation']['option']['arcade'] . " personnes</p>";
-                        }
-                    }
-                    else{
-                        echo "<p>Sans options</p>";
-                    }
+                    ?>
+
+                <?php endif; ?>
+                <div class="doute">
+                    <a class="fa fa-arrow-circle-right" href='details.php?id=<?php echo $id;?>'> Fiche détail</a> <br>
+                </div>
+
+
+
+                <?php 
+                    require 'getapikey.php';
+                    $vendeur = 'MI-3_J';
+                    $transaction = "PRDC" . rand(100000000, 999999999);
+                    $api_key = getAPIKey($vendeur);
+                    $valeur_controle = md5($api_key . "#" . $transaction . "#" . $prix_total . "#" . $vendeur . "#http://localhost:8080/retour_paiement.php?session=s#");
+
+                    echo "<form action='https://www.plateforme-smc.fr/cybank/' method='POST'>
+                    <input type='hidden' name='transaction' value='$transaction'>
+                    <input type='hidden' name='montant' value='$prix_total'>
+                    <input type='hidden' name='vendeur' value='$vendeur'>
+                    <input type='hidden' name='retour' value='http://localhost:8080/retour_paiement.php?session=s'>
+                    <input type='hidden' name='control' value='$valeur_controle'>
+                    <div class='recap_payer'>
+                    <input type='submit' value='Payer maintenant'/>
+                    </div>
+                    </form>";
                 ?>
-
-        <?php endif; ?>
-        <a href='details.php?id=<?php echo $id;?>'>Un petit doute ?</a> <br>
-
-
-
-        <?php 
-            require 'getapikey.php';
-            $vendeur = 'MI-3_J';        
-            $transaction = "PRDC" . rand(100000000, 999999999);        
-            $api_key = getAPIKey($vendeur);            
-            $host = $_SERVER['HTTP_HOST'];
-
-
-            $base_path = dirname($_SERVER['SCRIPT_NAME']);
-
-
-            $base_path = rtrim($base_path, '/');     
-            $valeur_controle = md5($api_key . "#" . $transaction . "#" . $prix_total . "#" . $vendeur . "#http://".$host."/".$base_path."/retour_paiement.php?session=s#");
-
-            echo "<form action='https://www.plateforme-smc.fr/cybank/' method='POST'>
-            <input type='hidden' name='transaction' value='$transaction'>
-            <input type='hidden' name='montant' value='$prix_total'>
-            <input type='hidden' name='vendeur' value='$vendeur'>
-            <input type='hidden' name='retour' value='http://".$host."/".$base_path."/retour_paiement.php?session=s'>
-            <input type='hidden' name='control' value='$valeur_controle'>
-            <input type='submit' value='Payer maintenant'/>
-            </form>";
-        ?>
+            </div>
 
         <?php require 'footer.php';?>
     </body>

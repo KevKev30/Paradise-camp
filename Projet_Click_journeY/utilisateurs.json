@@ -38,42 +38,7 @@
             "telephone": "0512485623",
             "email": "lebronjames@gmail.com",
             "password": "qsdf",
-            "reservation": [
-                {
-                    "nom": "Camping Le Paradis Marin",
-                    "destination": "Agde",
-                    "hebergement": "Mobil-home",
-                    "prix": 3920,
-                    "debut": "2025-07-05",
-                    "fin": "2025-07-19",
-                    "personnes": 6,
-                    "duree": 14,
-                    "date_reservation": "2025-03-23 22:05",
-                    "image": "image\/selectionmh2.jpg",
-                    "option": {
-                        "activite": "0",
-                        "cantine": "0",
-                        "arcade": "0"
-                    }
-                },
-                {
-                    "nom": "Camping Le Paradis Marin",
-                    "destination": "Agde",
-                    "hebergement": "Mobil-home",
-                    "prix": 4220,
-                    "debut": "2025-07-05",
-                    "fin": "2025-07-19",
-                    "personnes": 6,
-                    "duree": 14,
-                    "date_reservation": "2025-03-23 22:21",
-                    "image": "image\/selectionmh2.jpg",
-                    "option": {
-                        "activite": "3",
-                        "cantine": "2",
-                        "arcade": "4"
-                    }
-                }
-            ]
+            "reservation": []
         },
         {
             "civilite": "Autre",
