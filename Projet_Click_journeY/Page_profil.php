@@ -195,36 +195,43 @@
         <br>
 
         <h1><center>Mes réservations :</center></h1>
-            <?php if(isset($_SESSION['reservation'])){
-            echo "<div class='selection1'>";
-            echo "<img class='photo' src='" . $_SESSION['reservation']['image'] . "'>";
-            echo $_SESSION['reservation']['nom'] . " - " . $_SESSION['reservation']['destination'] . "<br>";
-            echo $_SESSION['reservation']['hebergement'] . " ". $_SESSION['reservation']['personnes'] . " personnes";
-            echo "<br> Prix Total:".  $_SESSION['reservation']['prix'] . "€<br>";
-            echo "Durée :". $_SESSION['reservation']['duree']. "jours
-            <br>
-            Option :
-            <br>";
-                if ($_SESSION['reservation']['option']["activite"] != 0 || $_SESSION["reservation"]["option"]["cantine"] != 0 || $_SESSION["reservation"]["option"]["arcade"] != 0){
-                    if ($_SESSION["reservation"]["option"]["activite"] != 0){
-                        echo "Menu Activité : " . $_SESSION["reservation"]["option"]["activite"] . " personnes <br>";
-                    }
-                    if ($_SESSION["reservation"]["option"]["cantine"] != 0){
-                        echo "Cantine : " . $_SESSION["reservation"]["option"]["cantine"] . " personnes <br>";
-                    }
-                    if ($_SESSION["reservation"]["option"]["arcade"] != 0){
-                        echo "Pass arcade : " . $_SESSION["reservation"]["option"]["arcade"] . " personnes <br>";
+            <?php 
+                foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
+                    if ($utilisateur['email'] == $uti) {
+                        if ($utilisateur['reservation'] == []){
+                            echo "<h1><center>Pas de réservations.</center></h1>";
+                        }
+                        else{
+                            foreach($utilisateur['reservation'] as $res){
+                                echo "<div class='selection1'>";
+                                echo "<img class='photo' src='" . $res['image'] . "'>";
+                                echo $res['nom'] . " - " . $res['destination'] . "<br>";
+                                echo $res['hebergement'] . " ". $res['personnes'] . " personnes";
+                                echo "<br> Prix Total:".  $res['prix'] . "€<br>";
+                                echo "Durée :". $res['duree']. "jours
+                                <br>
+                                Option :
+                                <br>";
+                                if ($res['option']["activite"] != 0 || $res["option"]["cantine"] != 0 || $res["option"]["arcade"] != 0){
+                                    if ($res["option"]["activite"] != 0){
+                                        echo "Menu Activité : " . $res["option"]["activite"] . " personnes <br>";
+                                    }
+                                    if ($res["cantine"] != 0){
+                                        echo "Cantine : " . $res["option"]["cantine"] . " personnes <br>";
+                                    }
+                                    if ($res["option"]["arcade"] != 0){
+                                        echo "Pass arcade : " . $res["option"]["arcade"] . " personnes <br>";
+                                    }
+                                }
+                                else{
+                                    echo "Sans options";
+                                }
+                                echo "</p>";
+                                echo "</div>";
+                            }
+                        }
                     }
                 }
-                else{
-                    echo "Sans options";
-                }
-                echo "</p>";
-                echo "</div>";
-            }
-            else{
-                echo "<h1><center>Pas de réservations.</center></h1>";
-            }
             ?>
 
 

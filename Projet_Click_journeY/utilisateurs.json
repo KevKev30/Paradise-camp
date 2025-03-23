@@ -55,6 +55,23 @@
                         "cantine": "0",
                         "arcade": "0"
                     }
+                },
+                {
+                    "nom": "Camping Le Paradis Marin",
+                    "destination": "Agde",
+                    "hebergement": "Mobil-home",
+                    "prix": 4220,
+                    "debut": "2025-07-05",
+                    "fin": "2025-07-19",
+                    "personnes": 6,
+                    "duree": 14,
+                    "date_reservation": "2025-03-23 22:21",
+                    "image": "image\/selectionmh2.jpg",
+                    "option": {
+                        "activite": "3",
+                        "cantine": "2",
+                        "arcade": "4"
+                    }
                 }
             ]
         },
