@@ -142,13 +142,13 @@ session_start();
             $vendeur = 'MI-3_J';        
             $transaction = "PRDC" . rand(100000000, 999999999);        
             $api_key = getAPIKey($vendeur);                 
-            $valeur_controle = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#http://localhost/retour_paiement.php?session=s#");
+            $valeur_controle = md5($api_key . "#" . $transaction . "#" . $prix_total . "#" . $vendeur . "#http://localhost:8080/retour_paiement.php?session=s#");
 
-            echo "<form action='https://www.plateforme-smc.fr/cybank/index.php' method='POST'>
+            echo "<form action='https://www.plateforme-smc.fr/cybank/' method='POST'>
             <input type='hidden' name='transaction' value='$transaction'>
             <input type='hidden' name='montant' value='$prix_total'>
             <input type='hidden' name='vendeur' value='$vendeur'>
-            <input type='hidden' name='retour' value='http://localhost/retour_paiement.php'>
+            <input type='hidden' name='retour' value='http://localhost:8080/retour_paiement.php?session=s'>
             <input type='hidden' name='control' value='$valeur_controle'>
             <input type='submit' value='Payer maintenant'/>
             </form>";

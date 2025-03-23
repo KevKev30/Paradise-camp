@@ -127,6 +127,9 @@
                         echo "<script>alert('Sélectionnez une date de départ.'); window.location.href='Page_recherche.php';</script>";
                     }
                     else{
+                        $debut = $_GET['debut'];
+                        $fin = $_GET['fin'];
+                        
                         $start = new DateTime($debut);
                         $end = new DateTime($fin);
                         $duree = date_diff($start, $end)->days;
