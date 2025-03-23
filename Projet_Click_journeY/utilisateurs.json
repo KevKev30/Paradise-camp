@@ -61,6 +61,17 @@
             "password": "dshsdgh",
             "date_inscription": "22.03.25",
             "reservation": []
+        },
+        {
+            "civilite": "Femme",
+            "role": "utilisateur",
+            "nom": "test1",
+            "prenom": "test2",
+            "telephone": null,
+            "email": "test@gmail.com",
+            "password": "vbn",
+            "date_inscription": "23.03.25",
+            "reservation": []
         }
     ]
 }

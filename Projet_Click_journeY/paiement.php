@@ -83,147 +83,77 @@ session_start();
                             $prix_total = ($voyage_reserve['prix'] * $voyage_reserve['duree']) + $activite + $cantine + $arcade;
                         }
                     }
-    
-                    if ($voyage_reserve != null) {
-                        foreach ($tab_utilisateur["utilisateurs"] as $utilisateur) {
-                            if ($utilisateur['email'] == $email) {
-                                $reservation = [
-                                    "nom_voyage" => $voyage_reserve["nom"],
-                                    "destination" => $voyage_reserve["destination"],
-                                    "hebergement" => $voyage_reserve["hebergement"],
-                                    "prix" => $voyage_reserve["prix"],
-                                    "debut" => $voyage_reserve["debut"],
-                                    "fin" => $voyage_reserve["fin"],
-                                    "personnes" => $voyage_reserve["personnes"],
-                                    "duree" => $voyage_reserve["duree"],
-                                    "date_reservation" => date('Y-m-d H:i'),
-                                    "option" => $option
-                                ];
-                                $utilisateur['reservations'][] = $reservation;
-                            }
-                        }
+                    $reservation = [
+                        "nom" => $voyage_reserve["nom"],
+                        "destination" => $voyage_reserve["destination"],
+                        "hebergement" => $voyage_reserve["hebergement"],
+                        "prix" => $prix_total,
+                        "debut" => $voyage_reserve["debut"],
+                        "fin" => $voyage_reserve["fin"],
+                        "personnes" => $voyage_reserve["personnes"],
+                        "duree" => $voyage_reserve["duree"],
+                        "date_reservation" => date('Y-m-d H:i'),
+                        "option" => $option
+                    ];
+                
+                
             
-                        $fichier_encode = json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
-                        file_put_contents($fichier_utilisateurs, $fichier_encode);
+                    $fichier_encode = json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
+                    file_put_contents($fichier_utilisateurs, $fichier_encode);
 
-                        $_SESSION['reservation'] = $reservation;
+                    $_SESSION['reservation'] = $reservation;
+                }   
 
-                        if(isset($_SESSION['reservation'])){
-                            $reservation = $_SESSION['reservation'];
-                            echo "<h1>Recap</h1>";
-                            echo "<p>Vous avez réservé le voyage : " . $reservation['nom'] . " pour " . $reservation['duree'] . " jours.</p>";
-                            echo "<p><strong>Détails de la réservation :</strong><br>";
-                            echo "Destination : " . $reservation['destination'] . "<br>";
-                            echo "Hébergement : " . $reervation['hebergement'] . "<br>";
-                            echo "Prix total: " . $prix_total . "€<br>";
-                            echo "Durée : " . $reservation['duree'] . " jours<br>";
-                            echo "Option : <br>";
-                            if ($activite != 0 && $cantine != 0 && $arcade != 0){ 
-                                if($activite != 0){
-                                    echo "Menu activité pour " . $_POST['activite'] . " personnes <br>";
-                                }
-        
-                                if($cantine != 0){
-                                    echo "Cantine pour " . $_POST['cantine'] . " personnes <br>";
-                                }
-                                if($arcade != 0){
-                                    echo "Pass arcade pour " . $_POST['arcade'] . " personnes <br>";
-                                }
-                            }
-                            else{
-                                echo "Sans options";
-                            }
-                            echo "</p>";
-                            echo "<br>";
-                            echo "<a href='details.php?id=". $id."'>Un petit doute ?</a> <br>";
-                        } 
-                    }
-                    else {
-                        echo "<p>Le voyage sélectionné est introuvable.</p>";
-                    }
-                } 
-                else {
-                    echo "<p>Pas de voyage sélectionné.</p>";
-                }
             }
 
-        ?>
 
-        <fieldset>
-            <p>Paiement</p>
-            <form action="paiement.php" method="POST">
-                
-            <div class="caption">
-                Titulaire de la carte
-            </div>
-            <div class="zone">
-                <input type="text" name="nom" class="champ" placeholder="Prénom nom" required/>
-            </div>
-            <br/>
-    
-            <div class="caption">
-                numéro
-            </div>
-            <div class="zone">
-                <input type="text" name="numero" class="champ" placeholder="numéro de carte" maxlength="16" required/>
-            </div>
-            <br/>
-    
-            <div class="caption">
-                date d'expiration 
-            </div>
-            <div class="zone">
-                <input type="text" name="date" class="champ" placeholder="MM/AA" maxlength="5" required />
-            </div>
-            <br/>
-    
-            <div class="caption_mdp">
-                 CVV 
-            </div>
-            <div class="zone">
-                <input type="text" name="cvv" class="champ" placeholder="CVV" maxlength="3" required />
-            </div>
-            <br/>
-    
-            <div class="cliquer">
-                <input type="submit" name="paiement" value="Payer" class="champ"/>
-            </div>
-            <br/>
-            </form>
-        </fieldset>
+            if (isset($_SESSION['reservation'])): 
+        ?>
+                <h1>Récapitulatif de votre réservation</h1>
+                <p>Voyage : <?php echo $_SESSION['reservation']['nom']; ?> (<?php echo $_SESSION['reservation']['duree']; ?> jours)</p>
+                <p>Destination : <?php echo $_SESSION['reservation']['destination']; ?></p>
+                <p>Hébergement : <?php echo $_SESSION['reservation']['hebergement']; ?></p>
+                <p>Prix total : <?php echo $_SESSION['reservation']['prix']; ?>€</p>
+                <p>Options :</p>
+                <?php if ($_SESSION['reservation']['option']['activite'] != 0 || $_SESSION['reservation']['option']['cantine'] != 0 || $_SESSION['reservation']['option']['arcade'] != 0){ 
+                        if($_SESSION['reservation']['option']['activite'] != 0){
+                            echo "<p> Menu activité pour " . $_SESSION['reservation']['option']['activite'] . " personnes </p>";
+                        }
+        
+                        if($_SESSION['reservation']['option']['cantine'] != 0){
+                            echo "<p>Cantine pour " . $_SESSION['reservation']['option']['cantine'] . " personnes </p>";
+                        }
+                        if($_SESSION['reservation']['option']['arcade'] != 0){
+                            echo "<p>Pass arcade pour " . $_SESSION['reservation']['option']['arcade'] . " personnes</p>";
+                        }
+                    }
+                    else{
+                        echo "<p>Sans options</p>";
+                    }
+                ?>
+
+        <?php endif; ?>
+        <a href='details.php?id=<?php echo $id;?>'>Un petit doute ?</a> <br>
 
 
 
         <?php 
-            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-                if (isset($_POST['nom']) && isset($_POST['numero']) && isset($_POST['date']) && isset($_POST['cvv'])){
-                    $nom = $_POST['nom'];
-                    $numero = $_POST['numero'];
-                    $date = $_POST['date'];
-                    $cvv = $_POST['cvv'];
+            require 'getapikey.php';
+            $vendeur = 'MI-3_J';        
+            $transaction = "PRDC" . rand(100000000, 999999999);        
+            $api_key = getAPIKey($vendeur);                 
+            $valeur_controle = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#http://localhost/retour_paiement.php?session=s#");
 
-                    $tab_date = explode("/", $date);
-                    if (
-                    (!is_numeric($numero) || !is_numeric($cvv)) &&
-                    (((int)$tab_date[0] < 1 || (int)$tab_date[0] > 12) || 
-                    ((int)$tab_date[0] < 3 && (int)$tab_date[1] <= 25)) ){
-                        echo "<script>alert('Information incorrecte ou carte expirée.'); window.location.href='paiement.php';</script>";
-                    }
-                    else{
-                        $transaction = "TXN" . rand(1000, 9999) . strtoupper(substr(md5(rand()), 0, 4));
-                        $vendeur = "MI-3_J";
-                        $retour = "retour_paiement.php";
-                        $control = md5($transaction . "#" . $prix_total . "#" . $vendeur . "#" . $retour);
-
-                        header("Location: $retour?transaction=$transaction&montant=$prix_total&vendeur=$vendeur&statut=accepted&control=$control");
-                        exit;
-                    }
-                }
-            }
-            
-            require 'footer.php'; 
-
+            echo "<form action='https://www.plateforme-smc.fr/cybank/index.php' method='POST'>
+            <input type='hidden' name='transaction' value='$transaction'>
+            <input type='hidden' name='montant' value='$prix_total'>
+            <input type='hidden' name='vendeur' value='$vendeur'>
+            <input type='hidden' name='retour' value='http://localhost/retour_paiement.php'>
+            <input type='hidden' name='control' value='$valeur_controle'>
+            <input type='submit' value='Payer maintenant'/>
+            </form>";
         ?>
 
+        <?php require 'footer.php';?>
     </body>
 </html>

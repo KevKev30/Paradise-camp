@@ -93,7 +93,7 @@
             </div>
             <div class="zone">
                 <?php 
-                    echo "<input type='text' name='nom' placeholder='".$nom."' required />";
+                    echo "<input type='text' name='nom' placeholder='".$nom."'/>";
                 ?>
                 <button>Modifier</button>
             </div>
@@ -104,7 +104,7 @@
             </div>
             <div class="zone">
                 <?php
-                    echo "<input type='text' name='prenom' placeholder='".$prenom."' required/>";
+                    echo "<input type='text' name='prenom' placeholder='".$prenom."'/>";
                 ?>
                 <button>Modifier</button>
             </div>
@@ -115,7 +115,7 @@
             </div>
             <div class="zone">
                 <?php
-                    echo "<input type='text' name='telephone' placeholder='".$telephone."' required/>";
+                    echo "<input type='text' name='telephone' placeholder='".$telephone."'/>";
                 ?>
                 <button>Modifier</button>
             </div>
@@ -126,7 +126,7 @@
             </div>
             <div class="zone">
                 <?php
-                    echo "<input type='text' name='email' placeholder='".$email."' required/>";
+                    echo "<input type='text' name='email' placeholder='".$email."' />";
                 ?>
                 <button>Modifier</button>
             </div>
@@ -137,7 +137,7 @@
             </div>
             <div class="zone">
                 <?php
-                    echo "<input type='text' name='password' placeholder='".$password."' required/>";
+                    echo "<input type='text' name='password' placeholder='".$password."' />";
                 ?>
                 <button>Modifier</button>
             </div>
