@@ -159,6 +159,44 @@
             </form>
         </fieldset>
         <div class="image_inscription"></div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h1><center>Mes réservations :</center></h1>
+        <div class="selection1">
+            <?php echo "<img class='photo' src='" . $_SESSION['reservation']['image'] . "'>";?>
+            <p><?php echo $_SESSION["reservation"]["nom"] . " - " . $_SESSION["reservation"]["destination"];?>
+            <br>
+            <?php echo $_SESSION["reservation"]["hebergement"] . " ". $_SESSION["reservation"]["personnes"] . " personnes";?>
+            <br>
+            Prix Total: <?php echo $_SESSION["reservation"]["prix"];?>€
+            <br>
+            Durée : <?php echo $_SESSION["reservation"]["duree"];?> jours
+            <br>
+            Option :
+            <br>
+            <?php 
+                if ($_SESSION["reservation"]["option"]["activite"] != 0 || $_SESSION["reservation"]["option"]["cantine"] != 0 || $_SESSION["reservation"]["option"]["arcade"] != 0){
+                    if ($_SESSION["reservation"]["option"]["activite"] != 0){
+                        echo "Menu Activité : " . $_SESSION["reservation"]["option"]["activite"] . " personnes <br>";
+                    }
+                    if ($_SESSION["reservation"]["option"]["cantine"] != 0){
+                        echo "Cantine : " . $_SESSION["reservation"]["option"]["cantine"] . " personnes <br>";
+                    }
+                    if ($_SESSION["reservation"]["option"]["arcade"] != 0){
+                        echo "Pass arcade : " . $_SESSION["reservation"]["option"]["arcade"] . " personnes <br>";
+                    }
+                }
+                else{
+                    echo "Sans options";
+                }
+            ?>
+            </p>
+        </div>
         <?php require 'footer.php'; ?>
     </body>
 </html>

@@ -93,6 +93,7 @@ session_start();
                         "personnes" => $voyage_reserve["personnes"],
                         "duree" => $voyage_reserve["duree"],
                         "date_reservation" => date('Y-m-d H:i'),
+                        "image" => $voyage_reserve["image"],
                         "option" => $option
                     ];
                 

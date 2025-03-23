@@ -18,7 +18,25 @@
             "telephone": null,
             "email": "kevinnguyen@gmail.com",
             "password": "rty",
-            "reservation": []
+            "reservation": [
+                {
+                    "nom": "Camping Le Paradis Marin",
+                    "destination": "Agde",
+                    "hebergement": "Mobil-home",
+                    "prix": 4330,
+                    "debut": "2025-07-05",
+                    "fin": "2025-07-19",
+                    "personnes": 6,
+                    "duree": 14,
+                    "date_reservation": "2025-03-23 18:16",
+                    "image": "image\/selectionmh2.jpg",
+                    "option": {
+                        "activite": "4",
+                        "cantine": "4",
+                        "arcade": "1"
+                    }
+                }
+            ]
         },
         {
             "civilite": "Homme",
@@ -71,24 +89,7 @@
             "email": "test@gmail.com",
             "password": "vbn",
             "date_inscription": "23.03.25",
-            "reservation": [
-                {
-                    "nom": "Le Refuge des Cerfs",
-                    "destination": "Montaigu",
-                    "hebergement": "Cabane",
-                    "prix": 7140,
-                    "debut": "2025-06-08",
-                    "fin": "2025-06-29",
-                    "personnes": 6,
-                    "duree": 21,
-                    "date_reservation": "2025-03-23 17:50",
-                    "option": {
-                        "activite": "0",
-                        "cantine": "0",
-                        "arcade": "0"
-                    }
-                }
-            ]
+            "reservation": []
         }
     ]
 }
