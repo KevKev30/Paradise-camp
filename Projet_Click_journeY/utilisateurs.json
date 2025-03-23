@@ -49,14 +49,32 @@
             "reservation": []
         },
         {
-            "civilite": "Homme",
+            "civilite": "Autre",
             "role": "utilisateur",
-            "nom": "JAMES",
-            "prenom": "Lebron",
-            "telephone": null,
+            "nom": "Jame",
+            "prenom": "Lebon",
+            "telephone": "0512485623",
             "email": "lebronjames@gmail.com",
             "password": "qsdf",
-            "reservation": []
+            "reservation": [
+                {
+                    "nom": "Camping des Bois Dormants",
+                    "destination": "Nice",
+                    "hebergement": "Mobil-home",
+                    "prix": 5600,
+                    "debut": "2025-07-01",
+                    "fin": "2025-07-14",
+                    "personnes": 7,
+                    "duree": 14,
+                    "date_reservation": "2025-03-23 20:59",
+                    "image": "image\/selectionmh1.jpg",
+                    "option": {
+                        "activite": "0",
+                        "cantine": "0",
+                        "arcade": "0"
+                    }
+                }
+            ]
         },
         {
             "civilite": "Autre",

@@ -1,47 +1,5 @@
 <?php 
-    session_start();
-
-    if(isset($_SESSION['email'])){
-        $uti = $_SESSION['email'];
-        $fichier = 'utilisateurs.json';
-
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
-    
-            $civilite = $_POST['civilite'];
-            $nom = $_POST['nom'];
-            $prenom = $_POST['prenom'];
-            $telephone = $_POST['telephone'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-
-    
-            $contenu_fichier = file_get_contents($fichier);
-            $tab_utilisateur = json_decode($contenu_fichier, true);
-
-
-    
-
-            foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
-                if ($utilisateur['email'] == $uti) {
-                    $utilisateur['civilite'] = $civilite;
-                    $utilisateur['nom'] = $nom;
-                    $utilisateur['prenom'] = $prenom;
-                    $utilisateur['telephone'] = $telephone;
-                    $utilisateur['email'] = $email;
-                    $utilisateur['password'] = $password;
-                    break;
-                }
-            }
-
-            $fichier_encode=json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
-            file_put_contents($fichier,$fichier_encode );
-
-
-            $_SESSION['uti']['nom'] = $nom;
-            $_SESSION['uti']['email'] = $email;
-        }
-    }
+ session_start();
 ?>
 
 <!DOCTYPE html>
@@ -87,7 +45,51 @@
             </div>
         </header>
 
+        <?php 
 
+            $uti = $_SESSION['email'];
+            $fichier = 'utilisateurs.json';
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+    
+                $civilite = $_POST['civilite'];
+                $nom = $_POST['nom'];
+                $prenom = $_POST['prenom'];
+                $telephone = $_POST['telephone'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+
+    
+                $contenu_fichier = file_get_contents($fichier);
+                $tab_utilisateur = json_decode($contenu_fichier, true);
+
+
+    
+
+                foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
+                    if ($utilisateur['email'] == $uti) {
+                        $utilisateur['civilite'] = $civilite;
+                        $utilisateur['nom'] = $nom;
+                        $utilisateur['prenom'] = $prenom;
+                        $utilisateur['telephone'] = $telephone;
+                        $utilisateur['email'] = $email;
+                        $utilisateur['password'] = $password;
+                        break;
+                    }
+                }
+
+                $fichier_encode=json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
+                file_put_contents($fichier,$fichier_encode );
+
+
+                // Mettre à jour les informations dans la session
+                $_SESSION['uti']['nom'] = $nom;
+                $_SESSION['uti']['email'] = $email;               
+            }
+
+        ?>
+    
         <fieldset>
             <p>Mon Profil</p>
             
@@ -196,21 +198,17 @@
         <br>
 
         <h1><center>Mes réservations :</center></h1>
-        <div class="selection1">
-            <?php if(isset($_SESSION['reservation'])):?>
-            <?php echo "<img class='photo' src='" . $_SESSION['reservation']['image'] . "'>";?>
-            <p><?php echo $_SESSION["reservation"]["nom"] . " - " . $_SESSION["reservation"]["destination"];?>
-            <br>
-            <?php echo $_SESSION["reservation"]["hebergement"] . " ". $_SESSION["reservation"]["personnes"] . " personnes";?>
-            <br>
-            Prix Total: <?php echo $_SESSION["reservation"]["prix"];?>€
-            <br>
-            Durée : <?php echo $_SESSION["reservation"]["duree"];?> jours
+            <?php if(isset($_SESSION['reservation'])){
+            echo "<div class='selection1'>";
+            echo "<img class='photo' src='" . $_SESSION['reservation']['image'] . "'>";
+            echo $_SESSION['reservation']['nom'] . " - " . $_SESSION['reservation']['destination'] . "<br>";
+            echo $_SESSION['reservation']['hebergement'] . " ". $_SESSION['reservation']['personnes'] . " personnes";
+            echo "<br> Prix Total:".  $_SESSION['reservation']['prix'] . "<br>";
+            echo "Durée :". $_SESSION['reservation']['duree']. "jours
             <br>
             Option :
-            <br>
-            <?php 
-                if ($_SESSION["reservation"]["option"]["activite"] != 0 || $_SESSION["reservation"]["option"]["cantine"] != 0 || $_SESSION["reservation"]["option"]["arcade"] != 0){
+            <br>";
+                if ($_SESSION['reservation']['option']["activite"] != 0 || $_SESSION["reservation"]["option"]["cantine"] != 0 || $_SESSION["reservation"]["option"]["arcade"] != 0){
                     if ($_SESSION["reservation"]["option"]["activite"] != 0){
                         echo "Menu Activité : " . $_SESSION["reservation"]["option"]["activite"] . " personnes <br>";
                     }
@@ -224,11 +222,15 @@
                 else{
                     echo "Sans options";
                 }
+                echo "</p>";
+                echo "</div>";
+            }
+            else{
+                echo "<h1><center>Pas de réservations.</center></h1>";
+            }
             ?>
-            </p>
-        </div>
-        <?php 
-        endif;
-        require 'footer.php'; ?>
+
+
+        <?php require 'footer.php';?>
     </body>
 </html>
