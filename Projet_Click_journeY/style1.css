@@ -189,6 +189,7 @@ footer{
 
 .icone{
   color: blue;
+  font-size: 2vw;
 }
 
 .icone a:visited{
@@ -197,6 +198,7 @@ footer{
 
 .icone1{
   color: #9c029c;
+  font-size: 2vw;
 }
 
 .icone1 a:visited{
@@ -205,6 +207,7 @@ footer{
 
 .icone2{
   color:#3c69fd;
+  font-size: 2vw;
 }
 
 .icone2 a:visited{
@@ -581,67 +584,83 @@ fieldset button:hover{
 
 .hebergement{
   margin-left: 7%;
-}
-
-.hebergement h1{
-  text-align: center;
+  text-align: center; 
   margin-right: 5%;
+  font-size: 1vw;
 }
 
 .hebergement p{
-  font-size: 30px;
-  text-align: center;
   margin-top: 5%;
-  margin-right: 15%;  
-  margin-left: 10%;
 }
 
 .hebergement ul{
   width: 50%;
   margin: auto;
-  font-size: 25px;
+  font-size: 1vw;
+}
+
+.experience{
+  width: 80%;
+  margin: auto;
+  text-align: center;
 }
 
 .experience ul{
-
-  width: 70%;
+  width: 100%;
   margin: auto;
+  padding: 20px;
   border: solid #9d9ba5;
-  margin-bottom: 2%;
-  margin-top: 4%;
-  }
-
-.experience ul li{
-  font-size: 150%;
-  text-decoration: underline black;
+  margin-bottom: 30px;
+  list-style: none;
+  background-color: white;
 }
 
-.experience p{
+.experience ul .type{
+  text-decoration: underline;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.5vw;
+}
+
+.experience .illustration{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  gap: 5%;
+}
+
+.experience .illustration img{
+  width: 30%;
+  height: 20%;
+}
+
+.experience .description p{
   text-align: center;
-  font-size: 200%;
-  width: 1300px;
-  margin-top: 10px;
-  margin-left: 15%;
+  font-size: 1.5vw;
+  max-width: 900px;
+  margin: 10px auto;
+  line-height: 1.5;
 }
 
-.recherche {
-  margin-left: 40%;
+.recherche{
+  margin-left: 37%;
   margin-top: 2%;
 }
 
 .recherche button{
   color:black;
-  font-size: 25px;
+  font-size: 1.3vw;
   border-radius: 5px;
   background-color:  #56b7dd;
   box-shadow: 3px 3px 3px black;
 }
 
 .recherche input{
-  font-size: 25px;
+  font-size: 1vw;
   border-radius: 5px;
   box-shadow: 3px 3px 3px black;
-  width: 21%;
+  width: 21vw;
+  height: 1.3vw;
 }
 
 

@@ -73,55 +73,60 @@
                 </p>  
         </div>
         <div class="experience">
-                 <ul>
-                <li>Mobil-homes :</li>
-                <img class="MH1" src="image/Mobil-home1.jpg">
-                <img class="MH1" src="image/Mobil-home2.jpg">
-                <img class="MH1" src="image/Mobil-home3.jpg">
-                <p>Profitez du confort d'un <strong>mobil-home</strong> tout équipé avec une terasse, une climatisation et un espace de vie familial.
-                    Idéal pour des vacances reposantes, avec tout le confort d'une maison au coeur de la nature.
-                </p>
-            </ul>
-            <br>
-            <br>
-            <br>
             <ul>
-                <li>Espaces Verts :</li>
-                <img class="MH1" src="image/camping_car1.jpg">
-                <img class="MH1" src="image/camping_car2.jpg">
-                <img class="MH1" src="image/tente.jpg">
-                <p>Notre agence propose de vastes <strong>espaces verts</strong> dédiés aux caravanes, camping-cars et tentes.
-                    Installez-vous et profitez des nombreux services mis à diposition tel que des sanitaires, des branchements électriques ou encore des aires de vidange.
-                </p>
+                <li class="type">Mobil-homes :</li>
+                <li class="illustration">
+                    <img src="image/Mobil-home1.jpg">
+                    <img src="image/Mobil-home2.jpg">
+                    <img src="image/Mobil-home3.jpg">
+                </li>
+                <li class="description">
+                    <p>Profitez du confort d'un <strong>mobil-home</strong> tout équipé avec une terrasse, une climatisation et un espace de vie familial.
+                    Idéal pour des vacances reposantes, avec tout le confort d'une maison au cœur de la nature.</p>
+                </li>
             </ul>
-            <br>
-            <br>
-            <br>
+
             <ul>
-                <li>Cabanes dans les arbres :</li>
-                <img class="MH1" src="image/cabane1.jpg">
-                <img class="MH1" src="image/cabane2.jpg">
-                <img class="MH1" src="image/cabane3.jpg">
-                <p>Vivez une expérience unique en vous installant dans des <strong>cabanes en pleine forêt</strong>.
-                    Perché dans les hamacs ou encore bercé par les bulles des jacuzzi, profitez d'une nuit magique en hauteur avec une vue imprenable sur les horizons. </p>
+                <li class="type">Espaces Verts :</li>
+                <li class="illustration">
+                    <img src="image/camping_car1.jpg">
+                    <img src="image/camping_car2.jpg">
+                    <img src="image/tente.jpg">
+                </li>
+                <li class="description">
+                    <p>Notre agence propose de vastes <strong>espaces verts</strong> dédiés aux caravanes, camping-cars et tentes.
+                    Installez-vous et profitez des nombreux services mis à disposition tels que des sanitaires, des branchements électriques ou encore des aires de vidange.</p>
+                </li>
             </ul>
-            <br>
-            <br>
-            <br>
-        
+
             <ul>
-                <li>Animation et Activités :</li>
-                <img class="MH1" src="image/karaoke.jpg">
-                <img class="MH1" src="image/club.jpg">
-                <img class="MH1" src="image/piscine3.jpg">
-                <div class="activites">
-                <p>                   
-                    1-Nous proposons des campings avec des espaces aquatiques adaptés à toute la famille. 
-                    Vous trouverez des piscines chauffées, des toboggans, des jeux d'eau mais également des séances d'aquagym ainsi que des espaces bien-être avec spa et massages.<br>                       
-                    2-Prolongez votre expérience avec les soirées à thèmes : Concert, spectacles, karaoké ou encore soirées mousses.<br>
-                    3-Les plus jeunes pourront s'amuser et se défouler grâce aux <strong>clubs enfants</strong>, avec des activités adaptées à tout âge: chasse au trésor, ateliers créatifs, tournois sportifs.                      
-                </p>
-                </div>
+                <li class="type">Cabanes dans les arbres :</li>
+                <li class="illustration">
+                    <img src="image/cabane1.jpg">
+                    <img src="image/cabane2.jpg">
+                    <img src="image/cabane3.jpg">
+                </li>
+                <li class="description">
+                    <p>Vivez une expérience unique en vous installant dans des <strong>cabanes en pleine forêt</strong>.
+                    Perché dans les hamacs ou encore bercé par les bulles des jacuzzis, profitez d'une nuit magique en hauteur avec une vue imprenable sur les horizons.</p>
+                </li>
+            </ul>
+
+            <ul>
+                <li class="type">Animation et Activités :</li>
+                <li class="illustration">
+                    <img src="image/karaoke.jpg">
+                    <img src="image/club.jpg">
+                    <img src="image/piscine3.jpg">
+                </li>
+                <li class="description">
+                    <p>                   
+                        1 - Nous proposons des campings avec des espaces aquatiques adaptés à toute la famille. 
+                        Vous trouverez des piscines chauffées, des toboggans, des jeux d'eau mais également des séances d'aquagym ainsi que des espaces bien-être avec spa et massages.<br>                       
+                        2 - Prolongez votre expérience avec les soirées à thèmes : Concerts, spectacles, karaoké ou encore soirées mousse.<br>
+                        3 - Les plus jeunes pourront s'amuser et se défouler grâce aux <strong>clubs enfants</strong>, avec des activités adaptées à tout âge : chasse au trésor, ateliers créatifs, tournois sportifs.                      
+                    </p>
+                </li>
             </ul>
         </div>
 
