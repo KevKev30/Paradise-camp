@@ -30,6 +30,51 @@ html {
 
 
 
+/*_________AFFICHAGE DES VOYAGES_________*/
+
+.photo{
+  border-radius: 10px;
+  width: 55%;
+  height: 35%;
+  margin-left:5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.selection1{
+  margin: auto;
+  background-color: #bebebe;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  width: 60%;
+  text-align: right;
+  margin-top: 150px;
+  border: none;
+  border-radius: 15px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+}
+
+.selection1 p{
+  font-size :2vw;
+}
+
+.selection1:hover {
+  transform: scale(1.05);
+  box-shadow: 20px 20px 20px #cacaca;
+  cursor: pointer;
+}
+
+.selection_lien {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+
+
 /*_________HEADER_________*/
 
 .head{
@@ -450,19 +495,6 @@ fieldset button:hover{
 
 /*_________PAGE DE RECHERCHE_________*/
 
-.photo{
-  border-radius: 10px;
-  width: 60%;
-  height: 40%;
-  margin-left:5%;
-  margin-top: 5%;
-}
-
-.selection1 p{
-  font-size: 70%;
-  margin-left: 3%;
-} 
-
 .groupe{
   display: flex;
   justify-content: center;
@@ -471,28 +503,30 @@ fieldset button:hover{
 }
 
 .barre_recherche form {
+  width: 94%;
   background-color: #EF8F1D;
-  padding:80px;
+  padding: 3%;
   border-radius: 20px;
   margin-top: 50px;
 }
 
 .groupe label{
   color: #f3f3ef;
-  padding: 10px;
+  padding: 6px;
   margin: 10px;
   font-size: 1.4vw;
 }
 
 .groupe input, .groupe select, .groupe option{
-  font-size: 1.2vw;
+  font-size: 1.3vw;
   margin: 10px;
-  padding: 10px;
+  padding: 6px;
   border-radius: 5px;
   background-color: rgb(228, 227, 227);
   border-color: bisque;
   border-width: 5px;
   box-shadow: 5px 5px 5px black;
+  width: 20vw;
 }
 
 .recherche-boutton{
@@ -504,7 +538,6 @@ fieldset button:hover{
   border: none;
   border-radius: 5px;
   color: #DBDBD9;
-  font-size: 30px;
   margin-top: 15px;
   padding: 1%;
   font-size: 1.5vw;
@@ -512,31 +545,6 @@ fieldset button:hover{
 
 .recherche-boutton input:hover {
   box-shadow: 5px 5px 5px white;
-}
-
-.selection1{
-  margin: auto;
-  background-color: #bebebe;
-  display: flex;
-  align-items: center;
-  font-size: 30px;
-  width: 60%;
-  text-align: right;
-  margin-top: 150px;
-  border: none;
-  border-radius: 15px;
-  padding-right: 40px;
-  padding-bottom: 40px;
-}
-
-.selection1 p{
-  font-size :2vw;
-}
-
-.selection1:hover {
-  transform: scale(1.05);
-  box-shadow: 20px 20px 20px #cacaca;
-  cursor: pointer;
 }
 
 .pagination {
@@ -558,11 +566,6 @@ fieldset button:hover{
   background: #0056b3;
 }
 
-.selection_lien {
-  text-decoration: none;
-  color: inherit;
-}
-
 
 
 
@@ -570,16 +573,9 @@ fieldset button:hover{
 /*_________PAGE DE PRESENTATION_________*/
 
 .accroche{
-  font-size: 27px;
+  font-size: 1.5vw;
   padding-top: 5%;
   text-align: center;
-}
-
-.MH1{
-  border-radius: 10px;
-  width: 600px;
-  height: 400px;
-  margin : 2%;
 }
 
 .hebergement{
@@ -626,12 +622,13 @@ fieldset button:hover{
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
-  gap: 5%;
+  gap: 4%;
+  margin-top: 10px;
 }
 
 .experience .illustration img{
-  width: 30%;
-  height: 20%;
+  width: 25%;
+  height: 15%;
 }
 
 .experience .description p{
