@@ -668,7 +668,7 @@ fieldset button:hover{
 
 .admin{
   text-align: center;
-  font-size: 40px;
+  font-size: 1.5vw;
 }
 
 table{
@@ -682,7 +682,7 @@ table{
 
 table tr{
   text-align: center;
-  font-size: 30px;
+  font-size: 2vw;
   border-radius: 10px;
 }
 
@@ -707,8 +707,8 @@ table button{
 table .vip{
   border-radius: 10px;
   color: white;
-  font-size: 20px;
-  width: 160px;
+  font-size: 1.2vw;
+  width: 100%;
   background-color: #0066ff;
 }
 
@@ -721,8 +721,8 @@ table .vip:hover{
 table .ban{
   border-radius: 10px;
   color: white;
-  font-size: 20px;
-  width: 160px;
+  font-size: 1.2vw;
+  width: 100%;
   background-color: #ff0000;
 }
 
