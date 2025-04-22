@@ -118,7 +118,7 @@
                 Nom
             </div>
             <div class="zone">
-                <input type="text" name="nom" class="champ"  required/>
+                <input type="text" name="nom" required/>
             </div>
             <br/>
 
@@ -126,7 +126,7 @@
                 Prénom
             </div>
             <div class="zone">
-                <input type="text" name="prenom" class="champ" required/>
+                <input type="text" name="prenom" required/>
             </div>
             <br/>
 
@@ -134,7 +134,7 @@
                 Email 
             </div>
             <div class="zone">
-                <input type="text" name="email" class="champ" placeholder="Saisissez votre email" required />
+                <input type="text" name="email" placeholder="Saisissez votre email" required />
             </div>
             <br/>
 
@@ -147,7 +147,7 @@
             <br/>
 
             <div class="cliquer">
-                <input type="submit" name="inscrire" value="Créer mon compte" class="champ"/>
+                <input type="submit" name="inscrire" value="Créer mon compte"/>
             </div>
             <br/>
 

@@ -32,12 +32,13 @@
                         exit;
                     }
                     else {
-                        echo "<script>alert('Email ou mot de passe incorrect'); window.location.href='connexion.php';</script>";
-                        exit;
+                        echo "<script>alert('Email ou mot de passe incorrect');</script>";
                     }
                 }
+                else{
+                    echo "<script>alert('Email ou mot de passe incorrect');</script>";
+                }
             }
-            header("Location: inscription.php");
         }
     }
 ?>
@@ -102,7 +103,7 @@
                 <label for="email">Adresse mail </label>  
             </div>
             <div class="zone">
-                <input type="text" name="email" class="champ" placeholder="Saisissez votre email" required >
+                <input type="text" name="email" placeholder="Saisissez votre email" required >
             </div>
             <br>
     
@@ -111,13 +112,15 @@
             </div>
             <div class="zone">
                 <input type="password" name="password" class="champ" placeholder="Saisissez votre mot de passe" required >
+                <input type="button" value="👁️" onclick="visibilite();"/>
+                <script src="visibilite.js"></script>
             </div>
     
             <div class="underline"> Mot de passe oublié ?</div>
             <br>
     
             <div class="cliquer">
-                <input type="submit" name="connexion" value="Se Connecter" class="champ"/>
+                <input type="submit" name="connexion" value="Se Connecter"/>
             </div>
             <br>
     
