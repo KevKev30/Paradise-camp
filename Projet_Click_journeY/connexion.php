@@ -20,25 +20,24 @@
             $utilisateurs = $tab_utilisateur["utilisateurs"];
             
             foreach ($tab_utilisateur['utilisateurs'] as $utilisateur) {
-                if ($utilisateur['email'] == $email) {
-                    if ($utilisateur['password'] == $password && $utilisateur['role'] == "Administrateur") { 
+                if ($utilisateur['email'] == $email && $utilisateur['password'] == $password) {
+                    if ($utilisateur['role'] == "Administrateur") { 
                         $_SESSION['email'] = $utilisateur['email'];   
                         header("Location: Page_admin.php");
                         exit;
-                    } 
-                    elseif ($utilisateur['password'] == $password && $utilisateur['role'] == "utilisateur" || $utilisateur['role'] == "VIP"){
+                    }
+                    else{
                         $_SESSION['email'] = $utilisateur['email'];
                         header("Location: Page_profil.php");
                         exit;
                     }
-                    else {
-                        echo "<script>alert('Email ou mot de passe incorrect');</script>";
-                    }
                 }
-                else{
-                    echo "<script>alert('Email ou mot de passe incorrect');</script>";
+                else {
+                    echo "<script>alert('Email ou mot de passe incorrect'); window.location.href='connexion.php';</script>";
+                    exit;                    
                 }
             }
+            exit;
         }
     }
 ?>
@@ -102,7 +101,7 @@
             <div class="caption">
                 <label for="email">Adresse mail </label>  
             </div>
-            <div class="zone">
+            <div class="zone" id="email">
                 <input type="text" name="email" placeholder="Saisissez votre email" required >
             </div>
             <br>
@@ -110,17 +109,18 @@
             <div class="caption">
                 Mot de passe 
             </div>
-            <div class="zone">
+            <div class="zone" id="mdp">
                 <input type="password" name="password" class="champ" placeholder="Saisissez votre mot de passe" required >
                 <input type="button" value="👁️" onclick="visibilite();"/>
-                <script src="visibilite.js"></script>
+                <script src="client.js"></script>
             </div>
     
             <div class="underline"> Mot de passe oublié ?</div>
             <br>
     
             <div class="cliquer">
-                <input type="submit" name="connexion" value="Se Connecter"/>
+                <input type="submit" name="connexion" value="Se Connecter" onclick="verification();"/>
+                <script src="client.js"></script>
             </div>
             <br>
     

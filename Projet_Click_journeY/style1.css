@@ -399,6 +399,10 @@ fieldset legend{
   margin-bottom: 2%;
 }
 
+.zone{
+  align-items: center;
+}
+
 .zone input{
   font-size: 1vw;
   border-radius: 5px;
