@@ -112,14 +112,13 @@
             <div class="zone" id="mdp">
                 <input type="password" name="password" class="champ" placeholder="Saisissez votre mot de passe" required >
                 <input type="button" value="👁️" onclick="visibilite();"/>
-                <script src="client.js"></script>
             </div>
     
             <div class="underline"> Mot de passe oublié ?</div>
             <br>
     
             <div class="cliquer">
-                <input type="submit" name="connexion" value="Se Connecter" onclick="verification();"/>
+                <input type="submit" name="connexion" value="Se Connecter"/>
                 <script src="client.js"></script>
             </div>
             <br>
@@ -140,5 +139,6 @@
         <div class="image_connexion"></div>
     
        <?php require 'footer.php'; ?>
+       <script src="client.js"></script>
     </body>
 </html>

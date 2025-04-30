@@ -1,58 +1,55 @@
-function estEmail(email){
+function estEmail(email) {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     return regex.test(email);
 }
 
-
-function visibilite(){
-    let champ =  document.getElementsByClassName("champ");
-
-    if (champ[0].type === "password"){
-        champ[0].type = "text";
+function visibilite() {
+    let champ = document.getElementsByClassName("champ")[0];
+    if (champ.type === "password"){
+        champ.type = "text";
     }
     else{
-        champ[0].type = "password";
+        champ.type = "password";
     }
 }
 
-function verification(){
+function afficherErreur(element, message) {
+    let parent = element.parentNode;
+    let anciens = parent.querySelectorAll("em");
+    anciens.forEach(function(em){em.remove();});
 
-    let valid = true;
-
-    let email = document.getElementsByName("email");
-    let mdp = document.getElementsByName("password");
-
-    let msg_vide = document.createTextNode("Le champ est vide.");
-    let msg_mail = document.createTextNode("L'email n'est pas valide.");
-    let msg_mdp = document.createTextNode("Le mot de passe doit contenir au moins 6 caractères.");
-
-    let em = document.createElement("em");
-    em.appendChild(msg_vide);
-    em.appendChild(msg_mail);
-    em.appendChild(msg_mdp);
-
-    msg_vide.style.color = "red";
-    msg_mail.style.color = "red";
-    msg_mdp.style.color = "red";
-
-    if (email[0].value.trim === ""){
-        document.getElementsById("email").appendChild(msg_vide);
-        valid = false;
+    if (message){
+        let em = document.createElement("em");
+        em.style.color = "red";
+        em.textContent = message;
+        parent.appendChild(em);
     }
-    if (!estEmail(email[0].value)){
-        document.getElementsById("email").appendChild(msg_mail);
-        valid = false;
-    }
+}
 
-    if (mdp[0].value.length < 6){
-        if (mdp[0].value.length == 0){
-            document.getElementsById("mdp").appendChild(msg_vide);
-            valid = false;
-        }
-        else{
-            document.getElementsById("mdp").appendChild(msg_mdp);
-            valid = false;
-        }
+function verifierEmail() {
+    let email = document.getElementsByName("email")[0];
+    if (email.value.trim() === "") {
+        afficherErreur(email, "Le champ est vide.");
+        return false;
+    } else if (!estEmail(email.value)) {
+        afficherErreur(email, "L'email n'est pas valide.");
+        return false;
+    } else {
+        afficherErreur(email, "");
+        return true;
     }
-    return valid;
+}
+
+function verifierMdp() {
+    let mdp = document.getElementsByName("password")[0];
+    if (mdp.value.trim() === "") {
+        afficherErreur(mdp, "Le champ est vide.");
+        return false;
+    } else if (mdp.value.length < 6) {
+        afficherErreur(mdp, "Le mot de passe doit contenir au moins 6 caractères.");
+        return false;
+    } else {
+        afficherErreur(mdp, "");
+        return true;
+    }
 }
