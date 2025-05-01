@@ -3,6 +3,12 @@ function estEmail(email) {
     return regex.test(email);
 }
 
+function estTelephone(tel){
+    tel = tel.replace(/\s+/g, '');
+    const regex = /^0[1-9]\d{8}$/;
+    return regex.test(tel);
+}
+
 function visibilite() {
     let champ = document.getElementsByClassName("champ")[0];
     if (champ.type === "password"){
@@ -13,10 +19,14 @@ function visibilite() {
     }
 }
 
+function supprimerMsg(name){
+    name.forEach(function(em){em.remove();});
+}
+
 function afficherErreur(element, message) {
     let parent = element.parentNode;
     let anciens = parent.querySelectorAll("em");
-    anciens.forEach(function(em){em.remove();});
+    supprimerMsg(anciens);
 
     if (message){
         let em = document.createElement("em");
@@ -65,19 +75,116 @@ function estVide(name){
     return false;
 }
 
-function modifNom(name){
-    let elt = document.getElementsByName(name)[0];
+function modifNom(bouton){
+    let elt = document.getElementsByName("nom")[0];
+    let parent = elt.parentNode;
+    let msg = parent.querySelectorAll("em");
 
-    if (elt.value.disabled === false){
+    if (elt.disabled === false){
         if (elt.value.trim() === ""){
             afficherErreur(elt, "<br>Le champ est vide.");
         }
         else{
             elt.disabled = true;
+            bouton.textContent = "Modifier";
+            supprimerMsg(msg);
         }
     }
     else{
-        elt.value.disabled = false;
+        elt.disabled = false;
+        bouton.textContent = "Valider";
     }
 }
 
+function modifPrenom(bouton){
+    let elt = document.getElementsByName("prenom")[0];
+    let parent = elt.parentNode;
+    let msg = parent.querySelectorAll("em");
+
+    if (elt.disabled === false){
+        if (elt.value.trim() === ""){
+            afficherErreur(elt, "<br>Le champ est vide.");
+        }
+        else{
+            elt.disabled = true;
+            bouton.textContent = "Modifier";
+            supprimerMsg(msg);
+        }
+    }
+    else{
+        elt.disabled = false;
+        bouton.textContent = "Valider";
+    }
+}
+
+function modifTelephone(bouton){
+    let elt = document.getElementsByName("telephone")[0];
+    let parent = elt.parentNode;
+    let msg = parent.querySelectorAll("em");
+
+    if (elt.disabled === false){
+        if (elt.value.trim() === ""){
+            afficherErreur(elt, "<br>Le champ est vide.");
+        }
+        else if (!estTelephone(elt.value)){
+            afficherErreur(elt, "<br>Le format est incorrect (formats autorisés : 0X XX XX XX XX ou 0XXXXXXXXX).")
+        }
+        else{
+            elt.disabled = true;
+            bouton.textContent = "Modifier";
+            supprimerMsg(msg);
+        }
+    }
+    else{
+        elt.disabled = false;
+        bouton.textContent = "Valider";
+    }
+}
+
+function modifEmail(bouton){
+    let elt = document.getElementsByName("email")[0];
+    let parent = elt.parentNode;
+    let msg = parent.querySelectorAll("em");
+
+    if (elt.disabled === false){
+        if (elt.value.trim() === ""){
+            afficherErreur(elt, "<br>Le champ est vide.");
+        }
+        else if (!estEmail(elt.value)){
+            afficherErreur(elt, "<br>Mail Invalide.")
+        }
+        else{
+            elt.disabled = true;
+            bouton.textContent = "Modifier";
+            supprimerMsg(msg);
+        }
+    }
+    else{
+        elt.disabled = false;
+        bouton.textContent = "Valider";
+    }
+}
+
+function modifMdp(bouton){
+    let elt = document.getElementsByName("password")[0];
+    let parent = elt.parentNode;
+    let msg = parent.querySelectorAll("em");
+
+    if (elt.disabled === false){
+        if (elt.value.trim() === ""){
+            afficherErreur(elt, "<br>Le champ est vide.");
+        }
+        else if (!estEmail(elt.value)){
+            afficherErreur(elt, "<br>Mail Invalide.")
+        }
+        else{
+            elt.disabled = true;
+            bouton.textContent = "Modifier";
+            supprimerMsg(msg);
+        }
+    }
+    else{
+        elt.disabled = false;
+        bouton.textContent = "Valider";
+    }
+}

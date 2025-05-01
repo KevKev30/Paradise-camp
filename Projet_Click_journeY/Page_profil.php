@@ -117,7 +117,7 @@
                 <?php 
                     echo "<input type='text' name='nom' value='".$nom."' disabled/>";
                 ?>
-                <button>Modifier</button>
+                <button type="button" onclick="modifNom(this);">Modifier</button>
             </div>
             <br/>
 
@@ -128,7 +128,7 @@
                 <?php
                     echo "<input type='text' name='prenom' value='".$prenom."' disabled/>";
                 ?>
-                <button>Modifier</button>
+                <button type="button" onclick="modifPrenom(this);">Modifier</button>
             </div>
             <br/>
 
@@ -139,7 +139,7 @@
                 <?php
                     echo "<input type='text' name='telephone' value='".$telephone."' disabled/>";
                 ?>
-                <button>Modifier</button>
+                <button type="button" onclick="modifTelephone(this);">Modifier</button>
             </div>
             <br/>
 
@@ -150,7 +150,7 @@
                 <?php
                     echo "<input type='text' name='email' value='".$email."' disabled/>";
                 ?>
-                <button>Modifier</button>
+                <button type="button" onclick="modifEmail(this);">Modifier</button>
             </div>
             <br/>
 
@@ -161,7 +161,7 @@
                 <?php
                     echo "<input type='text' name='password' value='".$password."' disabled/>";
                 ?>
-                <button>Modifier</button>
+                <button type="button" onclick="modifMdp(this);">Modifier</button>
             </div>
             <br/>
 
@@ -230,5 +230,6 @@
 
 
         <?php require 'footer.php';?>
+        <script src="client.js"></script>
     </body>
 </html>
