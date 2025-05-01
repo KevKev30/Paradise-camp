@@ -28,17 +28,22 @@
                     <div class="boutton">
                         <a class="fa fa-user-o"> Mon espace</a>
                         <div class="menu">
-                            <?php 
-                                $connecte = isset($_SESSION['email']); 
-                                if ($connecte){
-                                    echo "<a href='deconnexion.php?'>Deconnexion</a>
-                                        <a href='Page_profil.php'>Mon Profil</a>";
-                                    }
-                                else {
-                                    echo "<a href='connexion.php?'>Connexion</a>
-                                        <a href='inscription.php'>Inscription</a>";
-                                }
-                            ?>
+                        <?php 
+                            $connecte = isset($_SESSION['email']); 
+                            if ($connecte){
+                                echo "<a href='deconnexion.php?'>Deconnexion</a>
+                                    <a href='Page_profil.php'>Mon Profil</a>
+                                    <div class='image_panier'>
+                                        <a class='fa fa-shopping-cart' href='panier.php'></a>";
+
+                                $nbArticles = isset($_SESSION['panier']) ? count($_SESSION['panier']) : 0;
+                                echo "<span>$nbArticles</span>
+                                    </div>";
+                            } else {
+                                echo "<a href='connexion.php?'>Connexion</a>
+                                    <a href='inscription.php'>Inscription</a>";
+                            }
+                        ?>
                         </div> 
                     </div>
                 </div>
@@ -53,25 +58,16 @@
                 $contenu_fichier = file_get_contents($fichier);
                 $tab_utilisateur = json_decode($contenu_fichier, true);
             }
-
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
-    
-                $civilite = $_POST['civilite'];
-                $nom = $_POST['nom'];
-                $prenom = $_POST['prenom'];
-                $telephone = $_POST['telephone'];
-                $email = $_POST['email'];
-                $password = $_POST['password'];   
+   
 
                 foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
                     if ($utilisateur['email'] == $uti) {
-                        $utilisateur['civilite'] = $civilite;
-                        $utilisateur['nom'] = $nom;
-                        $utilisateur['prenom'] = $prenom;
-                        $utilisateur['telephone'] = $telephone;
-                        $utilisateur['email'] = $email;
-                        $utilisateur['password'] = $password;
+                        $civilite = $utilisateur['civilite'];
+                        $nom = $utilisateur['nom'];
+                        $prenom = $utilisateur['prenom'];
+                        $telephone = $utilisateur['telephone'];
+                        $email = $utilisateur['email'];
+                        $password = $utilisateur['password'];
                         break;
                     }
                 }
@@ -82,7 +78,6 @@
 
                 $_SESSION['uti']['nom'] = $nom;
                 $_SESSION['uti']['email'] = $email;               
-            }
 
         ?>
     
@@ -120,7 +115,7 @@
             </div>
             <div class="zone">
                 <?php 
-                    echo "<input type='text' name='nom' placeholder='".$nom."'/>";
+                    echo "<input type='text' name='nom' value='".$nom."' disabled/>";
                 ?>
                 <button>Modifier</button>
             </div>
@@ -131,7 +126,7 @@
             </div>
             <div class="zone">
                 <?php
-                    echo "<input type='text' name='prenom' placeholder='".$prenom."'/>";
+                    echo "<input type='text' name='prenom' value='".$prenom."' disabled/>";
                 ?>
                 <button>Modifier</button>
             </div>
@@ -142,7 +137,7 @@
             </div>
             <div class="zone">
                 <?php
-                    echo "<input type='text' name='telephone' placeholder='".$telephone."'/>";
+                    echo "<input type='text' name='telephone' value='".$telephone."' disabled/>";
                 ?>
                 <button>Modifier</button>
             </div>
@@ -153,7 +148,7 @@
             </div>
             <div class="zone">
                 <?php
-                    echo "<input type='text' name='email' placeholder='".$email."' />";
+                    echo "<input type='text' name='email' value='".$email."' disabled/>";
                 ?>
                 <button>Modifier</button>
             </div>
@@ -164,7 +159,7 @@
             </div>
             <div class="zone">
                 <?php
-                    echo "<input type='text' name='password' placeholder='".$password."' />";
+                    echo "<input type='text' name='password' value='".$password."' disabled/>";
                 ?>
                 <button>Modifier</button>
             </div>

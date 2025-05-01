@@ -24,17 +24,22 @@
                 <div class="menu-connexion">
                     <div class="boutton"><a class="fa fa-user-o"> Mon espace</a>
                         <div class="menu">
-                            <?php 
-                                $connecte = isset($_SESSION['email']); 
-                                if ($connecte){
-                                    echo "<a href='deconnexion.php?'>Deconnexion</a>
-                                        <a href='Page_profil.php'>Mon Profil</a>";
-                                    }
-                                else {
-                                    echo "<a href='connexion.php?'>Connexion</a>
-                                        <a href='inscription.php'>Inscription</a>";
-                                }
-                            ?>
+                        <?php 
+                            $connecte = isset($_SESSION['email']); 
+                            if ($connecte){
+                                echo "<a href='deconnexion.php?'>Deconnexion</a>
+                                    <a href='Page_profil.php'>Mon Profil</a>
+                                    <div class='image_panier'>
+                                        <a class='fa fa-shopping-cart' href='panier.php'></a>";
+
+                                $nbArticles = isset($_SESSION['panier']) ? count($_SESSION['panier']) : 0;
+                                echo "<span>$nbArticles</span>
+                                    </div>";
+                            } else {
+                                echo "<a href='connexion.php?'>Connexion</a>
+                                    <a href='inscription.php'>Inscription</a>";
+                            }
+                        ?>
                         </div>
                     </div>
                 </div>

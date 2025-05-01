@@ -32,11 +32,8 @@
                         exit;
                     }
                 }
-                else {
-                    echo "<script>alert('Email ou mot de passe incorrect'); window.location.href='connexion.php';</script>";
-                    exit;                    
-                }
             }
+            echo "<script>alert('Email ou mot de passe incorrect'); window.location.href='connexion.php';</script>";
             exit;
         }
     }
@@ -102,7 +99,7 @@
                 <label for="email">Adresse mail </label>  
             </div>
             <div class="zone" id="email">
-                <input type="text" name="email" placeholder="Saisissez votre email" required >
+                <input type="text" name="email" placeholder="Saisissez votre email" onblur="verifierEmail();" oninput="verifierEmail();" required >
             </div>
             <br>
     
@@ -110,7 +107,7 @@
                 Mot de passe 
             </div>
             <div class="zone" id="mdp">
-                <input type="password" name="password" class="champ" placeholder="Saisissez votre mot de passe" required >
+                <input type="password" name="password" class="champ" placeholder="Saisissez votre mot de passe" onblur="verifierMdp();" oninput="verifierMdp();" required >
                 <input type="button" value="👁️" onclick="visibilite();"/>
             </div>
     

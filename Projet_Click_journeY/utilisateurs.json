@@ -17,8 +17,26 @@
             "prenom": "Kevin",
             "telephone": null,
             "email": "kevinnguyen@gmail.com",
-            "password": "rty",
-            "reservation": []
+            "password": "KevinNGUYEN",
+            "reservation": [
+                {
+                    "nom": "Camping Le Lagon Azur",
+                    "destination": "Bordeaux",
+                    "hebergement": "Mobil-home",
+                    "prix": 9450,
+                    "debut": "2025-07-03",
+                    "fin": "2025-07-24",
+                    "personnes": 8,
+                    "duree": 21,
+                    "date_reservation": "2025-05-01 16:36",
+                    "image": "image\/selectionmh4.jpg",
+                    "option": {
+                        "activite": "0",
+                        "cantine": "0",
+                        "arcade": "0"
+                    }
+                }
+            ]
         },
         {
             "civilite": "Homme",

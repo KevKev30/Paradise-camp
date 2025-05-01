@@ -33,11 +33,16 @@
                             $connecte = isset($_SESSION['email']); 
                             if ($connecte){
                                 echo "<a href='deconnexion.php?'>Deconnexion</a>
-                                      <a href='Page_profil.php'>Mon Profil</a>";
-                                }
-                             else {
+                                    <a href='Page_profil.php'>Mon Profil</a>
+                                    <div class='image_panier'>
+                                        <a class='fa fa-shopping-cart' href='panier.php'></a>";
+
+                                $nbArticles = isset($_SESSION['panier']) ? count($_SESSION['panier']) : 0;
+                                echo "<span>$nbArticles</span>
+                                    </div>";
+                            } else {
                                 echo "<a href='connexion.php?'>Connexion</a>
-                                      <a href='inscription.php'>Inscription</a>";
+                                    <a href='inscription.php'>Inscription</a>";
                             }
                         ?>
                         </div>
@@ -59,7 +64,7 @@
                 foreach($voyages["voyages"] as $dest){
                     if ($dest["id"] == $id){
                         echo "<p class='titre-details'><strong>".$dest["nom"]."</strong></p>";
-                        echo "<div class='details'>";
+                        echo "<div class='details' id='details'>";
                         echo "<center><img class='image' src='".$dest["image"]."'></center>";
                         echo "<p>";
                         echo "Lieu : ".$dest['destination']." <br>";
@@ -92,18 +97,18 @@
                 }
                 echo "</select><br>";
                 echo "<input type='hidden' name='id' value='$id'/>";
-                echo "<br>";
-                echo "<button type='submit'><center>Réserver</center></button>";
+                echo "<br>"; 
+                echo "<button type='submit'>Ajouter au panier</button>";
                 echo "</form>";
                 echo "</div>";
 
             }
+        
 
-        ?>
+        ?>    
 
-        </div>
+        <?php require 'footer.php';?>        
 
-        <?php require 'footer.php';?>
 
     </body>
 </html>

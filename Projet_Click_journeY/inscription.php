@@ -118,7 +118,7 @@
                 Nom
             </div>
             <div class="zone">
-                <input type="text" name="nom" required/>
+                <input type="text" name="nom" onblur="estVide('nom');" oninput="estVide('nom');" required/>
             </div>
             <br/>
 
@@ -126,7 +126,7 @@
                 Prénom
             </div>
             <div class="zone">
-                <input type="text" name="prenom" required/>
+                <input type="text" name="prenom" onblur="estVide('prenom');" oninput="estVide('prenom');" required/>
             </div>
             <br/>
 
@@ -134,7 +134,7 @@
                 Email 
             </div>
             <div class="zone">
-                <input type="text" name="email" placeholder="Saisissez votre email" required />
+                <input type="text" name="email" placeholder="Saisissez votre email" onblur="verifierEmail();" oninput="verifierEmail();" required />
             </div>
             <br/>
 
@@ -142,7 +142,7 @@
                  Mot de passe 
             </div>
             <div class="zone">
-                <input type="password" name="password" class="champ" placeholder="Saisissez votre mot de passe" required />
+                <input type="password" name="password" class="champ" placeholder="Saisissez votre mot de passe" onblur="verifierMdp();" oninput="verifierMdp();" required />
             </div>
             <br/>
 
@@ -168,6 +168,6 @@
 
 
     <?php require 'footer.php'; ?>
-
+    <script src="client.js"></script>
     </body>
 </html>

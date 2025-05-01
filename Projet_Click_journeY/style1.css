@@ -193,6 +193,24 @@ html {
   font-size: 1.8vw;
 }
 
+.image_panier {
+  position: relative;
+}
+
+.image_panier span {
+  background-color: rgb(255, 0, 0);
+  display: flex;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50px;
+}
+
 
 
 
@@ -854,4 +872,113 @@ table .ban:hover{
 
 .recap h4 {
   text-decoration: underline;
+}
+
+
+
+
+
+/*_________PAGE DE PANIER_________*/
+
+.pagePanier {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.pagePanier h1,h2 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.panierVide p{
+  max-width: 1750px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 10px 10px 10px rgb(0, 0, 0);
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  color: #817f7f;
+}
+.panier {
+  max-width: 1750px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 10px 10px 10px black;
+}
+
+.voyage {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.voyage img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.voyage h3 {
+  margin: 12px 0 5px;
+  font-size: 25px;
+  color: #ff7300;
+}
+
+.voyage p {
+  margin: 10px 0;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.voyage strong {
+  margin-top: 10px;
+  font-size: 25px;
+  color: #e67e22;
+}
+
+button {
+  background-color: #e74c3c;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #c0392b;
+}
+
+a button {
+  background-color: #27ae60;
+  margin-top: 20px;
+  font-size: 25px;
+  padding: 10px;
+}
+
+.bouttonPayer{
+  text-align:center;
+}
+
+a button:hover {
+  background-color: #1e8449;
+}
+
+.voyage {
+    flex-direction: row;
+
+}
+.voyage img {
+    margin-right: 20px;
 }

@@ -21,7 +21,7 @@ function afficherErreur(element, message) {
     if (message){
         let em = document.createElement("em");
         em.style.color = "red";
-        em.textContent = message;
+        em.innerHTML = message;
         parent.appendChild(em);
     }
 }
@@ -29,10 +29,10 @@ function afficherErreur(element, message) {
 function verifierEmail() {
     let email = document.getElementsByName("email")[0];
     if (email.value.trim() === "") {
-        afficherErreur(email, "Le champ est vide.");
+        afficherErreur(email, "<br>Le champ est vide.");
         return false;
     } else if (!estEmail(email.value)) {
-        afficherErreur(email, "L'email n'est pas valide.");
+        afficherErreur(email, "<br>L'email n'est pas valide.");
         return false;
     } else {
         afficherErreur(email, "");
@@ -43,13 +43,41 @@ function verifierEmail() {
 function verifierMdp() {
     let mdp = document.getElementsByName("password")[0];
     if (mdp.value.trim() === "") {
-        afficherErreur(mdp, "Le champ est vide.");
+        afficherErreur(mdp, "<br>Le champ est vide.");
         return false;
     } else if (mdp.value.length < 6) {
-        afficherErreur(mdp, "Le mot de passe doit contenir au moins 6 caractères.");
+        afficherErreur(mdp, "<br>Le mot de passe doit contenir au moins 6 caractères.");
         return false;
     } else {
         afficherErreur(mdp, "");
         return true;
     }
 }
+
+function estVide(name){
+    let elt = document.getElementsByName(name)[0];
+
+    if (elt.value.trim() === ""){
+        afficherErreur(elt, "<br>Le champ est vide.");
+        return true;
+    }
+
+    return false;
+}
+
+function modifNom(name){
+    let elt = document.getElementsByName(name)[0];
+
+    if (elt.value.disabled === false){
+        if (elt.value.trim() === ""){
+            afficherErreur(elt, "<br>Le champ est vide.");
+        }
+        else{
+            elt.disabled = true;
+        }
+    }
+    else{
+        elt.value.disabled = false;
+    }
+}
+

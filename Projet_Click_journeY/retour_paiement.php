@@ -28,7 +28,7 @@ if (isset($_GET['status'])) {
                 }
                 $fichier_encode=json_encode($utilisateurs, JSON_PRETTY_PRINT);
                 file_put_contents($fichier,$fichier_encode);
-                header("Location: Page_accueil.php");
+                header("Location: Page_profil.php");
                 exit();
             }
         } else {
