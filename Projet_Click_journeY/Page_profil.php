@@ -54,13 +54,37 @@
 
             $uti = $_SESSION['id'];
             $fichier = 'utilisateurs.json';
+            $nom = $prenom = $telephone = $email = $password = $civilite = "";
+
             if (file_exists($fichier)){
                 $contenu_fichier = file_get_contents($fichier);
                 $tab_utilisateur = json_decode($contenu_fichier, true);
-            }
-   
 
-                foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $civilite = $_POST['civilite'];
+                    $nom = $_POST['nom'];
+                    $prenom = $_POST['prenom'];
+                    $telephone = $_POST['telephone'];
+                    $email = $_POST['email'];
+                    $password = $_POST['password'];
+                
+                    foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
+                        if ($utilisateur['id'] == $uti) {
+                            $utilisateur['civilite'] = $civilite;
+                            $utilisateur['nom'] = $nom;
+                            $utilisateur['prenom'] = $prenom;
+                            $utilisateur['telephone'] = $telephone;
+                            $utilisateur['email'] = $email;
+                            $utilisateur['password'] = $password;
+                            break;
+                        }
+                    }
+
+                    $fichier_encode = json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
+                    file_put_contents($fichier, $fichier_encode);
+                }
+
+                foreach ($tab_utilisateur['utilisateurs'] as $utilisateur) {
                     if ($utilisateur['id'] == $uti) {
                         $civilite = $utilisateur['civilite'];
                         $nom = $utilisateur['nom'];
@@ -71,14 +95,8 @@
                         break;
                     }
                 }
-
-                $fichier_encode=json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
-                file_put_contents($fichier,$fichier_encode );
-
-
-                $_SESSION['uti']['nom'] = $nom;
-                $_SESSION['uti']['email'] = $email;               
-
+            }
+            
         ?>
     
         <fieldset>
@@ -114,9 +132,7 @@
                 Nom 
             </div>
             <div class="zone">
-                <?php 
-                    echo "<input type='text' name='nom' value='".$nom."' disabled/>";
-                ?>
+                <input type="text" name="nom" value="<?php echo $nom; ?>" disabled>
                 <button type="button" onclick="modifNom(this);">Modifier</button>
             </div>
             <br/>
@@ -125,9 +141,7 @@
                 Prénom
             </div>
             <div class="zone">
-                <?php
-                    echo "<input type='text' name='prenom' value='".$prenom."' disabled/>";
-                ?>
+                <input type="text" name="prenom" value="<?php echo $prenom; ?>" disabled>
                 <button type="button" onclick="modifPrenom(this);">Modifier</button>
             </div>
             <br/>
@@ -136,9 +150,7 @@
                 Téléphone
             </div>
             <div class="zone">
-                <?php
-                    echo "<input type='text' name='telephone' value='".$telephone."' disabled/>";
-                ?>
+                <input type="text" name="telephone" value="<?php echo $telephone; ?>" disabled>
                 <button type="button" onclick="modifTelephone(this);">Modifier</button>
             </div>
             <br/>
@@ -147,9 +159,7 @@
                 Email 
             </div>
             <div class="zone">
-                <?php
-                    echo "<input type='text' name='email' value='".$email."' disabled/>";
-                ?>
+                <input type="text" name="email" value="<?php echo $email; ?>" disabled>
                 <button type="button" onclick="modifEmail(this);">Modifier</button>
             </div>
             <br/>
@@ -158,9 +168,7 @@
                 Mot de passe 
             </div>
             <div class="zone">
-                <?php
-                    echo "<input type='text' name='password' value='".$password."' disabled/>";
-                ?>
+                <input type="text" name="password" value="<?php echo $password; ?>" disabled>
                 <button type="button" onclick="modifMdp(this);">Modifier</button>
             </div>
             <br/>
@@ -191,7 +199,7 @@
         <h1><center>Mes réservations :</center></h1>
             <?php 
                 foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
-                    if ($utilisateur['email'] == $uti) {
+                    if ($utilisateur['id'] == $uti) {
                         if ($utilisateur['reservation'] == []){
                             echo "<h1><center>Pas de réservations.</center></h1>";
                         }

@@ -15,11 +15,11 @@
             "id": "2",
             "civilite": "Homme",
             "role": "Administrateur",
-            "nom": "NGUYEN OANH",
-            "prenom": "Kevin",
+            "nom": null,
+            "prenom": null,
             "telephone": null,
-            "email": "kevinnguyen@gmail.com",
-            "password": "KevinNGUYEN",
+            "email": null,
+            "password": null,
             "reservation": [
                 {
                     "nom": "Camping Le Lagon Azur",
