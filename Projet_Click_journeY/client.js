@@ -75,6 +75,33 @@ function estVide(name){
     return false;
 }
 
+const CoordonneesInitiales = {}
+
+function ajouterAnnuler(parent, champ, bouton, champNom) {
+    let button = document.createElement('button');
+    button.textContent = "Annuler";
+    button.type = "button";
+    button.style.backgroundColor = "grey";
+    parent.appendChild(button);
+
+    button.addEventListener("click", function() {
+        champ.value = CoordonneesInitiales[champNom];
+        champ.disabled = true;
+        bouton.textContent = "Modifier";
+        supprimerAnnuler(parent);
+        supprimerMsg(parent.querySelectorAll("em"));
+    });
+}
+
+function supprimerAnnuler(parent){
+    let annuler = document.getElementsByTagName("button");
+    for (let i = 0; i<annuler.length; i++){
+        if (annuler[i].textContent === "Annuler"){
+            annuler[i].remove();
+        }
+    }
+}
+
 function modifNom(bouton){
     let elt = document.getElementsByName("nom")[0];
     let parent = elt.parentNode;
@@ -85,13 +112,16 @@ function modifNom(bouton){
             afficherErreur(elt, "<br>Le champ est vide.");
         }
         else{
+            supprimerAnnuler(parent);
             elt.disabled = true;
             bouton.textContent = "Modifier";
             supprimerMsg(msg);
         }
     }
     else{
+        CoordonneesInitiales["nom"] = elt.value;
         elt.disabled = false;
+        ajouterAnnuler(parent, elt, bouton, "nom");
         bouton.textContent = "Valider";
     }
 }
@@ -106,13 +136,16 @@ function modifPrenom(bouton){
             afficherErreur(elt, "<br>Le champ est vide.");
         }
         else{
+            supprimerAnnuler(parent);
             elt.disabled = true;
             bouton.textContent = "Modifier";
             supprimerMsg(msg);
         }
     }
     else{
+        CoordonneesInitiales["prenom"] = elt.value;
         elt.disabled = false;
+        ajouterAnnuler(parent, elt, bouton, "prenom");
         bouton.textContent = "Valider";
     }
 }
@@ -130,13 +163,16 @@ function modifTelephone(bouton){
             afficherErreur(elt, "<br>Le format est incorrect (formats autorisés : 0X XX XX XX XX ou 0XXXXXXXXX).")
         }
         else{
+            supprimerAnnuler(parent);
             elt.disabled = true;
             bouton.textContent = "Modifier";
             supprimerMsg(msg);
         }
     }
     else{
+        CoordonneesInitiales["tel"] = elt.value;
         elt.disabled = false;
+        ajouterAnnuler(parent, elt, bouton, "tel");
         bouton.textContent = "Valider";
     }
 }
@@ -154,13 +190,16 @@ function modifEmail(bouton){
             afficherErreur(elt, "<br>Mail Invalide.")
         }
         else{
+            supprimerAnnuler(parent);
             elt.disabled = true;
             bouton.textContent = "Modifier";
             supprimerMsg(msg);
         }
     }
     else{
+        CoordonneesInitiales["email"] = elt.value;
         elt.disabled = false;
+        ajouterAnnuler(parent, elt, bouton, "email");
         bouton.textContent = "Valider";
     }
 }
@@ -178,13 +217,16 @@ function modifMdp(bouton){
             afficherErreur(elt, "<br>Mail Invalide.")
         }
         else{
+            supprimerAnnuler(parent);
             elt.disabled = true;
             bouton.textContent = "Modifier";
             supprimerMsg(msg);
         }
     }
     else{
+        CoordonneesInitiales["mdp"] = elt.value;
         elt.disabled = false;
+        ajouterAnnuler(parent, elt, bouton, "mdp");
         bouton.textContent = "Valider";
     }
 }

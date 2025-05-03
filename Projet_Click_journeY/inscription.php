@@ -9,19 +9,6 @@
         $email = $_POST['email'];
         $password = $_POST['password']; 
 
-
-        $nouvel_utilisateur = [
-            "civilite" => $civilite,
-            "role" => 'utilisateur',
-            "nom" => $nom,
-            "prenom" => $prenom,
-            "telephone"=> NULL,
-            "email" => $email,
-            "password" => $password,
-            "date_inscription" => date("d.m.y"),
-            "reservation" => []
-        ];
-
         $fichier = 'utilisateurs.json';
 
 
@@ -36,6 +23,19 @@
                     exit;
                 }
             }
+
+            $nouvel_utilisateur = [
+                "id" => count($tab_utilisateur) + 1,
+                "civilite" => $civilite,
+                "role" => 'utilisateur',
+                "nom" => $nom,
+                "prenom" => $prenom,
+                "telephone"=> NULL,
+                "email" => $email,
+                "password" => $password,
+                "date_inscription" => date("d.m.y"),
+                "reservation" => []
+            ];
 
             $tab_utilisateur['utilisateurs'][] = $nouvel_utilisateur;
 
@@ -75,7 +75,7 @@
                         <a class="fa fa-user-o"> Mon espace</a>
                         <div class="menu">
                             <?php 
-                                $connecte = isset($_SESSION['email']); 
+                                $connecte = isset($_SESSION['id']); 
                                 if ($connecte){
                                     echo "<a href='deconnexion.php?'>Deconnexion</a>
                                         <a href='Page_profil.php'>Mon Profil</a>";

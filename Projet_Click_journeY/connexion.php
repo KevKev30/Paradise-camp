@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if (isset($_SESSION['email'])) {
+    if (isset($_SESSION['id'])) {
         header("Location: Page_profil.php");
         exit;
     }
@@ -22,12 +22,12 @@
             foreach ($tab_utilisateur['utilisateurs'] as $utilisateur) {
                 if ($utilisateur['email'] == $email && $utilisateur['password'] == $password) {
                     if ($utilisateur['role'] == "Administrateur") { 
-                        $_SESSION['email'] = $utilisateur['email'];   
+                        $_SESSION['id'] = $utilisateur['id'];   
                         header("Location: Page_admin.php");
                         exit;
                     }
                     else{
-                        $_SESSION['email'] = $utilisateur['email'];
+                        $_SESSION['id'] = $utilisateur['id'];
                         header("Location: Page_profil.php");
                         exit;
                     }
@@ -68,7 +68,7 @@
                         <a class="fa fa-user-o"> Mon espace</a>
                         <div class="menu">
                         <?php 
-                            $connecte = isset($_SESSION['email']); 
+                            $connecte = isset($_SESSION['id']); 
                             if ($connecte){
                                 echo "<a href='deconnexion.php?'>Deconnexion</a>
                                       <a href='Page_profil.php'>Mon Profil</a>";

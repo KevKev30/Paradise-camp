@@ -29,7 +29,7 @@
                         <a class="fa fa-user-o"> Mon espace</a>
                         <div class="menu">
                         <?php 
-                            $connecte = isset($_SESSION['email']); 
+                            $connecte = isset($_SESSION['id']); 
                             if ($connecte){
                                 echo "<a href='deconnexion.php?'>Deconnexion</a>
                                     <a href='Page_profil.php'>Mon Profil</a>
@@ -52,7 +52,7 @@
 
         <?php 
 
-            $uti = $_SESSION['email'];
+            $uti = $_SESSION['id'];
             $fichier = 'utilisateurs.json';
             if (file_exists($fichier)){
                 $contenu_fichier = file_get_contents($fichier);
@@ -61,7 +61,7 @@
    
 
                 foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
-                    if ($utilisateur['email'] == $uti) {
+                    if ($utilisateur['id'] == $uti) {
                         $civilite = $utilisateur['civilite'];
                         $nom = $utilisateur['nom'];
                         $prenom = $utilisateur['prenom'];

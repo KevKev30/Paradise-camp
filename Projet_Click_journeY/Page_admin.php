@@ -27,7 +27,7 @@
                         <a class="fa fa-user-o"> Mon espace</a>
                         <div class="menu">
                         <?php 
-                            $connecte = isset($_SESSION['email']); 
+                            $connecte = isset($_SESSION['id']); 
                             if ($connecte){
                                 echo "<a href='deconnexion.php?'>Deconnexion</a>
                                     <a href='Page_profil.php'>Mon Profil</a>
