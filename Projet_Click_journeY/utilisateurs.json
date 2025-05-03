@@ -8,37 +8,19 @@
             "prenom": "Anaelle",
             "telephone": null,
             "email": "anaellejoachim@gmail.com",
-            "password": "aze",
+            "password": "AnaelleJOACHIM",
             "reservation": []
         },
         {
             "id": "2",
             "civilite": "Homme",
             "role": "Administrateur",
-            "nom": null,
-            "prenom": null,
-            "telephone": null,
-            "email": null,
-            "password": null,
-            "reservation": [
-                {
-                    "nom": "Camping Le Lagon Azur",
-                    "destination": "Bordeaux",
-                    "hebergement": "Mobil-home",
-                    "prix": 9450,
-                    "debut": "2025-07-03",
-                    "fin": "2025-07-24",
-                    "personnes": 8,
-                    "duree": 21,
-                    "date_reservation": "2025-05-01 16:36",
-                    "image": "image\/selectionmh4.jpg",
-                    "option": {
-                        "activite": "0",
-                        "cantine": "0",
-                        "arcade": "0"
-                    }
-                }
-            ]
+            "nom": "NGUYEN",
+            "prenom": "Kevin",
+            "telephone": "0767227785",
+            "email": "kevinnguyen@gmail.com",
+            "password": "KevinNGUYEN",
+            "reservation": []
         },
         {
             "id": "3",
@@ -48,7 +30,7 @@
             "prenom": "Axel",
             "telephone": null,
             "email": "axeledouard@gmail.com",
-            "password": "uiop",
+            "password": "AxelEDOUARD",
             "reservation": []
         },
         {
@@ -59,7 +41,7 @@
             "prenom": "Lebon",
             "telephone": "0512485623",
             "email": "lebronjames@gmail.com",
-            "password": "qsdf",
+            "password": "qsdfgh",
             "reservation": [
                 {
                     "nom": "Camping des Bois Dormants",
@@ -88,7 +70,7 @@
             "prenom": "test",
             "telephone": null,
             "email": "blabla@yahoo.fr",
-            "password": "wxc",
+            "password": "wxcvbn",
             "date_inscription": "22.03.25",
             "reservation": []
         },
@@ -100,8 +82,20 @@
             "prenom": "lionel",
             "telephone": null,
             "email": "lionel.messi@gmail.com",
-            "password": "ghjk",
+            "password": "ghjklm",
             "date_inscription": "23.03.25",
+            "reservation": []
+        },
+        {
+            "id": 7,
+            "civilite": "Femme",
+            "role": "utilisateur",
+            "nom": "NGUYEN",
+            "prenom": "Pierre",
+            "telephone": null,
+            "email": "Pierre30@gmail.com",
+            "password": "Pierre",
+            "date_inscription": "03.05.25",
             "reservation": []
         }
     ]

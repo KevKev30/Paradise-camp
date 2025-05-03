@@ -71,7 +71,7 @@ function estVide(name){
         afficherErreur(elt, "<br>Le champ est vide.");
         return true;
     }
-
+    afficherErreur(elt, "");
     return false;
 }
 
@@ -107,20 +107,20 @@ function modifNom(bouton){
     let parent = elt.parentNode;
     let msg = parent.querySelectorAll("em");
 
-    if (elt.disabled === false){
+    if (elt.readOnly === false){
         if (elt.value.trim() === ""){
             afficherErreur(elt, "<br>Le champ est vide.");
         }
         else{
             supprimerAnnuler(parent);
-            elt.disabled = true;
+            elt.readOnly = true;
             bouton.textContent = "Modifier";
             supprimerMsg(msg);
         }
     }
     else{
         CoordonneesInitiales["nom"] = elt.value;
-        elt.disabled = false;
+        elt.readOnly = false;
         ajouterAnnuler(parent, elt, bouton, "nom");
         bouton.textContent = "Valider";
     }
@@ -131,20 +131,20 @@ function modifPrenom(bouton){
     let parent = elt.parentNode;
     let msg = parent.querySelectorAll("em");
 
-    if (elt.disabled === false){
+    if (elt.readOnly === false){
         if (elt.value.trim() === ""){
             afficherErreur(elt, "<br>Le champ est vide.");
         }
         else{
             supprimerAnnuler(parent);
-            elt.disabled = true;
+            elt.readOnly = true;
             bouton.textContent = "Modifier";
             supprimerMsg(msg);
         }
     }
     else{
         CoordonneesInitiales["prenom"] = elt.value;
-        elt.disabled = false;
+        elt.readOnly = false;
         ajouterAnnuler(parent, elt, bouton, "prenom");
         bouton.textContent = "Valider";
     }
@@ -155,7 +155,7 @@ function modifTelephone(bouton){
     let parent = elt.parentNode;
     let msg = parent.querySelectorAll("em");
 
-    if (elt.disabled === false){
+    if (elt.readOnly === false){
         if (elt.value.trim() === ""){
             afficherErreur(elt, "<br>Le champ est vide.");
         }
@@ -164,14 +164,14 @@ function modifTelephone(bouton){
         }
         else{
             supprimerAnnuler(parent);
-            elt.disabled = true;
+            elt.readOnly = true;
             bouton.textContent = "Modifier";
             supprimerMsg(msg);
         }
     }
     else{
         CoordonneesInitiales["tel"] = elt.value;
-        elt.disabled = false;
+        elt.readOnly = false;
         ajouterAnnuler(parent, elt, bouton, "tel");
         bouton.textContent = "Valider";
     }
@@ -182,7 +182,7 @@ function modifEmail(bouton){
     let parent = elt.parentNode;
     let msg = parent.querySelectorAll("em");
 
-    if (elt.disabled === false){
+    if (elt.readOnly === false){
         if (elt.value.trim() === ""){
             afficherErreur(elt, "<br>Le champ est vide.");
         }
@@ -191,14 +191,14 @@ function modifEmail(bouton){
         }
         else{
             supprimerAnnuler(parent);
-            elt.disabled = true;
+            elt.readOnly = true;
             bouton.textContent = "Modifier";
             supprimerMsg(msg);
         }
     }
     else{
         CoordonneesInitiales["email"] = elt.value;
-        elt.disabled = false;
+        elt.readOnly = false;
         ajouterAnnuler(parent, elt, bouton, "email");
         bouton.textContent = "Valider";
     }
@@ -209,7 +209,7 @@ function modifMdp(bouton){
     let parent = elt.parentNode;
     let msg = parent.querySelectorAll("em");
 
-    if (elt.disabled === false){
+    if (elt.readOnly === false){
         if (elt.value.trim() === ""){
             afficherErreur(elt, "<br>Le champ est vide.");
         }
@@ -218,14 +218,14 @@ function modifMdp(bouton){
         }
         else{
             supprimerAnnuler(parent);
-            elt.disabled = true;
+            elt.readOnly = true;
             bouton.textContent = "Modifier";
             supprimerMsg(msg);
         }
     }
     else{
         CoordonneesInitiales["mdp"] = elt.value;
-        elt.disabled = false;
+        elt.readOnly = false;
         ajouterAnnuler(parent, elt, bouton, "mdp");
         bouton.textContent = "Valider";
     }

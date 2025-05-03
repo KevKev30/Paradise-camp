@@ -25,7 +25,7 @@
             }
 
             $nouvel_utilisateur = [
-                "id" => count($tab_utilisateur) + 1,
+                "id" => count($tab_utilisateur['utilisateurs']) + 1,
                 "civilite" => $civilite,
                 "role" => 'utilisateur',
                 "nom" => $nom,
@@ -41,6 +41,8 @@
 
             $fichier_encode=json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
             file_put_contents($fichier,$fichier_encode );
+
+            $_SESSION['id'] = $nouvel_utilisateur['utilisateurs']['id'];
 
             header("Location: Page_profil.php");
 

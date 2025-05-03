@@ -132,7 +132,7 @@
                 Nom 
             </div>
             <div class="zone">
-                <input type="text" name="nom" value="<?php echo $nom; ?>" disabled>
+                <input type="text" name="nom" value="<?php echo $nom; ?>" readonly>
                 <button type="button" onclick="modifNom(this);">Modifier</button>
             </div>
             <br/>
@@ -141,7 +141,7 @@
                 Prénom
             </div>
             <div class="zone">
-                <input type="text" name="prenom" value="<?php echo $prenom; ?>" disabled>
+                <input type="text" name="prenom" value="<?php echo $prenom; ?>" readonly>
                 <button type="button" onclick="modifPrenom(this);">Modifier</button>
             </div>
             <br/>
@@ -150,7 +150,7 @@
                 Téléphone
             </div>
             <div class="zone">
-                <input type="text" name="telephone" value="<?php echo $telephone; ?>" disabled>
+                <input type="text" name="telephone" value="<?php echo $telephone; ?>" readonly>
                 <button type="button" onclick="modifTelephone(this);">Modifier</button>
             </div>
             <br/>
@@ -159,7 +159,7 @@
                 Email 
             </div>
             <div class="zone">
-                <input type="text" name="email" value="<?php echo $email; ?>" disabled>
+                <input type="text" name="email" value="<?php echo $email; ?>" readonly>
                 <button type="button" onclick="modifEmail(this);">Modifier</button>
             </div>
             <br/>
@@ -168,7 +168,7 @@
                 Mot de passe 
             </div>
             <div class="zone">
-                <input type="text" name="password" value="<?php echo $password; ?>" disabled>
+                <input type="text" name="password" value="<?php echo $password; ?>" readonly>
                 <button type="button" onclick="modifMdp(this);">Modifier</button>
             </div>
             <br/>
