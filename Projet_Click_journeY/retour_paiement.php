@@ -14,7 +14,7 @@ if (isset($_GET['status'])) {
 
     if ($control == $valeur_controle) {
         if ($status == 'accepted') {
-            if (isset($_SESSION['reservation']) && isset($_SESSION['email'])){
+            if (isset($_SESSION['reservation']) && isset($_SESSION['id'])){
                 $fichier = 'utilisateurs.json';
                 if(file_exists($fichier)){
                     $contenu_fichier = file_get_contents($fichier);
@@ -22,7 +22,7 @@ if (isset($_GET['status'])) {
                 }
 
                 foreach($utilisateurs['utilisateurs'] as &$user){
-                    if ($user["email"] == $_SESSION['email']){
+                    if ($user["id"] == $_SESSION['id']){
                         $user["reservation"][] = $_SESSION['reservation'];
                     }
                 }

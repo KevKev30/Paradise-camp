@@ -1,0 +1,57 @@
+body {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+  }
+  
+  .selection1 {
+    background-color: #333;
+    color: #f0f0f0;
+    box-shadow: 20px 20px 20px #111;
+  }
+  
+  .head,
+  .head_accueil {
+    background-blend-mode: multiply;
+    background-color: #111;
+  }
+  
+  .head a,
+  .head1 a,
+  .head2 a,
+  .head_accueil a {
+    color: #f0f0f0;
+  }
+  
+  footer,
+  .footer_accueil {
+    background-color: #333;
+    color: #ccc;
+  }
+  
+  table {
+    background-color: #444;
+  }
+  
+  table td,
+  table th {
+    background-color: #222;
+    color: #eee;
+  }
+  
+  .recap,
+  .details,
+  fieldset {
+    background-color: #2e2e2e;
+    color: #f0f0f0;
+  }
+  
+  .recap a,
+  fieldset a {
+    color: #ffa500;
+  }
+  
+  .menu,
+  .barre_recherche form {
+    background-color: #444;
+  }
+  

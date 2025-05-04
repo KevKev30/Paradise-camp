@@ -15,12 +15,30 @@
             "id": "2",
             "civilite": "Homme",
             "role": "Administrateur",
-            "nom": "NGUYEN OANH",
+            "nom": "NGUYEN",
             "prenom": "Kevin",
             "telephone": "0767227785",
             "email": "kevinnguyen@gmail.com",
             "password": "KevinNGUYEN",
-            "reservation": []
+            "reservation": [
+                {
+                    "nom": "Camping des Bois Dormants",
+                    "destination": "Nice",
+                    "hebergement": "Mobil-home",
+                    "prix": 5600,
+                    "debut": "2025-07-01",
+                    "fin": "2025-07-14",
+                    "personnes": 7,
+                    "duree": 14,
+                    "date_reservation": "2025-05-04 16:41",
+                    "image": "image\/selectionmh1.jpg",
+                    "option": {
+                        "activite": "0",
+                        "cantine": "0",
+                        "arcade": "0"
+                    }
+                }
+            ]
         },
         {
             "id": "3",
