@@ -1,62 +1,58 @@
-function optionSelectionnee(name){
-    let dest = document.getElementById(name);
-    return dest.value;
+function pagination(page){
+    var voyages = document.getElementById("resultats").children;
+    var destination = Array.from(voyages);
+    for (var i = 0; i < destination.length - 1; i++){
+        if ((i >= (page-1) * 5) && (i < page * 5)){
+            destination[i].hidden = false;
+        }
+        else{
+            destination[i].hidden = true;
+        }
+    }
+    document.getElementById("pagi").dataset.extra = page;
+    var pagination = Array.from(document.getElementById("pagi").children);
+
+    for (i = 0; i<pagination.length; i++){
+        if (i+1 == page){
+            pagination[i].classList.add("page_actuelle");
+        }
+        else if (pagination[i].classList.contains("page_actuelle")){
+            pagination[i].classList.remove("page_actuelle");
+        }
+    }
 }
 
-function filtrerRecherches(liste_voyages){
-    let dest = optionSelectionnee("destination");
-    let arrivee = optionSelectionnee("arrivee");
-    let depart = optionSelectionnee("depart");
-    let personnes = parseInt(optionSelectionnee("personnes"));
-    let hebergement = optionSelectionnee("hebergement");
-    let prix = parseInt(optionSelectionnee("prix"));
-
-    if (arrivee == ""){
-        arrivee = "2025-06-01";
+function triFiltres (){
+    var filtres = document.getElementById("filtres");
+    if (filtres.value == "vide"){
+        return;
     }
-    if (depart == ""){
-        depart = "2025-08-31";
-    }
-
-    let da1 = new Date(arrivee).getTime();
-    let da2 = new Date(liste_voyages.voyages.arrivee).getTime();
-
-    let dd1 = new Date(depart).getTime();
-    let dd2 = new Date(liste_voyages.voyages.depart).getTime();
-
-    let resultat = ``;
-
-    liste_voyages.voyages.forEach(
-        voyage => {
-            if (
-                (dest == "" || dest == voyage.destination) &&
-                (hebergement == "" || hebergement == voyage.hebergement) &&
-                (prix == 0 || prix == parseInt(voyage.prix)) &&
-                (personnes == 0 ||personnes == parseInt(voyage.personnes)) &&
-                ((da2 - da1) / (1000 * 60 * 60 * 24) >= 0) || ((dd2 - dd1) / (1000 * 60 * 60 * 24) >= 0) 
-            ){
-
-                let lien = document.createElement("a");
-                lien.href = `details.php?id=${voyage.id} class="selection_lien"`;
-
-                let contenu = document.createElement("div");
-                contenu.className = 'selection1';
-
-                contenu.innerHTML = 
-                `
-                <img class="photo" src="${voyage.image}">
-                <p> ${voyage.nom} - ${voyage.destination}
-                <br>
-                Nombre de personnes : ${voyage.personnes}
-                <br>
-                Prix/nuit: ${voyage.prix}€
-                <br>
-                Durée : ${voyage.duree} jours</p>
-                `
-
-                lien.appendChild(contenu);
+    var voyages = document.getElementById("resultats").children;
+    var destination = Array.from(voyages);
+    for (var i = 0; i<destination.length-1; i++){
+        for (var j = i; j<destination.length-1; j++){
+            if (filtres.value == "prix"){
+                var data = destination[i].dataset.extra;
+                var data2 = destination[j].dataset.extra;
             }
+            else if (filtres.value == "duree"){
+                var data = destination[i].dataset.extra2;
+                var data2 = destination[j].dataset.extra2;
+            }
+            else{
+                var data = destination[i].dataset.extra3;
+                var data2 = destination[j].dataset.extra3;
+            }
+            if (data > data2){
+                var tmp = destination[i];
+                destination[i] = destination[j];
+                destination[j] = tmp;
+            }
+
         }
-    )
-    getElementById("resultats").appendChild(lien);
+    }
+    for (var k = 0; k< destination.length; k++){
+        document.getElementById("resultats").appendChild(destination[k]);
+    }
+    pagination(document.getElementById("pagi").dataset.extra);
 }

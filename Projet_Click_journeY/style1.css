@@ -570,8 +570,11 @@ fieldset button:hover{
 }
 
 .pagination {
+  display: flex;
+  justify-content: center;
   text-align: center;
   margin-top: 3%;
+  gap: 1%;
 }
 
 .pagination a, .pagination strong {
@@ -584,8 +587,9 @@ fieldset button:hover{
   background: #007BFF;
 }
 
-.pagination strong {
+.page_actuelle {
   background: #0056b3;
+  transform: scale(1.1);
 }
 
 

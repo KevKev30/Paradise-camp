@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="style1.css" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="recherche.js"></script>
     </head>
     <body>
         <header>
@@ -106,8 +107,15 @@
                         <option value="500">500€</option>
                         <option value="600">600€</option>
                     </select>
-                </div>
 
+                    <label for="filtres"> Filtres </label>
+                    <select name="filtres" id="filtres" data-extra="<?php echo $_GET['filtres']; ?>">
+                        <option value="vide">Filtres</option>
+                        <option value="prix">Prix</option>
+                        <option value="duree">Durée</option>
+                        <option value="personnes">Nombre de voyageurs</option>
+                    </select>
+                </div>
                 <div class="recherche-boutton">
                     <input type="submit" value="Rechercher"/>
                 </div>
@@ -116,136 +124,144 @@
 
         <div id="resultats">
 
-        </div>
-
-        <?php 
-            if (isset($_GET['page'])){
-                $page_actuelle = (int)$_GET['page'];
-            }
-            else{
-                $page_actuelle = 1;
-            }
-
-            $voyages_par_page = 5;
-            $offset = ($page_actuelle - 1) * $voyages_par_page;
-            
-
-            $voyages_trouves = [];
-
-            if (isset($_GET['destination']) && isset($_GET['debut']) && isset($_GET['fin']) && isset($_GET['personnes']) && isset($_GET['hebergement']) && isset($_GET['prix'])){
-
-                $destination = $_GET['destination'];
-                $personnes = $_GET['personnes'];
-                $hebergement = $_GET['hebergement'];
-                $prix = $_GET['prix'];
-                $count = 0;
-
-                $prix = (int)$prix;
-                $personnes = (int)$personnes;
-
-                $fichier = 'voyages.json';
-                if(file_exists($fichier)){
-                    $contenu_fichier = file_get_contents($fichier);
-                    $voyages = json_decode($contenu_fichier, true);
-                }
-                
-                if(empty($_GET['debut'])){
-                    if(empty($_GET['fin'])){
-                        $debut = 0;
-                        $fin = 0;
-                        foreach($voyages['voyages'] as $dest){
-                            $voyage_debut = new DateTime($dest['debut']);
-                            $voyage_fin = new DateTime($dest['fin']);
-                            if (
-                               (($dest['destination'] == $destination) || ($destination == "")) && 
-                               (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && 
-                               (($dest['prix'] <= $prix) || ($prix == 0)) && 
-                               (($dest['personnes'] == $personnes) || ($personnes == 0)) && 
-                               ($debut == 0 && $fin == 0)
-                               )
-                            {
-                                $voyages_trouves[] = $dest;
-                            }
-                        }
-                    }
-                    else{
-                        echo "<script>alert('Sélectionnez une date d'arrivée.'); window.location.href='Page_recherche.php';</script>";
-                    }
+            <?php 
+                if (isset($_GET['page'])){
+                    $page_actuelle = (int)$_GET['page'];
                 }
                 else{
-                    if(empty($_GET['fin'])){
-                        echo "<script>alert('Sélectionnez une date de départ.'); window.location.href='Page_recherche.php';</script>";
-                    }
-                    else{
-                        $debut = $_GET['debut'];
-                        $fin = $_GET['fin'];
-
-                        $start = new DateTime($debut);
-                        $end = new DateTime($fin);
-                        $duree = date_diff($start, $end)->days;
-
-                        foreach($voyages['voyages'] as $dest){
-                            $voyage_debut = new DateTime($dest['debut']);
-                            $voyage_fin = new DateTime($dest['fin']);
-                            if (
-                               (($dest['destination'] == $destination) || ($destination == "")) && 
-                               (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && 
-                               (($dest['prix'] <= $prix) || ($prix == 0)) && 
-                               (($dest['personnes'] == $personnes) || ($personnes == 0)) && 
-                               (($voyage_debut >= $start) && ($voyage_fin <= $end))
-                               )
-                            {
-                                $voyages_trouves[] = $dest;
-                            }
-                        }
-                    }
+                    $page_actuelle = 1;
                 }
 
-                    $total_voyages = count($voyages_trouves);
-                    $total_pages = ceil($total_voyages / $voyages_par_page);
-                    $voyages_affiches = array_slice($voyages_trouves, $offset, $voyages_par_page);
+                $voyages_par_page = 5;
+                $offset = ($page_actuelle - 1) * $voyages_par_page;
+                
 
-                    foreach ($voyages_affiches as $dest) {
-                        $id = $dest['id'];
-                        echo "<a href='details.php?id=".urlencode($id)."' class='selection_lien'>";
-                        echo "<div class='selection1'>";
-                        echo "<img class='photo' src='" . htmlspecialchars($dest['image']) . "'>";
-                        echo "<p>" . htmlspecialchars($dest['nom']) . "-" . htmlspecialchars($dest['destination']);
-                        echo "<br>";
-                        echo "Nombre de personnes : " . $dest['personnes'];
-                        echo "<br>";
-                        echo "Prix/nuit: " . $dest['prix'] . "€";
-                        echo "<br>";
-                        echo "Durée : " . $dest['duree'] . " jours </p>";
-                        echo "</div>";
-                        echo "</a>";
-                        $count++;
+                $voyages_trouves = [];
+
+                if (isset($_GET['destination']) && isset($_GET['debut']) && isset($_GET['fin']) && isset($_GET['personnes']) && isset($_GET['hebergement']) && isset($_GET['prix'])){
+
+                    $destination = $_GET['destination'];
+                    $personnes = $_GET['personnes'];
+                    $hebergement = $_GET['hebergement'];
+                    $prix = $_GET['prix'];
+                    $count = 0;
+
+                    $prix = (int)$prix;
+                    $personnes = (int)$personnes;
+
+                    $fichier = 'voyages.json';
+                    if(file_exists($fichier)){
+                        $contenu_fichier = file_get_contents($fichier);
+                        $voyages = json_decode($contenu_fichier, true);
                     }
-
-                    if ($total_pages > 1) {
-                        echo "<div class='pagination'>";
-                        for ($i = 1; $i <= $total_pages; $i++) {
-                            if ($i == $page_actuelle) {
-                                echo "<strong>$i</strong> ";
-                            } else {
-                                echo "<a href='Page_recherche.php?" . http_build_query($_GET) . "&page=$i'>$i</a> ";
+                    
+                    if(empty($_GET['debut'])){
+                        if(empty($_GET['fin'])){
+                            $debut = 0;
+                            $fin = 0;
+                            foreach($voyages['voyages'] as $dest){
+                                $voyage_debut = new DateTime($dest['debut']);
+                                $voyage_fin = new DateTime($dest['fin']);
+                                if (
+                                (($dest['destination'] == $destination) || ($destination == "")) && 
+                                (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && 
+                                (($dest['prix'] <= $prix) || ($prix == 0)) && 
+                                (($dest['personnes'] == $personnes) || ($personnes == 0)) && 
+                                ($debut == 0 && $fin == 0)
+                                )
+                                {
+                                    $voyages_trouves[] = $dest;
+                                }
                             }
                         }
-                        echo "</div>";
+                        else{
+                            echo "<script>alert('Sélectionnez une date d'arrivée.'); window.location.href='Page_recherche.php';</script>";
+                        }
+                    }
+                    else{
+                        if(empty($_GET['fin'])){
+                            echo "<script>alert('Sélectionnez une date de départ.'); window.location.href='Page_recherche.php';</script>";
+                        }
+                        else{
+                            $debut = $_GET['debut'];
+                            $fin = $_GET['fin'];
+
+                            $start = new DateTime($debut);
+                            $end = new DateTime($fin);
+                            $duree = date_diff($start, $end)->days;
+
+                            foreach($voyages['voyages'] as $dest){
+                                $voyage_debut = new DateTime($dest['debut']);
+                                $voyage_fin = new DateTime($dest['fin']);
+                                if (
+                                (($dest['destination'] == $destination) || ($destination == "")) && 
+                                (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && 
+                                (($dest['prix'] <= $prix) || ($prix == 0)) && 
+                                (($dest['personnes'] == $personnes) || ($personnes == 0)) && 
+                                (($voyage_debut >= $start) && ($voyage_fin <= $end))
+                                )
+                                {
+                                    $voyages_trouves[] = $dest;
+                                }
+                            }
+                        }
                     }
 
-                    if($count == 0){
-                        echo "<h1><center>Aucun résultat ne corresponds à vos recherches.</center></h1>";
-                    }
-            }
-        ?>
+                        $total_voyages = count($voyages_trouves);
+                        $total_pages = ceil($total_voyages / $voyages_par_page);
+                        $voyages_affiches = array_slice($voyages_trouves, $offset, $voyages_par_page);
 
-        <script>
-            const donneeVoyages = <?php echo file_get_contents("voyages.json");?>;
-            filtrerRecherches(donneeVoyages);
+                        foreach ($voyages_trouves as $dest) {
+                            $id = $dest['id'];
+                            if ($count >= 5){
+                                echo "<a hidden href='details.php?id=".urlencode($id)."' class='selection_lien' data-extra='".$dest["prix"]."' data-extra2='".$dest["duree"]."' data-extra3='".$dest["personnes"]."'>";
+                            }
+                            else{
+                                echo "<a href='details.php?id=".urlencode($id)."' class='selection_lien' data-extra='".$dest["prix"]."' data-extra2='".$dest["duree"]."' data-extra3='".$dest["personnes"]."'>";
+                            }
+                            echo "<div class='selection1'>";
+                            echo "<img class='photo' src='" . htmlspecialchars($dest['image']) . "'>";
+                            echo "<p>" . htmlspecialchars($dest['nom']) . "-" . htmlspecialchars($dest['destination']);
+                            echo "<br>";
+                            echo "Nombre de personnes : " . $dest['personnes'];
+                            echo "<br>";
+                            echo "Prix/nuit: " . $dest['prix'] . "€";
+                            echo "<br>";
+                            echo "Durée : " . $dest['duree'] . " jours </p>";
+                            echo "</div>";
+                            echo "</a>";
+                            $count++;
+                        }
+
+                        
+                        if ($total_pages > 1) {
+                            echo "<div class='pagination' id='pagi' data-extra='1'>";
+                            for ($i = 1; $i <= $total_pages; $i++) {
+                                if ($i == 1){
+                                    echo '<button class="page_actuelle" onclick="pagination('.$i.')">'.$i.'</button>';
+                                }
+                                else{
+                                    echo '<button onclick="pagination('.$i.')">'.$i.'</button>';
+                                }
+                            }
+                            echo "</div>";
+                        }
+
+                        if($count == 0){
+                            echo "<h1><center>Aucun résultat ne corresponds à vos recherches.</center></h1>";
+                        }
+                }
+            ?>
+
+        </div>
+
+        <script type="text/javascript">
+            var filtres = document.getElementById("filtres");
+            filtres.addEventListener("change", triFiltres);
+            window.addEventListener("load", triFiltres);
         </script>
 
-        <script src="recherche.js"></script>
+
         <?php require 'footer.php'; ?>
             
     </body>
