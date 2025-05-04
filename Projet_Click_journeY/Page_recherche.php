@@ -51,7 +51,7 @@
                 <div class="groupe">
 
                     <label for="destination"> Destination </label>
-                    <select name="destination">
+                    <select name="destination" id="destination">
                         <option value="">Destination</option>
                         <option value="Marseille">Marseille</option>
                         <option value="Nice">Nice</option>
@@ -77,7 +77,7 @@
                     
                 <div class="groupe">
                     <label for="personnes"> Nombre de voyageurs </label>
-                    <select name="personnes">
+                    <select name="personnes" id="personnes">
                         <option value="0">Nombre de personnes</option>
                         <option value="1">1 voyageur</option>
                         <option value="2">2 voyageurs</option>
@@ -90,7 +90,7 @@
                     </select>
 
                     <label for="hebergement"> Type d'hébergement </label>
-                    <select name="hebergement">
+                    <select name="hebergement" id="hebergement">
                         <option value="">Tout type</option>
                         <option value="Mobil-home">Mobil-Home</option>
                         <option value="Espace vert">Espace Vert</option>
@@ -98,7 +98,7 @@
                     </select>
 
                     <label for="prix"> Prix Maximal </label>
-                    <select name="prix">
+                    <select name="prix" id="prix">
                         <option value="0">Aucun maximum</option>
                         <option value="200">200€</option>
                         <option value="300">300€</option>
@@ -236,5 +236,8 @@
             }
             require 'footer.php';
         ?>
+
+        <script src="recherche.js"></script>
+            
     </body>
 </html>

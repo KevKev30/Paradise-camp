@@ -15,7 +15,7 @@
             "id": "2",
             "civilite": "Homme",
             "role": "Administrateur",
-            "nom": "NGUYEN",
+            "nom": "NGUYEN OANH",
             "prenom": "Kevin",
             "telephone": "0767227785",
             "email": "kevinnguyen@gmail.com",
@@ -84,18 +84,6 @@
             "email": "lionel.messi@gmail.com",
             "password": "ghjklm",
             "date_inscription": "23.03.25",
-            "reservation": []
-        },
-        {
-            "id": 7,
-            "civilite": "Femme",
-            "role": "utilisateur",
-            "nom": "NGUYEN",
-            "prenom": "Pierre",
-            "telephone": null,
-            "email": "Pierre30@gmail.com",
-            "password": "Pierre",
-            "date_inscription": "03.05.25",
             "reservation": []
         }
     ]

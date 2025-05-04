@@ -42,7 +42,7 @@
             $fichier_encode=json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
             file_put_contents($fichier,$fichier_encode );
 
-            $_SESSION['id'] = $nouvel_utilisateur['utilisateurs']['id'];
+            $_SESSION['id'] = $nouvel_utilisateur['id'];
 
             header("Location: Page_profil.php");
 
