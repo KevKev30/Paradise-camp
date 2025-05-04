@@ -114,6 +114,10 @@
             </form>
         </div>
 
+        <div id="resultats">
+
+        </div>
+
         <?php 
             if (isset($_GET['page'])){
                 $page_actuelle = (int)$_GET['page'];
@@ -188,7 +192,7 @@
                                (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && 
                                (($dest['prix'] <= $prix) || ($prix == 0)) && 
                                (($dest['personnes'] == $personnes) || ($personnes == 0)) && 
-                               (($voyage_debut == $start) && ($voyage_fin == $end))
+                               (($voyage_debut >= $start) && ($voyage_fin <= $end))
                                )
                             {
                                 $voyages_trouves[] = $dest;
@@ -231,13 +235,18 @@
                     }
 
                     if($count == 0){
-                        echo "<script>alert('Aucun camping ne correspond à vos recherches.'); window.location.href='Page_recherche.php';</script>";
+                        echo "<h1><center>Aucun résultat ne corresponds à vos recherches.</center></h1>";
                     }
             }
-            require 'footer.php';
         ?>
 
+        <script>
+            const donneeVoyages = <?php echo file_get_contents("voyages.json");?>;
+            filtrerRecherches(donneeVoyages);
+        </script>
+
         <script src="recherche.js"></script>
+        <?php require 'footer.php'; ?>
             
     </body>
 </html>
