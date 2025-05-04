@@ -14,7 +14,7 @@ if (isset($_GET['status'])) {
 
     if ($control == $valeur_controle) {
         if ($status == 'accepted') {
-            if (isset($_SESSION['reservation']) && isset($_SESSION['id'])){
+            if (isset($_SESSION['panier']) && isset($_SESSION['id'])){
                 $fichier = 'utilisateurs.json';
                 if(file_exists($fichier)){
                     $contenu_fichier = file_get_contents($fichier);
@@ -23,11 +23,12 @@ if (isset($_GET['status'])) {
 
                 foreach($utilisateurs['utilisateurs'] as &$user){
                     if ($user["id"] == $_SESSION['id']){
-                        $user["reservation"][] = $_SESSION['reservation'];
+                        $user["reservation"] = $_SESSION['panier'];
                     }
                 }
                 $fichier_encode=json_encode($utilisateurs, JSON_PRETTY_PRINT);
                 file_put_contents($fichier,$fichier_encode);
+                unset($_SESSION['panier']);
                 header("Location: Page_profil.php");
                 exit();
             }

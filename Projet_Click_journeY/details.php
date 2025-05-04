@@ -6,20 +6,18 @@
 
 <html>
     <head>
-    
+
         <title>Fiche Détails</title>
-        <script defer src="mode_sombre.js"></script>
-        <link id="theme-link" rel="stylesheet" href="">
         <link rel="stylesheet" href="style1.css" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="prix_total.js"></script>
     </head>
 
     <body>    
         <header>
             <div class="head">
                 <ul>
-                    <button id="toggle-mode">🌓</button>
                     <li><a class="fa fa-arrow-circle-right" href="Page_presentation.php"> Présentation</a></li>
                     <li><a class="fa fa-map-o" href="Page_recherche.php"> Recherche</a></li>
                 </ul>
@@ -77,30 +75,33 @@
                         echo "Du ".$dest['debut']." au ".$dest['fin'];
                         echo "</p>";
                         $total_personnes = $dest['personnes'];
+                        $prix =$dest['prix'];
                     }
                 }
-                echo "<form action='paiement.php' method='post'>
+                echo "<form action='ajouter_panier.php' method='post'>
                 <p>Voici les options qu'on peut vous proposer :</p> <br>
                 <p>Menu activité (randonnée, laser game, karting, accrobranche) : +60€/personne</p>
-                <select name='activite'>";
+                <select id='activite' name='activite'>";
                 for($i = 0; $i<=$total_personnes; $i++){
                     echo "<option value='". $i ."'>" .$i . "</option>";
                 }
                 echo "</select><br>";
                 echo "<p>Cantine : +40€/personne</p>
-                    <select name='cantine'>";
+                    <select id='cantine' name='cantine'>";
                 for($j = 0; $j<=$total_personnes; $j++){
                     echo "<option value='". $j ."'>" .$j . "</option>";
                 }
                 echo "</select><br>";
                 echo "<p>Pass arcade : +10€/personne</p>
-                    <select name='arcade'>";
+                    <select id='arcade' name='arcade'>";
                 for($k = 0; $k<=$total_personnes; $k++){
                     echo "<option value='". $k ."'>" .$k . "</option>";
                 }
                 echo "</select><br>";
                 echo "<input type='hidden' name='id' value='$id'/>";
                 echo "<br>"; 
+                echo "<p>Prix total : </p>";
+                echo "<p id='prix_total' data-extra='".$prix."'>".$prix."€</p>";
                 echo "<button type='submit'>Ajouter au panier</button>";
                 echo "</form>";
                 echo "</div>";
@@ -109,6 +110,15 @@
         
 
         ?>    
+        
+        <script type="text/javascript">
+            let select = document.querySelectorAll("select");
+            for (let i = 0; i<select.length; i++){
+                select[i].addEventListener("change", prix_total);
+            }
+            window.addEventListener("load", prix_total);
+
+        </script>
 
         <?php require 'footer.php';?>        
 
