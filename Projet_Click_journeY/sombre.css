@@ -58,3 +58,15 @@ fieldset a {
 .experience ul{
   background-color: #444;
 }
+
+table{
+  background-color: #b1b1b1;
+}
+
+table tr td{
+  background-color: #444;
+}
+
+table tr th{
+  background-color: #242424;
+}

@@ -208,11 +208,12 @@
                         }
                         else{
                             foreach($utilisateur['reservation'] as $res){
+                                $total = $res['prix_base']*$res['personnes'] + $res['cantine'] * 40 + $res['arcade'] * 10 + $res['activite'] * 60;
                                 echo "<div class='selection1'>";
                                 echo "<img class='photo' src='" . $res['image'] . "'>";
                                 echo $res['nom'] . " - " . $res['destination'] . "<br>";
                                 echo $res['hebergement'] . " ". $res['personnes'] . " personnes";
-                                echo "<br> Prix Total:".  $res['prix_base'] . "€<br>";
+                                echo "<br> Prix Total:". $total . "€<br>";
                                 echo "Durée :". $res['duree']. "jours
                                 <br>
                                 Option :

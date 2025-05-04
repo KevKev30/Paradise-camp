@@ -35,54 +35,36 @@
         },
         {
             "id": "4",
-            "civilite": "Autre",
+            "civilite": "Homme",
             "role": "utilisateur",
-            "nom": "Jame",
-            "prenom": "Lebon",
-            "telephone": "0512485623",
+            "nom": "JAMES",
+            "prenom": "Lebron",
+            "telephone": "0623947382",
             "email": "lebronjames@gmail.com",
-            "password": "qsdfgh",
-            "reservation": [
-                {
-                    "nom": "Camping des Bois Dormants",
-                    "destination": "Nice",
-                    "hebergement": "Mobil-home",
-                    "prix": 6050,
-                    "debut": "2025-07-01",
-                    "fin": "2025-07-14",
-                    "personnes": 7,
-                    "duree": 14,
-                    "date_reservation": "2025-03-23 22:59",
-                    "image": "image\/selectionmh1.jpg",
-                    "option": {
-                        "activite": "4",
-                        "cantine": "5",
-                        "arcade": "1"
-                    }
-                }
-            ]
+            "password": "LakersIn9",
+            "reservation": []
         },
         {
             "id": "5",
-            "civilite": "Autre",
+            "civilite": "Femme",
             "role": "utilisateur",
-            "nom": "nguyen",
-            "prenom": "test",
-            "telephone": null,
+            "nom": "PARKS",
+            "prenom": "Rosa",
+            "telephone": "0739284373",
             "email": "blabla@yahoo.fr",
-            "password": "wxcvbn",
+            "password": "RosaP4rks",
             "date_inscription": "22.03.25",
             "reservation": []
         },
         {
             "id": "6",
-            "civilite": "Femme",
+            "civilite": "Homme",
             "role": "utilisateur",
-            "nom": "messi",
-            "prenom": "lionel",
+            "nom": "Cena",
+            "prenom": "John",
             "telephone": null,
-            "email": "lionel.messi@gmail.com",
-            "password": "ghjklm",
+            "email": "Ucantseeme@gmail.com",
+            "password": "CenaJ0hn",
             "date_inscription": "23.03.25",
             "reservation": []
         }

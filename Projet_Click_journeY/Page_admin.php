@@ -64,7 +64,7 @@
                 </div>';
 
             echo '<table cellpadding="5" border="3" cellspacing="5">
-                    <tr>
+                    <tr class="top">
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>e-mail</th>

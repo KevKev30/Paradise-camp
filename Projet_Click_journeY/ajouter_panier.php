@@ -44,7 +44,7 @@
             'prix_base' => $voyageTrouve['prix'],
             'debut' => $voyageTrouve['debut'],
             'fin' => $voyageTrouve['fin'],
-            'duree' => $voyageTrouv['duree'],
+            'duree' => $voyageTrouve['duree'],
             'activite' => $activite,
             'cantine' => $cantine,
             'arcade' => $arcade
