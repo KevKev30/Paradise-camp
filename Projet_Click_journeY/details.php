@@ -8,7 +8,9 @@
     <head>
 
         <title>Fiche Détails</title>
+        <script defer src="mode_sombre.js"></script>
         <link rel="stylesheet" href="style1.css" type="text/css">
+        <link id="theme-link" rel="stylesheet" href="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script type="text/javascript" src="prix_total.js"></script>
@@ -18,6 +20,7 @@
         <header>
             <div class="head">
                 <ul>
+                    <button id="toggle-mode">🌓</button>
                     <li><a class="fa fa-arrow-circle-right" href="Page_presentation.php"> Présentation</a></li>
                     <li><a class="fa fa-map-o" href="Page_recherche.php"> Recherche</a></li>
                 </ul>

@@ -20,28 +20,7 @@
             "telephone": "0767227785",
             "email": "kevinnguyen@gmail.com",
             "password": "KevinNGUYEN",
-            "reservation": [
-                {
-                    "id": "mh1",
-                    "nom": "Camping des Bois Dormants",
-                    "image": "image\/selectionmh1.jpg",
-                    "personnes": 7,
-                    "prix_base": 400,
-                    "activite": "5",
-                    "cantine": "1",
-                    "arcade": "4"
-                },
-                {
-                    "id": "c1",
-                    "nom": "Camping des Chats Perch\u00e9s",
-                    "image": "image\/selectionc1.jpg",
-                    "personnes": 8,
-                    "prix_base": 440,
-                    "activite": "8",
-                    "cantine": "8",
-                    "arcade": "8"
-                }
-            ]
+            "reservation": []
         },
         {
             "id": "3",

@@ -37,9 +37,14 @@
         $_SESSION['panier'][] = [
             'id' => $id,
             'nom' => $voyageTrouve['nom'],
+            'destination' => $voyageTrouve['destination'],
+            'hebergement' => $voyageTrouve['hebergement'],
             'image' => $voyageTrouve['image'],
             'personnes' => $voyageTrouve['personnes'],
             'prix_base' => $voyageTrouve['prix'],
+            'debut' => $voyageTrouve['debut'],
+            'fin' => $voyageTrouve['fin'],
+            'duree' => $voyageTrouv['duree'],
             'activite' => $activite,
             'cantine' => $cantine,
             'arcade' => $arcade

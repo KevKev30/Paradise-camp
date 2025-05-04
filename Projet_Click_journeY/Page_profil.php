@@ -212,20 +212,20 @@
                                 echo "<img class='photo' src='" . $res['image'] . "'>";
                                 echo $res['nom'] . " - " . $res['destination'] . "<br>";
                                 echo $res['hebergement'] . " ". $res['personnes'] . " personnes";
-                                echo "<br> Prix Total:".  $res['prix'] . "€<br>";
+                                echo "<br> Prix Total:".  $res['prix_base'] . "€<br>";
                                 echo "Durée :". $res['duree']. "jours
                                 <br>
                                 Option :
                                 <br>";
-                                if ($res['option']["activite"] != 0 || $res["option"]["cantine"] != 0 || $res["option"]["arcade"] != 0){
-                                    if ($res["option"]["activite"] != 0){
-                                        echo "Menu Activité : " . $res["option"]["activite"] . " personnes <br>";
+                                if ($res["activite"] != 0 || $res["cantine"] != 0 || $res["arcade"] != 0){
+                                    if ($res["activite"] != 0){
+                                        echo "Menu Activité : " . $res["activite"] . " personnes <br>";
                                     }
                                     if ($res["cantine"] != 0){
-                                        echo "Cantine : " . $res["option"]["cantine"] . " personnes <br>";
+                                        echo "Cantine : " . $res["cantine"] . " personnes <br>";
                                     }
-                                    if ($res["option"]["arcade"] != 0){
-                                        echo "Pass arcade : " . $res["option"]["arcade"] . " personnes <br>";
+                                    if ($res["arcade"] != 0){
+                                        echo "Pass arcade : " . $res["arcade"] . " personnes <br>";
                                     }
                                 }
                                 else{
