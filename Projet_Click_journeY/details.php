@@ -75,7 +75,7 @@
                         echo "Du ".$dest['debut']." au ".$dest['fin'];
                         echo "</p>";
                         $total_personnes = $dest['personnes'];
-                        $prix =$dest['prix'];
+                        $prix =$dest['prix']*$dest['personnes'];
                     }
                 }
                 echo "<form action='ajouter_panier.php' method='post'>

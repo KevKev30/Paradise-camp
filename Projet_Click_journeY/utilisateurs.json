@@ -22,24 +22,24 @@
             "password": "KevinNGUYEN",
             "reservation": [
                 {
-                    "id": "mh5",
-                    "nom": "Camping Le Lagon Azur",
-                    "image": "image\/selectionmh4.jpg",
-                    "personnes": 8,
-                    "prix_base": 450,
-                    "activite": "2",
-                    "cantine": "7",
-                    "arcade": "0"
+                    "id": "mh1",
+                    "nom": "Camping des Bois Dormants",
+                    "image": "image\/selectionmh1.jpg",
+                    "personnes": 7,
+                    "prix_base": 400,
+                    "activite": "5",
+                    "cantine": "1",
+                    "arcade": "4"
                 },
                 {
-                    "id": "c4",
-                    "nom": "L'ombre des Grands Ch\u00eanes",
-                    "image": "image\/selectionc4.jpg",
-                    "personnes": 5,
-                    "prix_base": 290,
-                    "activite": "1",
-                    "cantine": "0",
-                    "arcade": "0"
+                    "id": "c1",
+                    "nom": "Camping des Chats Perch\u00e9s",
+                    "image": "image\/selectionc1.jpg",
+                    "personnes": 8,
+                    "prix_base": 440,
+                    "activite": "8",
+                    "cantine": "8",
+                    "arcade": "8"
                 }
             ]
         },

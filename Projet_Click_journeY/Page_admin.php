@@ -14,6 +14,7 @@
 
     <body>
         <header>
+            <script src="admin.js"></script>
             <div class="head">
                 <ul>
                     <button id="toggle-mode">🌓</button>
@@ -77,14 +78,8 @@
                         <td>{$utilisateur['prenom']}</td>
                         <td>{$utilisateur['email']}</td>
                         <td>
-                            <form action='promotion.php' method='POST' style='display:inline;'>
-                                <input type='hidden' name='index' value='{$index}'>
-                                <button type='submit' class='vip'>Promouvoir</button>
-                            </form>
-                            <form action='bannir.php' method='POST' style='display:inline;'>
-                                <input type='hidden' name='index' value='{$index}'>
-                                <button type='submit' class='ban'>Bannir</button>
-                            </form>
+                            <button type='button' class='vip' >Promouvoir</button>
+                            <button type='button' class='ban' >Bannir</button>
                         </td>
                     </tr>";
             }
@@ -92,16 +87,6 @@
             echo '</table>';
 
         ?>
-
-        <script>
-            document.querySelectorAll(".ban").forEach(button => {
-                button.addEventListener("click", function(event) {
-                    if (!confirm("Es-tu sûr de vouloir bannir cet utilisateur ?")) {
-                        event.preventDefault();
-                    }
-                });
-            });
-        </script>
 
 
         <?php require 'footer.php'; ?>
