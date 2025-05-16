@@ -64,21 +64,26 @@
                 $tab_utilisateur = json_decode($contenu_fichier, true);
 
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $civilite = $_POST['civilite'];
-                    $nom = $_POST['nom'];
-                    $prenom = $_POST['prenom'];
-                    $telephone = $_POST['telephone'];
-                    $email = $_POST['email'];
-                    $password = $_POST['password'];
+                    $json = file_get_contents('php://input');
+                    $nv_utilisateur = json_decode($json, true);
                 
                     foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
                         if ($utilisateur['id'] == $uti) {
-                            $utilisateur['civilite'] = $civilite;
-                            $utilisateur['nom'] = $nom;
-                            $utilisateur['prenom'] = $prenom;
-                            $utilisateur['telephone'] = $telephone;
-                            $utilisateur['email'] = $email;
-                            $utilisateur['password'] = $password;
+                            if ($nv_utilisateur['nom'] != ""){
+                                $utilisateur['nom'] = $nv_utilisateur['nom'];
+                            }
+                            if ($nv_utilisateur['prenom'] != ""){
+                                $utilisateur['prenom'] = $nv_utilisateur['prenom'];
+                            }
+                            if ($nv_utilisateur['telephone'] != ""){
+                                $utilisateur['telephone'] = $nv_utilisateur['telephone'];
+                            }
+                            if ($nv_utilisateur['email'] != ""){
+                                $utilisateur['email'] = $nv_utilisateur['email'];
+                            }
+                            if ($nv_utilisateur['password'] != ""){
+                                $utilisateur['password'] = $nv_utilisateur['password'];
+                            }
                             break;
                         }
                     }
@@ -110,7 +115,7 @@
             </div>
             <br>
             <br>
-            <form action="Page_profil.php" method="POST">
+            <form action="Page_profil.php" method="POST" id="profil">
             <div class="caption">
                 Civilité
             </div>

@@ -230,3 +230,35 @@ function modifMdp(bouton){
         bouton.textContent = "Valider";
     }
 }
+
+
+    document.getElementById("profil").addEventListener('submit', async function chargerPage(event){
+        event.preventDefault();
+        try{
+            const coordonnees = {
+                nom: document.getElementsByName("nom")[0].value,
+                prenom: document.getElementsByName("prenom")[0].value,
+                telephone: document.getElementsByName("telephone")[0].value,
+                email: document.getElementsByName("email")[0].value,
+                password: document.getElementsByName("password")[0].value
+            }
+
+            const envoie = await fetch("Page_profil.php", {
+                method: "POST",
+                headers: {"Content-Type" : "application/json"},
+                body: JSON.stringify(coordonnees)
+            });
+
+            const res = await envoie.json();
+
+            if (!res.ok){
+                console.error(`La requête n'a pas abouti ${res.status} ${res.statusText}`);
+                return;
+            }
+        }
+        catch(e){
+            console.error("Erreur de fetch");
+        }
+    })
+
+
