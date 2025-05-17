@@ -12,6 +12,9 @@
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $json = file_get_contents('php://input');
                     $nv_utilisateur = json_decode($json, true);
+
+                    error_log("Reçu JSON : " . $json);
+                    error_log("Décodé : " . print_r($nv_utilisateur, true));
                 
                     foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
                         if ($utilisateur['id'] == $uti) {
@@ -44,7 +47,15 @@
                         $fichier_encode = json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
                         file_put_contents($fichier, $fichier_encode);
 
-                        echo json_encode(["status" => "success"]);
+                        echo json_encode(["status" => "success",
+                            "utilisateur" => [
+                                "nom" => $utilisateur['nom'],
+                                "prenom" => $utilisateur['prenom'],
+                                "telephone" => $utilisateur['telephone'],
+                                "email" => $utilisateur['email'],
+                                "password" => $utilisateur['password']
+                            ]
+                        ]);
                         exit;
                     }
                     else{

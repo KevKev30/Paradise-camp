@@ -170,9 +170,9 @@ function modifTelephone(bouton){
         }
     }
     else{
-        CoordonneesInitiales["tel"] = elt.value;
+        CoordonneesInitiales["telephone"] = elt.value;
         elt.readOnly = false;
-        ajouterAnnuler(parent, elt, bouton, "tel");
+        ajouterAnnuler(parent, elt, bouton, "telephone");
         bouton.textContent = "Valider";
     }
 }
@@ -186,8 +186,8 @@ function modifEmail(bouton){
         if (elt.value.trim() === ""){
             afficherErreur(elt, "<br>Le champ est vide.");
         }
-        else if (!estEmail(elt.value)){
-            afficherErreur(elt, "<br>Mail Invalide.")
+        else if (elt.value.length < 6){
+            afficherErreur(elt, "<br>Le mot de passe doit contenir au moins 6 caractères.")
         }
         else{
             supprimerAnnuler(parent);
@@ -224,9 +224,9 @@ function modifMdp(bouton){
         }
     }
     else{
-        CoordonneesInitiales["mdp"] = elt.value;
+        CoordonneesInitiales["password"] = elt.value;
         elt.readOnly = false;
-        ajouterAnnuler(parent, elt, bouton, "mdp");
+        ajouterAnnuler(parent, elt, bouton, "password");
         bouton.textContent = "Valider";
     }
 }
@@ -234,14 +234,29 @@ function modifMdp(bouton){
 
     document.getElementById("profil").addEventListener('submit', async function chargerPage(event){
         event.preventDefault();
+
+        let nom= document.getElementsByName("nom")[0].value;
+        let prenom= document.getElementsByName("prenom")[0].value;
+        let telephone= document.getElementsByName("telephone")[0].value;
+        let email= document.getElementsByName("email")[0].value;
+        let password= document.getElementsByName("password")[0].value;
+
+        const ancienneCoordonnees = {
+            nom: nom,
+            prenom: prenom,
+            telephone: telephone,
+            email: email,
+            password: password
+        }
+
         try{
             const coordonnees = {
-                nom: document.getElementsByName("nom")[0].value,
-                prenom: document.getElementsByName("prenom")[0].value,
-                telephone: document.getElementsByName("telephone")[0].value,
-                email: document.getElementsByName("email")[0].value,
-                password: document.getElementsByName("password")[0].value
-            }
+                nom: nom,
+                prenom: prenom,
+                telephone: telephone,
+                email: email,
+                password: password
+            };
 
             const envoie = await fetch("modif_profil.php", {
                 method: "POST",
@@ -253,9 +268,34 @@ function modifMdp(bouton){
 
             if (res.status === "success"){
                 alert("Modification effectuée");
+
+                nom = res.utilisateur.nom;
+                prenom = res.utilisateur.prenom;
+                telephone = res.utilisateur.telephone;
+                email = res.utilisateur.email;
+                password = res.utilisateur.password;
+
+                document.getElementsByName("nom")[0].readOnly = true;
+                document.getElementsByName("prenom")[0].readOnly = true;
+                document.getElementsByName("telephone")[0].readOnly = true;
+                document.getElementsByName("email")[0].readOnly = true;
+                document.getElementsByName("password")[0].readOnly = true;
+
+                document.querySelectorAll("form .zone button").forEach(btn => {
+                    if (btn.textContent === "Valider") {
+                        btn.textContent = "Modifier";
+                    }
+                });
+
+                supprimerAnnuler(document);
             }
             else{
-                alert("Aucune modification effectuée")
+                alert("Aucune modification effectuée");
+                nom = ancienneCoordonnees.nom;
+                prenom = ancienneCoordonnees.prenom;
+                telephone = ancienneCoordonnees.telephone;
+                email = ancienneCoordonnees.email;
+                password = ancienneCoordonnees.password;
             }
         }
         catch(e){
