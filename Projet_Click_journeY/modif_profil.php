@@ -1,4 +1,5 @@
 <?php 
+            session_start();
             $uti = $_SESSION['id'];
             $fichier = 'utilisateurs.json';
             $nom = $prenom = $telephone = $email = $password = $civilite = "";
@@ -12,30 +13,27 @@
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $json = file_get_contents('php://input');
                     $nv_utilisateur = json_decode($json, true);
-
-                    error_log("Reçu JSON : " . $json);
-                    error_log("Décodé : " . print_r($nv_utilisateur, true));
                 
                     foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
                         if ($utilisateur['id'] == $uti) {
-                            if (!empty($nv_utilisateur['nom']) && ($nv_utilisateur['nom'] != $utilisateur['nom'])){
-                                $utilisateur['nom'] = $nv_utilisateur['nom'];
+                            if (isset($nv_utilisateur['nom']) && (trim($nv_utilisateur['nom']) != trim($utilisateur['nom']))){
+                                $utilisateur['nom'] = trim($nv_utilisateur['nom']);
                                 $maj = true;
                             }
-                            if (!empty($nv_utilisateur['prenom']) && ($nv_utilisateur['prenom'] != $utilisateur['prenom'])){
-                                $utilisateur['prenom'] = $nv_utilisateur['prenom'];
+                            if (isset($nv_utilisateur['prenom']) && (trim($nv_utilisateur['prenom']) != trim($utilisateur['prenom']))){
+                                $utilisateur['prenom'] = trim($nv_utilisateur['prenom']);
                                 $maj = true;
                             }
-                            if (!empty($nv_utilisateur['telephone']) && ($nv_utilisateur['telephone'] != $utilisateur['telephone'])){
-                                $utilisateur['telephone'] = $nv_utilisateur['telephone'];
+                            if (isset($nv_utilisateur['telephone']) && (trim($nv_utilisateur['telephone']) != trim($utilisateur['telephone']))){
+                                $utilisateur['telephone'] = trim($nv_utilisateur['telephone']);
                                 $maj = true;
                             }
-                            if (!empty($nv_utilisateur['email']) && ($nv_utilisateur['email'] != $utilisateur['email'])){
-                                $utilisateur['email'] = $nv_utilisateur['email'];
+                            if (isset($nv_utilisateur['email']) && (trim($nv_utilisateur['email']) != trim($utilisateur['email']))){
+                                $utilisateur['email'] = trim($nv_utilisateur['email']);
                                 $maj = true;
                             }
-                            if (!empty($nv_utilisateur['password']) && ($nv_utilisateur['password'] != $utilisateur['password'])){
-                                $utilisateur['password'] = $nv_utilisateur['password'];
+                            if (isset($nv_utilisateur['password']) && (trim($nv_utilisateur['password']) != trim($utilisateur['password']))){
+                                $utilisateur['password'] = trim($nv_utilisateur['password']);
                                 $maj = true;
                             }
                             break;
