@@ -1,10 +1,21 @@
-function prix_total(){
-    let prix_total = document.getElementById("prix_total");
-    prix = 
-    parseInt(prix_total.dataset.extra) + 
-    parseInt(document.getElementById("activite").value) * 60 + 
-    parseInt(document.getElementById("cantine").value) * 40 + 
-    parseInt(document.getElementById("arcade").value) * 10;
+function prix_total() {
+    const activite = document.getElementById("activite").value;
+    const cantine = document.getElementById("cantine").value;
+    const arcade = document.getElementById("arcade").value;
+    const id = document.querySelector("input[name='id']").value;
 
-    prix_total.textContent = prix.toString() + "€";
+    fetch(`details.php?ajax=prix&id=${id}&activite=${activite}&cantine=${cantine}&arcade=${arcade}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.prix !== undefined) {
+                document.getElementById("prix_total").textContent = data.prix + "€";
+            } else {
+                document.getElementById("prix_total").textContent = "Erreur serveur";
+                console.error(data.error);
+            }
+        })
+        .catch(error => {
+            document.getElementById("prix_total").textContent = "Erreur serveur";
+            console.error("Erreur AJAX :", error);
+        });
 }

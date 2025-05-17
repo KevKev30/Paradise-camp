@@ -1,27 +1,43 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const bouttonPromotion = document.querySelectorAll('.vip');
-    const bouttonBan = document.querySelectorAll('.ban');
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.action');
 
-    bouttonPromotion.forEach(button => {
-        button.addEventListener('click', () => {
+    buttons.forEach(button => {
+        button.addEventListener('click', async () => {
+            const Id_utilisateur = button.getAttribute('utilisateurID');
+            const action = button.getAttribute('role');
+
             button.disabled = true;
-            button.textContent = 'Promotion en cours...';
-            setTimeout(() => {
-                button.disabled = false;
-                button.textContent = 'promu ✔';
-            }, 2500);
-        });
-    });
+            
+            button.textContent = '⏳...';
 
-    bouttonBan.forEach(button => {
-        button.addEventListener('click', () => {
-                button.disabled = true;
-                button.textContent = 'Bannissement en cours...';
-                setTimeout(() => {
+            try {
+                const reponse = await fetch('traitement.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ Id_utilisateur, action })
+                });
+
+
+                const resultat = await reponse.text();
+
+                if (resultat === 'ok') {
+                    if (action === 'bannir') {
+                        button.closest('tr').remove();
+                    } else {
+                        button.textContent = '✓ Promu';
+                        button.disabled = false;
+                    }
+                } else {
+                    button.textContent = '❌ Erreur';
                     button.disabled = false;
-                    button.textContent = 'Banni ✘ ';
-                }, 2500);
+                }
+
+            } catch (e) {
+                console.error("error");
+                button.disabled = false;
+            }
         });
     });
 });
-

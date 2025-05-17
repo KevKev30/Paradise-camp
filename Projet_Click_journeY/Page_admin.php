@@ -78,8 +78,8 @@
                         <td>{$utilisateur['prenom']}</td>
                         <td>{$utilisateur['email']}</td>
                         <td>
-                            <button type='button' class='vip' >Promouvoir</button>
-                            <button type='button' class='ban' >Bannir</button>
+                            <button type='button' class='vip action' utilisateurID='{$utilisateur['id']}' role='promouvoir'>Promouvoir</button>
+                            <button type='button' class='ban action' utilisateurID='{$utilisateur['id']}' role='bannir'>Bannir</button>
                         </td>
                     </tr>";
             }

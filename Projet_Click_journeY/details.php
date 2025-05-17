@@ -1,6 +1,43 @@
 <?php 
     session_start();
-?>
+
+    if (
+        isset($_GET['ajax']) && $_GET['ajax'] === 'prix' &&
+        isset($_GET['id']) &&
+        isset($_GET['activite']) &&
+        isset($_GET['cantine']) &&
+        isset($_GET['arcade'])
+    ) {
+        header('Content-Type: application/json');
+
+        $id = $_GET['id'];
+        $activite = intval($_GET['activite']);
+        $cantine = intval($_GET['cantine']);
+        $arcade = intval($_GET['arcade']);
+
+        $fichier = "voyages.json";
+        if (!file_exists($fichier)) {
+            http_response_code(500);
+            echo json_encode(['error' => 'Fichier introuvable']);
+            exit;
+        }
+
+        $voyages = json_decode(file_get_contents($fichier), true);
+        foreach ($voyages["voyages"] as $dest) {
+            if ($dest["id"] == $id) {
+                $base = $dest["prix"] * $dest["personnes"];
+                $total = $base + $activite * 60 + $cantine * 40 + $arcade * 10;
+                echo json_encode(['prix' => $total]);
+                exit;
+            }
+        }
+
+        http_response_code(404);
+        echo json_encode(['erreur' => 'ID introuvable']);
+        exit;
+}
+?> 
+
 
 <!DOCTYPE html>
 
