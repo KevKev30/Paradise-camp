@@ -18,7 +18,7 @@
         $fichier = "voyages.json";
         if (!file_exists($fichier)) {
             http_response_code(500);
-            echo json_encode(['error' => 'Fichier introuvable']);
+            echo json_encode(['erreur' => 'Fichier introuvable']);
             exit;
         }
 

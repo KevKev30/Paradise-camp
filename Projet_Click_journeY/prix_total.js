@@ -11,11 +11,11 @@ function prix_total() {
                 document.getElementById("prix_total").textContent = data.prix + "€";
             } else {
                 document.getElementById("prix_total").textContent = "Erreur serveur";
-                console.error(data.error);
+                console.error(data.erreur);
             }
         })
-        .catch(error => {
+        .catch(erreur => {
             document.getElementById("prix_total").textContent = "Erreur serveur";
-            console.error("Erreur AJAX :", error);
+            console.error("Erreur AJAX :", erreur);
         });
 }
