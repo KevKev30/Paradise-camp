@@ -86,7 +86,7 @@ function ajouterAnnuler(parent, champ, bouton, champNom) {
 
     button.addEventListener("click", function() {
         champ.value = CoordonneesInitiales[champNom];
-        champ.disabled = true;
+        champ.readOnly = true;
         bouton.textContent = "Modifier";
         supprimerAnnuler(parent);
         supprimerMsg(parent.querySelectorAll("em"));
@@ -243,7 +243,7 @@ function modifMdp(bouton){
                 password: document.getElementsByName("password")[0].value
             }
 
-            const envoie = await fetch("Page_profil.php", {
+            const envoie = await fetch("modif_profil.php", {
                 method: "POST",
                 headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify(coordonnees)
@@ -251,9 +251,11 @@ function modifMdp(bouton){
 
             const res = await envoie.json();
 
-            if (!res.ok){
-                console.error(`La requête n'a pas abouti ${res.status} ${res.statusText}`);
-                return;
+            if (res.status === "success"){
+                alert("Modification effectuée");
+            }
+            else{
+                alert("Aucune modification effectuée")
             }
         }
         catch(e){

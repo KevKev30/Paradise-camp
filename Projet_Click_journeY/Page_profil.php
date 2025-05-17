@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    include('modif_profil.php');
 ?>
 
 <!DOCTYPE html>
@@ -52,60 +53,6 @@
                 </div>
             </div>
         </header>
-
-        <?php 
-
-            $uti = $_SESSION['id'];
-            $fichier = 'utilisateurs.json';
-            $nom = $prenom = $telephone = $email = $password = $civilite = "";
-
-            if (file_exists($fichier)){
-                $contenu_fichier = file_get_contents($fichier);
-                $tab_utilisateur = json_decode($contenu_fichier, true);
-
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $json = file_get_contents('php://input');
-                    $nv_utilisateur = json_decode($json, true);
-                
-                    foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
-                        if ($utilisateur['id'] == $uti) {
-                            if ($nv_utilisateur['nom'] != ""){
-                                $utilisateur['nom'] = $nv_utilisateur['nom'];
-                            }
-                            if ($nv_utilisateur['prenom'] != ""){
-                                $utilisateur['prenom'] = $nv_utilisateur['prenom'];
-                            }
-                            if ($nv_utilisateur['telephone'] != ""){
-                                $utilisateur['telephone'] = $nv_utilisateur['telephone'];
-                            }
-                            if ($nv_utilisateur['email'] != ""){
-                                $utilisateur['email'] = $nv_utilisateur['email'];
-                            }
-                            if ($nv_utilisateur['password'] != ""){
-                                $utilisateur['password'] = $nv_utilisateur['password'];
-                            }
-                            break;
-                        }
-                    }
-
-                    $fichier_encode = json_encode($tab_utilisateur, JSON_PRETTY_PRINT);
-                    file_put_contents($fichier, $fichier_encode);
-                }
-
-                foreach ($tab_utilisateur['utilisateurs'] as $utilisateur) {
-                    if ($utilisateur['id'] == $uti) {
-                        $civilite = $utilisateur['civilite'];
-                        $nom = $utilisateur['nom'];
-                        $prenom = $utilisateur['prenom'];
-                        $telephone = $utilisateur['telephone'];
-                        $email = $utilisateur['email'];
-                        $password = $utilisateur['password'];
-                        break;
-                    }
-                }
-            }
-            
-        ?>
     
         <fieldset>
             <p>Mon Profil</p>
@@ -182,7 +129,7 @@
             <br/>
 
             <div class="cliquer">
-                <input type="submit" name="s'inscrire" value="Enregister" class="champ"/>
+                <input type="submit" name="inscrire" value="Enregister" class="champ"/>
             </div>
             <br/>
 
