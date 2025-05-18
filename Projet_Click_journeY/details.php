@@ -1,42 +1,66 @@
 <?php 
-    session_start();
+session_start();
 
-    if (
-        isset($_GET['ajax']) && $_GET['ajax'] === 'prix' &&
-        isset($_GET['id']) &&
-        isset($_GET['activite']) &&
-        isset($_GET['cantine']) &&
-        isset($_GET['arcade'])
-    ) {
-        header('Content-Type: application/json');
+if (
+    isset($_GET['ajax']) && $_GET['ajax'] === 'prix' &&
+    isset($_GET['id']) &&
+    isset($_GET['activite']) &&
+    isset($_GET['cantine']) &&
+    isset($_GET['arcade'])
+) {
+    header('Content-Type: application/json');
 
-        $id = $_GET['id'];
-        $activite = intval($_GET['activite']);
-        $cantine = intval($_GET['cantine']);
-        $arcade = intval($_GET['arcade']);
+    $id = $_GET['id'];
+    $activite = intval($_GET['activite']);
+    $cantine = intval($_GET['cantine']);
+    $arcade = intval($_GET['arcade']);
 
-        $fichier = "voyages.json";
-        if (!file_exists($fichier)) {
-            http_response_code(500);
-            echo json_encode(['erreur' => 'Fichier introuvable']);
+    $fichier = "voyages.json";
+    if (!file_exists($fichier)) {
+        http_response_code(500);
+        echo json_encode(['erreur' => 'Fichier introuvable']);
+        exit;
+    }
+
+    $voyages = json_decode(file_get_contents($fichier), true);
+    foreach ($voyages["voyages"] as $dest) {
+        if ($dest["id"] == $id) {
+            $base = $dest["prix"] * $dest["personnes"];
+            $total = $base + $activite * 60 + $cantine * 40 + $arcade * 10;
+            echo json_encode(['prix' => $total]);
             exit;
         }
+    }
 
-        $voyages = json_decode(file_get_contents($fichier), true);
-        foreach ($voyages["voyages"] as $dest) {
-            if ($dest["id"] == $id) {
-                $base = $dest["prix"] * $dest["personnes"];
-                $total = $base + $activite * 60 + $cantine * 40 + $arcade * 10;
-                echo json_encode(['prix' => $total]);
-                exit;
-            }
-        }
-
-        http_response_code(404);
-        echo json_encode(['erreur' => 'ID introuvable']);
-        exit;
+    http_response_code(404);
+    echo json_encode(['erreur' => 'ID introuvable']);
+    exit;
 }
-?> 
+
+if (isset($_GET['ajax']) && $_GET['ajax'] === 'personnes' && isset($_GET['id'])) {
+    header('Content-Type: application/json');
+
+    $id = $_GET['id'];
+    $fichier = "voyages.json";
+
+    if (!file_exists($fichier)) {
+        echo json_encode(['erreur' => 'Fichier introuvable']);
+        exit;
+    }
+
+    $voyages = json_decode(file_get_contents($fichier), true);
+
+    foreach ($voyages['voyages'] as $voyage) {
+        if ($voyage['id'] == $id) {
+            echo json_encode(['personnes' => $voyage['personnes']]);
+            exit;
+        }
+    }
+
+    echo json_encode(['erreur' => 'ID introuvable']);
+    exit;
+}
+?>
 
 
 <!DOCTYPE html>
@@ -119,38 +143,31 @@
                     }
                 }
                 echo "<form action='ajouter_panier.php' method='post'>
-                <p>Voici les options qu'on peut vous proposer :</p> <br>
+                <p>Voici les options qu'on peut vous proposer :</p><br>
                 <p>Menu activité (randonnée, laser game, karting, accrobranche) : +60€/personne</p>
-                <select id='activite' name='activite'>";
-                for($i = 0; $i<=$total_personnes; $i++){
-                    echo "<option value='". $i ."'>" .$i . "</option>";
-                }
-                echo "</select><br>";
-                echo "<p>Cantine : +40€/personne</p>
-                    <select id='cantine' name='cantine'>";
-                for($j = 0; $j<=$total_personnes; $j++){
-                    echo "<option value='". $j ."'>" .$j . "</option>";
-                }
-                echo "</select><br>";
-                echo "<p>Pass arcade : +10€/personne</p>
-                    <select id='arcade' name='arcade'>";
-                for($k = 0; $k<=$total_personnes; $k++){
-                    echo "<option value='". $k ."'>" .$k . "</option>";
-                }
-                echo "</select><br>";
-                echo "<input type='hidden' name='id' value='$id'/>";
-                echo "<br>"; 
-                echo "<p>Prix total : </p>";
-                echo "<p id='prix_total' data-extra='".$prix."'>".$prix."€</p>";
-                echo "<button type='submit'>Ajouter au panier</button>";
-                echo "</form>";
-                echo "</div>";
+                <div id=\"activite-bloc\"></div>
+
+                <p>Cantine : +40€/personne</p>
+                <div id=\"cantine-bloc\"></div>
+
+                <p>Pass arcade : +10€/personne</p>
+                <div id=\"arcade-bloc\"></div>
+
+                <input type='hidden' name='id' value='$id'/>
+                <br>
+                <p>Prix total : </p>
+                <p id='prix_total' data-extra='".$prix."'>".$prix."€</p>
+                <div id='options-bloc' data-personnes='".$total_personnes."'></div>
+                <button type='submit'>Ajouter au panier</button>
+            </form>
+            </div>";
+
 
             }
         
 
         ?>    
-        
+
         <script type="text/javascript">
             let select = document.querySelectorAll("select");
             for (let i = 0; i<select.length; i++){

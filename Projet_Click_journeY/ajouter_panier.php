@@ -1,6 +1,11 @@
 <?php
     session_start();
 
+    if (!isset($_SESSION['id'])) {
+    echo "<script>alert('Veuillez vous connecter ou vous inscrire.'); window.location.href='connexion.php';</script>";
+    exit;
+    }
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $_POST['id'];
         $activite = ($_POST['activite']);

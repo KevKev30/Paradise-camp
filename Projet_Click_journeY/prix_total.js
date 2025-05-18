@@ -19,3 +19,29 @@ function prix_total() {
             console.error("Erreur AJAX :", erreur);
         });
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+    const personnes = parseInt(document.getElementById("options-bloc").dataset.personnes);
+
+    const creerSelect = (id, nomOptions) => {
+        const select = document.createElement("select");
+        select.name = nomOptions;
+        select.id = nomOptions;
+
+        for (let i = 0; i <= personnes; i++) {
+            const option = document.createElement("option");
+            option.valeur = i;
+            option.textContent = i;
+            select.appendChild(option);
+        }
+
+        document.getElementById(id).appendChild(select);
+        select.addEventListener("change", prix_total);
+    };
+
+    creerSelect("activite-bloc", "activite");
+    creerSelect("cantine-bloc", "cantine");
+    creerSelect("arcade-bloc", "arcade");
+
+    prix_total(); 
+});
