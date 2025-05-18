@@ -158,17 +158,11 @@
                         $voyages = json_decode($contenu_fichier, true);
 
                         if(empty($_GET['debut']) && empty($_GET['fin'])){
-                        foreach($voyages['voyages'] as $dest){
-                            $voyages_trouves[] = $dest;
+                            foreach($voyages['voyages'] as $dest){
+                                $voyages_trouves[] = $dest;
+                            }
                         }
-                        }
-                        else if (empty($_GET['debut'])){
-                            echo "<script>alert('Sélectionnez une date d'arrivée.'); window.location.href='Page_recherche.php';</script>";
-                        }
-                        else if (empty($_GET['fin'])){
-                            echo "<script>alert('Sélectionnez une date de départ.'); window.location.href='Page_recherche.php';</script>";
-                        }
-                        else{
+                        else if (!empty($_GET['debut']) && !empty($_GET['fin'])){
                             $debut = $_GET['debut'];
                             $fin = $_GET['fin'];
 
@@ -195,6 +189,12 @@
                                     $voyages_trouves[] = $dest;
                                 }
                             }
+                        }
+                        else if (empty($_GET['fin'])){
+                            echo "<script>alert('Sélectionnez une date de départ.'); window.location.href='Page_recherche.php';</script>";
+                        }
+                        else{
+                            echo "<script>alert(`Sélectionnez une date d'arrivée.`); window.location.href='Page_recherche.php';</script>";
                         }
 
                         $total_voyages = count($voyages_trouves);
