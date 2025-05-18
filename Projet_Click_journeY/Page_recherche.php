@@ -160,21 +160,8 @@
                     
                     if(empty($_GET['debut'])){
                         if(empty($_GET['fin'])){
-                            $debut = 0;
-                            $fin = 0;
                             foreach($voyages['voyages'] as $dest){
-                                $voyage_debut = new DateTime($dest['debut']);
-                                $voyage_fin = new DateTime($dest['fin']);
-                                if (
-                                (($dest['destination'] == $destination) || ($destination == "")) && 
-                                (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && 
-                                (($dest['prix'] <= $prix) || ($prix == 0)) && 
-                                (($dest['personnes'] == $personnes) || ($personnes == 0)) && 
-                                ($debut == 0 && $fin == 0)
-                                )
-                                {
-                                    $voyages_trouves[] = $dest;
-                                }
+                                $voyages_trouves[] = $dest;
                             }
                         }
                         else{
@@ -191,7 +178,12 @@
 
                             $start = new DateTime($debut);
                             $end = new DateTime($fin);
-                            $duree = date_diff($start, $end)->days;
+
+                            $diff = (int)date_diff($start, $end)->format('%R%a');
+
+                            if ($diff <= 0){
+                                echo "<script>alert('Les dates choisies ne sont pas correctes.'); window.location.href='Page_recherche.php';</script>";
+                            }
 
                             foreach($voyages['voyages'] as $dest){
                                 $voyage_debut = new DateTime($dest['debut']);
@@ -201,7 +193,7 @@
                                 (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && 
                                 (($dest['prix'] <= $prix) || ($prix == 0)) && 
                                 (($dest['personnes'] == $personnes) || ($personnes == 0)) && 
-                                (($voyage_debut >= $start) && ($voyage_fin <= $end))
+                                (((int)date_diff($start, $voyage_debut)->format('%R%a') >= 0) && ((int)date_diff($voyage_fin, $end)->format('%R%a') >= 0))
                                 )
                                 {
                                     $voyages_trouves[] = $dest;
