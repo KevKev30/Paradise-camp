@@ -156,20 +156,16 @@
                     if(file_exists($fichier)){
                         $contenu_fichier = file_get_contents($fichier);
                         $voyages = json_decode($contenu_fichier, true);
-                    }
-                    
-                    if(empty($_GET['debut'])){
-                        if(empty($_GET['fin'])){
-                            foreach($voyages['voyages'] as $dest){
-                                $voyages_trouves[] = $dest;
-                            }
+
+                        if(empty($_GET['debut']) && empty($_GET['fin'])){
+                        foreach($voyages['voyages'] as $dest){
+                            $voyages_trouves[] = $dest;
                         }
-                        else{
+                        }
+                        else if (empty($_GET['debut'])){
                             echo "<script>alert('Sélectionnez une date d'arrivée.'); window.location.href='Page_recherche.php';</script>";
                         }
-                    }
-                    else{
-                        if(empty($_GET['fin'])){
+                        else if (empty($_GET['fin'])){
                             echo "<script>alert('Sélectionnez une date de départ.'); window.location.href='Page_recherche.php';</script>";
                         }
                         else{
@@ -200,7 +196,6 @@
                                 }
                             }
                         }
-                    }
 
                         $total_voyages = count($voyages_trouves);
                         $total_pages = ceil($total_voyages / $voyages_par_page);
@@ -228,7 +223,7 @@
                             $count++;
                         }
 
-                        
+                            
                         if ($total_pages > 1) {
                             echo "<div class='pagination' id='pagi' data-extra='1'>";
                             for ($i = 1; $i <= $total_pages; $i++) {
@@ -245,6 +240,7 @@
                         if($count == 0){
                             echo "<h1><center>Aucun résultat ne corresponds à vos recherches.</center></h1>";
                         }
+                    }
                 }
             ?>
 
