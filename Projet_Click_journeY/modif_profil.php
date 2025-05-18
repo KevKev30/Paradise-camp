@@ -47,6 +47,7 @@
 
                         echo json_encode(["status" => "success",
                             "utilisateur" => [
+                                "civilite" => $utilisateur['civilite'],
                                 "nom" => $utilisateur['nom'],
                                 "prenom" => $utilisateur['prenom'],
                                 "telephone" => $utilisateur['telephone'],

@@ -94,12 +94,12 @@ function ajouterAnnuler(parent, champ, bouton, champNom) {
 }
 
 function supprimerAnnuler(parent){
-    let annuler = document.getElementsByTagName("button");
-    for (let i = 0; i<annuler.length; i++){
-        if (annuler[i].textContent === "Annuler"){
-            annuler[i].remove();
+    let annuler = parent.querySelectorAll("button");
+    annuler.forEach(b => {
+        if (b.textContent === "Annuler") {
+            b.remove();
         }
-    }
+    });
 }
 
 function modifNom(bouton){
@@ -186,8 +186,8 @@ function modifEmail(bouton){
         if (elt.value.trim() === ""){
             afficherErreur(elt, "<br>Le champ est vide.");
         }
-        else if (elt.value.length < 6){
-            afficherErreur(elt, "<br>Le mot de passe doit contenir au moins 6 caractères.")
+        else if (!estEmail(elt.value)){
+            afficherErreur(elt, "<br>Mail Invalide.")
         }
         else{
             supprimerAnnuler(parent);
@@ -213,8 +213,8 @@ function modifMdp(bouton){
         if (elt.value.trim() === ""){
             afficherErreur(elt, "<br>Le champ est vide.");
         }
-        else if (!estEmail(elt.value)){
-            afficherErreur(elt, "<br>Mail Invalide.")
+        else if (elt.value.length < 6){
+            afficherErreur(elt, "<br>Le mot de passe doit contenir au moins 6 caractères.")
         }
         else{
             supprimerAnnuler(parent);
@@ -235,6 +235,7 @@ function modifMdp(bouton){
     document.getElementById("profil").addEventListener('submit', async function chargerPage(event){
         event.preventDefault();
 
+        let civilite= document.getElementsByName("civilite")[0].value;
         let nom= document.getElementsByName("nom")[0].value;
         let prenom= document.getElementsByName("prenom")[0].value;
         let telephone= document.getElementsByName("telephone")[0].value;
@@ -242,6 +243,7 @@ function modifMdp(bouton){
         let password= document.getElementsByName("password")[0].value;
 
         const ancienneCoordonnees = {
+            civilite: civilite,
             nom: nom,
             prenom: prenom,
             telephone: telephone,
@@ -251,6 +253,7 @@ function modifMdp(bouton){
 
         try{
             const coordonnees = {
+                civilite: civilite,
                 nom: nom,
                 prenom: prenom,
                 telephone: telephone,

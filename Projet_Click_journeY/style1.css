@@ -986,3 +986,20 @@ a button:hover {
 .voyage img {
     margin-right: 20px;
 }
+
+.messagePanier {
+    position: fixed;
+    top: 120px;
+    right: -350px;
+    width: 280px;
+    background-color: rgb(40, 175, 40);
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px black;
+    transition: right 0.5s ease;
+}
+
+.messagePanier.message {
+    right: 20px;
+}

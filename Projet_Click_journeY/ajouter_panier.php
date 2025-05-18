@@ -55,7 +55,7 @@
             'arcade' => $arcade
         ];
 
-        header('Location: details.php?id=' . $id);
+        header("Location: details.php?id=$id&ajouter=1");
         exit;
     }
 ?>
