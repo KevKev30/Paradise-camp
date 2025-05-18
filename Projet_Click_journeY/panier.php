@@ -35,14 +35,35 @@ session_start();
                         <?php 
                             $connecte = isset($_SESSION['id']); 
                             if ($connecte){
+
+                                $fichier = 'utilisateurs.json';
+
+                                $contenu_fichier=file_get_contents($fichier);
+                                $utilisateurs =json_decode($contenu_fichier, true); 
+
+                                $tableau_utilisateur = $utilisateurs['utilisateurs'];
+
+                                $utilisateurConnecte = null;
+
+                                foreach($tableau_utilisateur as $uti){
+                                    if ($uti['id'] == $_SESSION['id']){
+                                        $utilisateurConnecte = $uti;
+                                    }
+                                }
                                 echo "<a href='deconnexion.php?'>Deconnexion</a>
-                                    <a href='Page_profil.php'>Mon Profil</a>
-                                    <div class='image_panier'>
-                                        <a class='fa fa-shopping-cart' href='panier.php'></a>";
+                                    <a href='Page_profil.php'>Mon Profil</a>";
+
+                                if($utilisateurConnecte && $utilisateurConnecte['role'] === 'Administrateur'){
+                                    echo "<a href='Page_admin.php'> Admin </a>";
+                                }
+
+                                echo "<div class='image_panier'>
+                                    <a class='fa fa-shopping-cart' href='panier.php'></a>";
 
                                 $nbArticles = isset($_SESSION['panier']) ? count($_SESSION['panier']) : 0;
                                 echo "<span>$nbArticles</span>
                                     </div>";
+
                             } else {
                                 echo "<a href='connexion.php?'>Connexion</a>
                                     <a href='inscription.php'>Inscription</a>";
