@@ -180,7 +180,15 @@
 
                         if(empty($_GET['debut']) && empty($_GET['fin'])){
                             foreach($voyages['voyages'] as $dest){
-                                $voyages_trouves[] = $dest;
+                                if (
+                                (($dest['destination'] == $destination) || ($destination == "")) && 
+                                (($dest['hebergement'] == $hebergement) || ($hebergement == "")) && 
+                                (($dest['prix'] <= $prix) || ($prix == 0)) && 
+                                (($dest['personnes'] == $personnes) || ($personnes == 0))
+                                )
+                                {
+                                    $voyages_trouves[] = $dest;
+                                }
                             }
                         }
                         else if (!empty($_GET['debut']) && !empty($_GET['fin'])){
