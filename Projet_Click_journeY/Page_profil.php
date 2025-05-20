@@ -173,43 +173,55 @@
 
         <h1><center>Mes réservations :</center></h1>
             <?php 
-                foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
-                    if ($utilisateur['id'] == $uti) {
-                        if ($utilisateur['reservation'] == []){
-                            echo "<h1><center>Pas de réservations.</center></h1>";
-                        }
-                        else{
-                            foreach($utilisateur['reservation'] as $res){
-                                $total = $res['prix_base']*$res['personnes'] + $res['cantine'] * 40 + $res['arcade'] * 10 + $res['activite'] * 60;
-                                echo "<div class='selection1'>";
-                                echo "<img class='photo' src='" . $res['image'] . "'>";
-                                echo $res['nom'] . " - " . $res['destination'] . "<br>";
-                                echo $res['hebergement'] . " ". $res['personnes'] . " personnes";
-                                echo "<br> Prix Total:". $total . "€<br>";
-                                echo "Durée :". $res['duree']. "jours
-                                <br>
-                                Option :
-                                <br>";
-                                if ($res["activite"] != 0 || $res["cantine"] != 0 || $res["arcade"] != 0){
-                                    if ($res["activite"] != 0){
-                                        echo "Menu Activité : " . $res["activite"] . " personnes <br>";
-                                    }
-                                    if ($res["cantine"] != 0){
-                                        echo "Cantine : " . $res["cantine"] . " personnes <br>";
-                                    }
-                                    if ($res["arcade"] != 0){
-                                        echo "Pass arcade : " . $res["arcade"] . " personnes <br>";
-                                    }
+                if (isset($_SESSION['id'])) {
+                    $uti = $_SESSION['id'];
+                }
+                    $fichier = 'utilisateurs.json';
+
+                    if (file_exists($fichier)) {
+                        
+                        $contenu_fichier = file_get_contents($fichier);
+                        $tab_utilisateur = json_decode($contenu_fichier, true);
+
+                        $utilisateurs = $tab_utilisateur["utilisateurs"];
+                        foreach ($tab_utilisateur['utilisateurs'] as &$utilisateur) {
+                            if ($utilisateur['id'] == $uti) {
+                                if ($utilisateur['reservation'] == []){
+                                    echo "<h1><center>Pas de réservations.</center></h1>";
                                 }
                                 else{
-                                    echo "Sans options";
+                                    foreach($utilisateur['reservation'] as $res){
+                                        $total = $res['prix_base']*$res['personnes'] + $res['cantine'] * 40 + $res['arcade'] * 10 + $res['activite'] * 60;
+                                        echo "<div class='selection1'>";
+                                        echo "<img class='photo' src='" . $res['image'] . "'>";
+                                        echo $res['nom'] . " - " . $res['destination'] . "<br>";
+                                        echo $res['hebergement'] . " ". $res['personnes'] . " personnes";
+                                        echo "<br> Prix Total:". $total . "€<br>";
+                                        echo "Durée :". $res['duree']. "jours
+                                        <br>
+                                        Option :
+                                        <br>";
+                                        if ($res["activite"] != 0 || $res["cantine"] != 0 || $res["arcade"] != 0){
+                                            if ($res["activite"] != 0){
+                                                echo "Menu Activité : " . $res["activite"] . " personnes <br>";
+                                            }
+                                            if ($res["cantine"] != 0){
+                                                echo "Cantine : " . $res["cantine"] . " personnes <br>";
+                                            }
+                                            if ($res["arcade"] != 0){
+                                                echo "Pass arcade : " . $res["arcade"] . " personnes <br>";
+                                            }
+                                        }
+                                        else{
+                                            echo "Sans options";
+                                        }
+                                        echo "</p>";
+                                        echo "</div>";
+                                    }
                                 }
-                                echo "</p>";
-                                echo "</div>";
                             }
                         }
                     }
-                }
             ?>
 
 

@@ -20,7 +20,23 @@
             "telephone": "0767227785",
             "email": "kevinnguyen@gmail.com",
             "password": "KevinNGUYEN",
-            "reservation": []
+            "reservation": [
+                {
+                    "id": "c1",
+                    "nom": "Camping des Chats Perch\u00e9s",
+                    "destination": "Annecy",
+                    "hebergement": "Cabane",
+                    "image": "image\/selectionc1.jpg",
+                    "personnes": 8,
+                    "prix_base": 440,
+                    "debut": "2025-06-11",
+                    "fin": "2025-07-02",
+                    "duree": 21,
+                    "activite": "2",
+                    "cantine": "4",
+                    "arcade": "2"
+                }
+            ]
         },
         {
             "id": "3",
